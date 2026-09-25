@@ -1,0 +1,20 @@
+[package]
+name = "holstered"
+version = "0.1.0"
+edition = "2021"
+description = "Hands your coding agent the right skill for each prompt: BM25 recall + the Jev decision model, over polyhook"
+license = "MIT"
+repository = "https://github.com/tupe12334/holstered"
+
+[dependencies]
+# ponytail: git pin until polyhook/polyhook#73 (prompt:submit + context response) is released on crates.io.
+polyhook = { git = "https://github.com/polyhook/polyhook", branch = "feat/prompt-submit-context" }
+serde_json = "1"
+ureq = { version = "3", features = ["json"] }
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.release]
+strip = true
+lto = true
