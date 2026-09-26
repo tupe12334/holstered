@@ -13,7 +13,7 @@ fn kev_picks_without_a_key_and_sends_no_auth_header() {
         .mock("POST", "/decisions")
         .match_header("authorization", Matcher::Missing)
         .match_body(Matcher::PartialJson(
-            json!({"state": {"user_prompt": common::PROMPT}}),
+            json!({"model": "kev-latest", "state": {"user_prompt": common::PROMPT}}),
         ))
         .with_body(picks("github-pr-merge"))
         .create();

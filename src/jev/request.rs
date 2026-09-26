@@ -1,10 +1,10 @@
 //! The Decisions API request: one `choice` question over the shortlist + `none`.
 
-use super::{MODEL, NONE};
+use super::NONE;
 use crate::skills::Skill;
 use serde_json::{json, Map, Value};
 
-pub fn body(prompt: &str, pool: &[&Skill]) -> Value {
+pub fn body(model: &str, prompt: &str, pool: &[&Skill]) -> Value {
     let mut criteria: Map<String, Value> = pool
         .iter()
         .map(|s| {
@@ -21,7 +21,7 @@ pub fn body(prompt: &str, pool: &[&Skill]) -> Value {
     );
     json!({
         "state": { "user_prompt": prompt },
-        "model": MODEL,
+        "model": model,
         "questions": { "skill": {
             "type": "choice",
             "instructions": "Pick the one skill the coding agent should load for this prompt, or none.",

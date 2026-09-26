@@ -105,7 +105,7 @@ ln -s "$(command -v holstered)" ~/Documents/Cline/Hooks/UserPromptSubmit
 | `HOLSTERED_JEV_URL` | `https://openrouter.ai/api/alpha/decisions` | Decisions endpoint. |
 | `HOLSTERED_KEV_URL` | — | Use a local [Kev](#local-model-kev) server instead of Jev, e.g. `http://localhost:8009/v1/systemone`. No key needed; takes precedence over Jev. |
 
-The model is `~typesafe/jev-latest`. When the key is set, the prompt (first
+The model is `~typesafe/jev-latest` on Jev and `kev-latest` on Kev. When the key is set, the prompt (first
 2,000 characters) and the shortlisted skill descriptions are sent to
 OpenRouter. Each prompt with a shortlist takes about 0.7–1s longer.
 
