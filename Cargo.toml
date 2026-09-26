@@ -11,6 +11,20 @@ keywords = ["claude-code", "codex", "agent", "skills", "hooks"]
 categories = ["command-line-utilities", "development-tools"]
 exclude = [".github/", "assets/", "evals/", "linecheck.yml"]
 
+# npm: `holstered` + one @holstered/holstered-<os>-<cpu> package per target
+# (optionalDependencies), built by release.yml with cargo-npm.
+[package.metadata.npm]
+name = "holstered"
+prefix = "@holstered/holstered-"
+targets = [
+  "x86_64-unknown-linux-musl",
+  "aarch64-unknown-linux-musl",
+  "x86_64-apple-darwin",
+  "aarch64-apple-darwin",
+  "x86_64-pc-windows-msvc",
+]
+custom = { publishConfig = { access = "public", provenance = true } }
+
 [dependencies]
 bm25 = "2.3.2"
 clap = { version = "4.6.7", features = ["derive"] }

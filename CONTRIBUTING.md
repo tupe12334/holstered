@@ -31,7 +31,15 @@ or the model, re-record it as described in [evals/README.md](evals/README.md).
 
 Bump `version` in `Cargo.toml` and `gemini-extension.json` through a PR, then tag the merge commit on
 `main` with `v<version>` and push the tag. `release.yml` publishes it to
-crates.io, then points the formula in
+crates.io and npm, then points the formula in
 [tupe12334/homebrew-tap](https://github.com/tupe12334/homebrew-tap) at the new
 tag, pushing with the `HOMEBREW_TAP_DEPLOY_KEY` deploy key. Its guards and
 checks live in that workflow.
+
+npm gets `holstered` plus one `@holstered/holstered-<os>-<cpu>` package per
+target in `[package.metadata.npm]`, which `holstered` lists as
+`optionalDependencies`; [cargo-npm](https://github.com/abemedia/cargo-npm)
+generates and publishes them. The `NPM_TOKEN` secret authenticates the first
+publish, since npm can only trust a workflow for packages that already exist.
+After that, add a trusted publisher (`release.yml`) for each of the six
+packages on npmjs.com and delete the secret.

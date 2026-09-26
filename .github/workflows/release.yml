@@ -66,3 +66,83 @@ jobs:
             --url "https://github.com/${GITHUB_REPOSITORY}/archive/refs/tags/${GITHUB_REF_NAME}.tar.gz" \
             tupe12334/tap/holstered
           git -C "$tap" push git@github.com:tupe12334/homebrew-tap.git HEAD:main
+
+  npm-build:
+    name: Build ${{ matrix.target }} for npm
+    strategy:
+      matrix:
+        include:
+          - { target: x86_64-unknown-linux-musl, os: ubuntu-latest, zig: true }
+          - { target: aarch64-unknown-linux-musl, os: ubuntu-latest, zig: true }
+          - { target: x86_64-apple-darwin, os: macos-latest }
+          - { target: aarch64-apple-darwin, os: macos-latest }
+          - { target: x86_64-pc-windows-msvc, os: windows-latest, ext: .exe }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: ${{ matrix.target }}
+      - if: matrix.zig
+        uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-zigbuild
+      - if: matrix.zig
+        run: pip install ziglang
+      - run: cargo ${{ matrix.zig && 'zigbuild' || 'build' }} --locked --release --target ${{ matrix.target }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: npm-${{ matrix.target }}
+          path: target/${{ matrix.target }}/release/holstered${{ matrix.ext }}
+          if-no-files-found: error
+
+  npm:
+    name: Publish to npm
+    needs: [publish, npm-build]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # npm provenance and trusted publishing
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-npm
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: npm-*
+          path: artifacts
+      - name: Stage binaries where cargo-npm looks for them
+        run: |
+          for dir in artifacts/npm-*; do
+            target="${dir#artifacts/npm-}"
+            mkdir -p "target/$target/release"
+            mv "$dir"/* "target/$target/release/"
+            chmod +x target/"$target"/release/*
+          done
+
+      - run: cargo npm generate
+
+      - name: Smoke-test the packed install on linux-x64
+        run: |
+          smoke="$(mktemp -d)"
+          npm pack --pack-destination "$smoke" ./npm/holstered ./npm/@holstered/holstered-linux-x64
+          cd "$smoke"
+          npm init -y >/dev/null
+          npm install --no-audit --no-fund ./*.tgz
+          out=$(echo '{"hook_event_name":"PreToolUse","tool_name":"Bash","tool_input":{"command":"ls"},"session_id":"s"}' | npx --no holstered)
+          echo "$out"
+          [ "$(echo "$out" | jq -r .hookSpecificOutput.permissionDecision)" = allow ]
+
+      # Platform packages first, then `holstered`; already-published versions are skipped.
+      - run: cargo npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
