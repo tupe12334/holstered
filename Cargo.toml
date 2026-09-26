@@ -1,6 +1,6 @@
 [package]
 name = "holstered"
-version = "1.0.1"
+version = "1.1.0"
 edition = "2021"
 description = "Hands your coding agent the right skill for each prompt: BM25 recall + the Jev decision model, over polyhook"
 license = "MIT"
