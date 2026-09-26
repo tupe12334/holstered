@@ -1,1 +1,114 @@
 # holstered
+
+**Hands your coding agent the right skill for each prompt.**
+
+Agents with hundreds of skills see only their names, so the one that fits the
+task often goes unused. holstered is a prompt hook: on every user prompt it
+shortlists skills with BM25, asks the [Jev](https://openrouter.ai) decision
+model to pick one (or none), and injects that skill's `SKILL.md` into the
+model's context for the turn.
+
+One Rust binary serves every agent through [polyhook](https://github.com/polyhook/polyhook),
+which translates each agent's hook payload and response format.
+
+## How it works
+
+```
+user prompt ─▶ agent prompt hook ─▶ holstered
+                                      │ polyhook: detect agent, read prompt
+                                      │ BM25 over name + description → top 20
+                                      │ Jev (OpenRouter Decisions API): pick one or "none"
+                                      │ polyhook: inject SKILL.md in the agent's format
+                                      ▼
+                            model sees the skill this turn
+```
+
+Nothing is injected, and the prompt goes through untouched, when Jev answers
+`none`, names a skill it was not offered, the API fails or times out (8s), or
+`OPENROUTER_API_KEY` is unset. holstered never blocks a prompt.
+
+### Why BM25 + Jev
+
+On a 38-prompt labeled set over a 581-skill library (32 prompts with a correct
+skill, 6 with none):
+
+| Pipeline | Correct pick | Stays silent on no-skill prompts |
+|---|---|---|
+| Keyword match | 14/32 | 5/6 |
+| BM25 top-1 | 17/32 | 2/6 |
+| BM25 top-20 → Cohere rerank-v3.5 | 25/32 | 2/6 |
+| BM25 top-20 → Jev (Python prototype) | 28/32 | 6/6 |
+| **holstered binary (`bm25` crate → Jev)** | **29/32** | **6/6** |
+
+The holstered row is the release binary run end to end against live Jev
+(median 915 ms per prompt). One of its three misses picked a `pptx` skill for a
+slide-deck prompt the labels credited only to another skill. Small set, single labeler: read it as a direction, not a
+guarantee.
+
+## Supported agents
+
+| Agent | Hook | Injection |
+|---|---|---|
+| Claude Code | `UserPromptSubmit` | ✅ |
+| Codex | `UserPromptSubmit` | ✅ |
+| Gemini CLI | `BeforeAgent` | ✅ |
+| Hermes Agent | `pre_llm_call` | ✅ |
+| Cline | `UserPromptSubmit` | ✅ |
+| Cursor, Windsurf, Amp | — | ❌ their prompt hooks can only allow or block, so there is nothing to register |
+
+## Install
+
+```bash
+cargo install --git https://github.com/tupe12334/holstered
+export OPENROUTER_API_KEY=sk-or-...   # in the environment your agent starts from
+```
+
+Register it as the prompt hook of each agent you use.
+
+**Claude Code** — `~/.claude/settings.json`
+```json
+{ "hooks": { "UserPromptSubmit": [ { "hooks": [ { "type": "command", "command": "holstered" } ] } ] } }
+```
+
+**Codex** — `~/.codex/hooks.json`
+```json
+{ "hooks": { "UserPromptSubmit": [ { "hooks": [ { "type": "command", "command": "holstered" } ] } ] } }
+```
+
+**Gemini CLI** — `~/.gemini/settings.json`
+```json
+{ "hooks": { "BeforeAgent": [ { "hooks": [ { "type": "command", "command": "holstered" } ] } ] } }
+```
+
+**Hermes Agent** — `~/.hermes/config.yaml` (approve it on first run, or set `hooks_auto_accept`)
+```yaml
+hooks:
+  pre_llm_call:
+    - command: holstered
+```
+
+**Cline** — hooks are executables named after the event
+```bash
+mkdir -p ~/Documents/Cline/Hooks
+ln -s "$(command -v holstered)" ~/Documents/Cline/Hooks/UserPromptSubmit
+```
+
+## Configuration
+
+| Variable | Default | Purpose |
+|---|---|---|
+| `OPENROUTER_API_KEY` | — | Required. Read from the environment only; never logged. |
+| `HOLSTERED_SKILLS_DIRS` | `~/.claude/skills`, `~/.codex/skills`, `~/.agents/skills`, `~/.gemini/skills`, `~/.hermes/skills` | PATH-style list of skill roots. Any `SKILL.md` with a `description` in its frontmatter counts, up to 4 levels deep. |
+| `HOLSTERED_JEV_URL` | `https://openrouter.ai/api/alpha/decisions` | Decisions endpoint. |
+
+The model is `~typesafe/jev-latest`. When the key is set, the prompt (first
+2,000 characters) and the shortlisted skill descriptions are sent to
+OpenRouter. Each prompt with a shortlist takes about 0.7–1s longer.
+
+## Development
+
+```bash
+cargo test                                   # unit + end-to-end against a mock Jev, per agent format
+cargo clippy --all-targets -- -D warnings
+cargo fmt -- --check
+```
