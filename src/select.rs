@@ -18,9 +18,7 @@ pub fn select(event: &HookEvent) -> Option<String> {
         .chars()
         .take(PROMPT_LIMIT)
         .collect();
-    let key = std::env::var("OPENROUTER_API_KEY")
-        .ok()
-        .filter(|k| !k.trim().is_empty())?;
+    let at = jev::endpoint()?;
     if prompt.is_empty() {
         return None;
     }
@@ -33,8 +31,7 @@ pub fn select(event: &HookEvent) -> Option<String> {
     if pool.is_empty() {
         return None;
     }
-    let url = std::env::var("HOLSTERED_JEV_URL").unwrap_or_else(|_| jev::DEFAULT_URL.into());
-    let name = match jev::choose(&url, &key, &prompt, &pool) {
+    let name = match jev::choose(&at, &prompt, &pool) {
         Ok(name) => name?,
         Err(e) => {
             eprintln!("holstered: {e}");

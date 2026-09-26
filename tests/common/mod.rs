@@ -3,12 +3,13 @@
 #![allow(dead_code, unused_imports)]
 
 mod agents;
+mod backend;
 mod fixtures;
 mod run;
 
 pub use agents::agent_cases;
+pub use backend::{run, run_kev};
 pub use fixtures::skills_dir;
-pub use run::run;
 
 use mockito::{Mock, ServerGuard};
 use serde_json::{json, Value};

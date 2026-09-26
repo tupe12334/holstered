@@ -1,10 +1,9 @@
 use super::{skills_dir, KEY};
 use assert_cmd::Command;
-use mockito::ServerGuard;
 use serde_json::Value;
 
 /// Runs holstered on `payload`; asserts it exits 0 and never prints the key.
-pub fn run(payload: &Value, server: &ServerGuard, key: Option<&str>) -> Value {
+pub fn exec(payload: &Value, env: &[(&str, String)]) -> Value {
     let skills = skills_dir();
     let mut cmd = Command::new(env!("CARGO_BIN_EXE_holstered"));
     for var in [
@@ -16,15 +15,14 @@ pub fn run(payload: &Value, server: &ServerGuard, key: Option<&str>) -> Value {
         "AMP_SESSION_ID",
         "GEMINI_PROJECT_DIR",
         "OPENROUTER_API_KEY",
+        "HOLSTERED_JEV_URL",
+        "HOLSTERED_KEV_URL",
     ] {
         cmd.env_remove(var);
     }
-    if let Some(key) = key {
-        cmd.env("OPENROUTER_API_KEY", key);
-    }
     let out = cmd
+        .envs(env.iter().map(|(k, v)| (k, v)))
         .env("HOLSTERED_SKILLS_DIRS", skills.path())
-        .env("HOLSTERED_JEV_URL", format!("{}/decisions", server.url()))
         .write_stdin(payload.to_string())
         .assert()
         .success()
