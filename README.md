@@ -138,7 +138,7 @@ Kev wins.
 |---|---|---|
 | Set | `OPENROUTER_API_KEY` | `HOLSTERED_KEV_URL` |
 | Runs | OpenRouter Decisions API | [Kev](https://github.com/jaredpalmer/kev) server on your machine |
-| Privacy | prompt (first 2,000 chars) and shortlisted skill descriptions go to OpenRouter | nothing leaves the machine |
+| Privacy | prompt (first 500 + last 1,500 chars) and shortlisted skill descriptions go to OpenRouter | nothing leaves the machine |
 | Latency per prompt | ~1s | ~1.7–3.5s on an Apple Silicon Mac |
 | Accuracy on the set above | 29/32 | 26/32 |
 

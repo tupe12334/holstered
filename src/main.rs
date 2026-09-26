@@ -8,6 +8,7 @@
 mod bm25;
 mod inject;
 mod jev;
+mod prompt;
 mod select;
 mod skills;
 
