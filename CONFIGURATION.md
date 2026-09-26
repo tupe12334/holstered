@@ -10,6 +10,7 @@ your agent starts from.
 | `HOLSTERED_JEV_URL` | `https://openrouter.ai/api/alpha/decisions` | Decisions endpoint. |
 | `HOLSTERED_KEV_URL` | — | Use a local [Kev](#local-model-kev) server instead of Jev, e.g. `http://localhost:8009/v1/systemone`. No key needed; takes precedence over Jev. |
 | `HOLSTERED_TIMEOUT_MS` | `8000` | How long to wait for the decision before letting the prompt through untouched. |
+| `HOLSTERED_RUNNER_UP_THRESHOLD` | — | The decision model's pick (its highest-scored option, `none` included) is always injected. Set this to also inject up to 2 runner-up skills whose probability reaches it, best first. Unset, no runners-up. Kev spreads its scores flatter than Jev: on a two-task prompt Jev scored 0.35 / 0.25 / 0.17 and Kev 0.21 / 0.16 / 0.16, so start near `0.2` on Jev and `0.15` on Kev. |
 
 The model is `~typesafe/jev-latest` on Jev and `kev-latest` on Kev. When the key is set, the prompt (first
 2,000 characters) and the shortlisted skill descriptions are sent to

@@ -6,11 +6,13 @@ mod agents;
 mod backend;
 mod fixtures;
 mod run;
+mod runners_up;
 
 pub use agents::agent_cases;
-pub use backend::{run, run_kev};
+pub use backend::{jev_and_kev, run, run_kev};
 pub use fixtures::skills_dir;
 pub use run::exec;
+pub use runners_up::jev_then_kev_contexts;
 
 use mockito::{Mock, ServerGuard};
 use serde_json::{json, Value};

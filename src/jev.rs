@@ -4,44 +4,34 @@
 //! Request and response shapes follow the typed-decision-models skill
 //! (`references/jev-system-one-api.md`).
 
+mod ask;
 mod endpoint;
+mod pick;
 mod request;
+mod runners_up;
 
 pub use endpoint::{endpoint, Endpoint};
 
 use crate::skills::Skill;
-use serde_json::Value;
 
 pub const DEFAULT_URL: &str = "https://openrouter.ai/api/alpha/decisions";
 pub const JEV_MODEL: &str = "~typesafe/jev-latest";
 pub const KEV_MODEL: &str = "kev-latest";
 pub const NONE: &str = "none";
 
-/// Ask Jev which of `pool` fits `prompt`. `Ok(None)` when it answers `none`
-/// or names a skill it was not offered.
-pub fn choose(at: &Endpoint, prompt: &str, pool: &[&Skill]) -> Result<Option<String>, String> {
-    let agent: ureq::Agent = ureq::Agent::config_builder()
-        .timeout_global(Some(at.timeout))
-        .build()
-        .into();
-    // Errors carry the status or transport failure only, never request headers,
-    // so the key cannot leak through them.
-    let mut req = agent.post(&at.url);
-    if let Some(key) = &at.key {
-        req = req.header("authorization", &format!("Bearer {key}"));
-    }
-    let answer: Value = req
-        .send_json(request::body(at.model, prompt, pool))
-        .map_err(|e| format!("jev request failed: {e}"))?
-        .body_mut()
-        .read_json()
-        .map_err(|e| format!("jev response unreadable: {e}"))?;
-
-    let choice = answer["answers"]["skill"]["choice"]
-        .as_str()
-        .ok_or("jev response has no answers.skill.choice")?;
-    Ok(pool
-        .iter()
-        .any(|s| s.name == choice)
-        .then(|| choice.to_owned()))
+/// Ask Jev or Kev which of `pool` fit `prompt`: its pick, then its runners-up when
+/// a runner-up threshold is set. Empty without a pick.
+pub fn choose(at: &Endpoint, prompt: &str, pool: &[&Skill]) -> Result<Vec<String>, String> {
+    let answer = ask::ask(at, prompt, pool)?;
+    let Some(pick) = pick::pick(&answer, pool)? else {
+        return Ok(Vec::new());
+    };
+    let runners_up = at
+        .runner_up_threshold
+        .map(|t| runners_up::runners_up(&answer, pool, pick, t))
+        .unwrap_or_default();
+    Ok(std::iter::once(pick)
+        .chain(runners_up)
+        .map(str::to_owned)
+        .collect())
 }

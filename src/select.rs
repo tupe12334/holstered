@@ -1,4 +1,4 @@
-//! Picks the skill for a prompt event: BM25 shortlist, then Jev decides.
+//! Picks the skills for a prompt event: BM25 shortlist, then Jev decides.
 
 use crate::{bm25, inject, jev, skills};
 use polyhook::{HookEvent, HookEventEvent};
@@ -31,12 +31,16 @@ pub fn select(event: &HookEvent) -> Option<String> {
     if pool.is_empty() {
         return None;
     }
-    let name = match jev::choose(&at, &prompt, &pool) {
-        Ok(name) => name?,
-        Err(e) => {
-            eprintln!("holstered: {e}");
-            return None;
-        }
-    };
-    inject::context(pool.iter().find(|s| s.name == name)?)
+    let names = jev::choose(&at, &prompt, &pool)
+        .map_err(|e| eprintln!("holstered: {e}"))
+        .ok()?;
+    let picked: Vec<_> = names
+        .iter()
+        .filter_map(|n| pool.iter().find(|s| &s.name == n))
+        .collect();
+    let blocks: Vec<_> = picked
+        .iter()
+        .filter_map(|s| inject::context(s, picked.len()))
+        .collect();
+    (!blocks.is_empty()).then(|| blocks.join("\n\n"))
 }
