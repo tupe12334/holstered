@@ -65,6 +65,9 @@ holstered 这几行是发布版二进制端到端运行的结果：对接线上 
 # npm（预编译二进制，无需 Rust 工具链）
 npm install -g holstered
 
+# Go（首次运行时下载预编译二进制）
+go install github.com/tupe12334/holstered/go/cmd/holstered@latest
+
 # crates.io
 cargo install holstered
 

@@ -144,3 +144,41 @@ jobs:
 
       # Platform packages first, then `holstered`; already-published versions are skipped.
       - run: cargo npm publish
+
+  github-release:
+    name: GitHub Release and Go module tag
+    needs: [publish, npm-build]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # create the release and push the go/ tag
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: npm-*
+          path: artifacts
+
+      # The Go wrapper (go/cmd/holstered) downloads these by GOOS-GOARCH name.
+      - name: Name binaries for the Go wrapper
+        run: |
+          mkdir dist
+          while read -r triple asset; do
+            src=$(ls artifacts/npm-"$triple"/*)
+            cp "$src" "dist/$asset"
+          done <<'MAP'
+          x86_64-unknown-linux-musl holstered-linux-amd64
+          aarch64-unknown-linux-musl holstered-linux-arm64
+          x86_64-apple-darwin holstered-darwin-amd64
+          aarch64-apple-darwin holstered-darwin-arm64
+          x86_64-pc-windows-msvc holstered-windows-amd64.exe
+          MAP
+          (cd dist && sha256sum -- * > SHA256SUMS && cat SHA256SUMS)
+
+      - run: gh release create "$GITHUB_REF_NAME" dist/* --verify-tag --generate-notes
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      # `go install .../go/cmd/holstered@vX.Y.Z` resolves the go/vX.Y.Z tag.
+      - run: |
+          git tag "go/$GITHUB_REF_NAME" "$GITHUB_SHA"
+          git push origin "go/$GITHUB_REF_NAME"

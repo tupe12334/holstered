@@ -9,7 +9,7 @@ homepage = "https://github.com/tupe12334/holstered"
 readme = "README.md"
 keywords = ["claude-code", "codex", "agent", "skills", "hooks"]
 categories = ["command-line-utilities", "development-tools"]
-exclude = [".github/", "assets/", "evals/", "linecheck.yml"]
+exclude = [".github/", "assets/", "evals/", "go/", "linecheck.yml"]
 
 # npm: `holstered` + one @holstered/holstered-<os>-<cpu> package per target
 # (optionalDependencies), built by release.yml with cargo-npm.

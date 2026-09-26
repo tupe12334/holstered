@@ -80,6 +80,9 @@ Pick one:
 # npm (prebuilt binary, no Rust toolchain)
 npm install -g holstered
 
+# Go (downloads the prebuilt binary on first run)
+go install github.com/tupe12334/holstered/go/cmd/holstered@latest
+
 # crates.io
 cargo install holstered
 
