@@ -4,7 +4,7 @@
 
 **Hands your coding agent the right skill for each prompt.**
 
-<sub>English &middot; <a href="README.zh-CN.md">简体中文</a></sub>
+<sub>English &middot; <a href="docs/README.zh-CN.md">简体中文</a></sub>
 
 Agents with hundreds of skills see only their names, so the one that fits the
 task often goes unused. holstered is a prompt hook: on every user prompt it

@@ -1,10 +1,10 @@
-<p align="center"><img src="assets/logo.svg" alt="holstered 标志" width="160"></p>
+<p align="center"><img src="../assets/logo.svg" alt="holstered 标志" width="160"></p>
 
 # holstered
 
 **为每条提示词，把最合适的技能递给你的编程智能体。**
 
-<sub><a href="README.md">English</a> &middot; 简体中文</sub>
+<sub><a href="../README.md">English</a> &middot; 简体中文</sub>
 
 装了几百个技能的智能体只能看到技能名称，真正对口的那个往往用不上。holstered
 是一个提示词钩子（prompt hook）：每收到一条用户提示词，它先用 BM25 筛出候选技能，
@@ -21,7 +21,7 @@ https://github.com/user-attachments/assets/b6de382b-8ca3-4fe0-9baa-0039342dd3b0
 
 ## 工作原理
 
-<p align="center"><img src="assets/flow.svg" alt="用户提示词 → 智能体提示词钩子 → holstered：polyhook 读取提示词，BM25 筛出前 20 个技能，Jev 或 Kev 选出一个或不选，polyhook 注入其 SKILL.md → 模型在本轮看到该技能。若模型回答 none、给出未提供的技能、出错或超时，则不注入任何内容，提示词原样通过。" width="560"></p>
+<p align="center"><img src="../assets/flow.svg" alt="用户提示词 → 智能体提示词钩子 → holstered：polyhook 读取提示词，BM25 筛出前 20 个技能，Jev 或 Kev 选出一个或不选，polyhook 注入其 SKILL.md → 模型在本轮看到该技能。若模型回答 none、给出未提供的技能、出错或超时，则不注入任何内容，提示词原样通过。" width="560"></p>
 
 以下情况不会注入任何内容，提示词原样通过：决策模型回答 `none`、给出了不在候选列表中的技能、
 调用失败或超时（默认 8 秒），或者没有配置任何决策模型。holstered 永远不会阻断提示词。
@@ -30,7 +30,7 @@ https://github.com/user-attachments/assets/b6de382b-8ca3-4fe0-9baa-0039342dd3b0
 
 在一个 581 个技能的技能库上，使用 38 条带标注的提示词测试（其中 32 条有正确技能，6 条没有）：
 
-<p align="center"><img src="assets/benchmark.svg" alt="正确选择（共 32 条）/ 保持沉默（共 6 条）：关键词匹配 14/5，BM25 top-1 17/2，BM25 top-20 → Cohere rerank-v3.5 25/2，BM25 top-20 → Jev（Python 原型）28/6，holstered 二进制（bm25 crate → Jev）29/6，holstered 二进制（bm25 crate → 本地 Kev-4B）26/6。"></p>
+<p align="center"><img src="../assets/benchmark.svg" alt="正确选择（共 32 条）/ 保持沉默（共 6 条）：关键词匹配 14/5，BM25 top-1 17/2，BM25 top-20 → Cohere rerank-v3.5 25/2，BM25 top-20 → Jev（Python 原型）28/6，holstered 二进制（bm25 crate → Jev）29/6，holstered 二进制（bm25 crate → 本地 Kev-4B）26/6。"></p>
 
 holstered 这几行是发布版二进制端到端运行的结果：对接线上 Jev（每条提示词中位数 915 ms），
 以及在 Apple Silicon Mac 上运行的本地 Kev-4B（中位数 1.7 秒）。三次失误中有一次是：
@@ -110,17 +110,17 @@ ln -s "$(command -v holstered)" ~/Documents/Cline/Hooks/UserPromptSubmit
 | 每条提示词延迟 | 约 1 秒 | 在 Apple Silicon Mac 上约 1.7–3.5 秒 |
 | 在上述测试集上的准确率 | 29/32 | 26/32 |
 
-Kev 的配置与首次请求超时：参见 [CONFIGURATION.md](CONFIGURATION.md#local-model-kev)。
+Kev 的配置与首次请求超时：参见 [CONFIGURATION.md](../CONFIGURATION.md#local-model-kev)。
 
 ## 配置
 
 环境变量、发送到 OpenRouter 的数据，以及如何用本地 Kev 模型完全离线运行：参见
-[CONFIGURATION.md](CONFIGURATION.md)。
+[CONFIGURATION.md](../CONFIGURATION.md)。
 
 ## 参与贡献
 
-参见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+参见 [CONTRIBUTING.md](../CONTRIBUTING.md)。
 
 ## 许可证
 
-[MIT](LICENSE)
+[MIT](../LICENSE)

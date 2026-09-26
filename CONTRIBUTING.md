@@ -25,7 +25,7 @@ or the model, re-record it as described in [evals/README.md](evals/README.md).
 
 ## Docs
 
-`README.zh-CN.md` translates `README.md`; update both in the same PR.
+`docs/README.zh-CN.md` translates `README.md`; update both in the same PR.
 
 ## Releasing
 
