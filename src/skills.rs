@@ -1,7 +1,11 @@
 //! Skill discovery: every `SKILL.md` under the configured skill directories.
 
+use gray_matter::engine::YAML;
+use gray_matter::Matter;
+use serde::Deserialize;
 use std::collections::HashSet;
 use std::path::{Path, PathBuf};
+use walkdir::WalkDir;
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct Skill {
@@ -16,7 +20,7 @@ pub fn dirs() -> Vec<PathBuf> {
     if let Some(custom) = std::env::var_os("HOLSTERED_SKILLS_DIRS") {
         return std::env::split_paths(&custom).collect();
     }
-    let Some(home) = std::env::var_os("HOME").map(PathBuf::from) else {
+    let Some(home) = dirs::home_dir() else {
         return Vec::new();
     };
     [
@@ -31,55 +35,48 @@ pub fn dirs() -> Vec<PathBuf> {
     .collect()
 }
 
-// Hermes nests skills under category folders; four levels covers it and
-// bounds the walk if a symlink loops.
-const MAX_DEPTH: usize = 4;
+// Hermes nests skills under category folders; this depth covers it and bounds
+// the walk if a followed symlink loops.
+const MAX_DEPTH: usize = 5;
+
+#[derive(Deserialize)]
+struct Frontmatter {
+    name: Option<String>,
+    description: Option<String>,
+}
 
 /// Skills with a description, first occurrence winning. The same skill is
 /// often mirrored into several agents' folders under different names, so a
 /// repeated description counts as a duplicate too.
 pub fn discover(dirs: &[PathBuf]) -> Vec<Skill> {
-    let mut files = Vec::new();
-    for dir in dirs {
-        walk(dir, 0, &mut files);
-    }
     let (mut names, mut descriptions) = (HashSet::new(), HashSet::new());
-    files
-        .into_iter()
-        .filter_map(|path| load(&path))
+    dirs.iter()
+        .flat_map(|dir| {
+            WalkDir::new(dir)
+                .follow_links(true)
+                .max_depth(MAX_DEPTH)
+                .sort_by_file_name()
+                .into_iter()
+                .filter_entry(|e| {
+                    e.depth() == 0 || !e.file_name().to_string_lossy().starts_with('.')
+                })
+                .flatten()
+                .filter(|e| e.file_type().is_file() && e.file_name() == "SKILL.md")
+        })
+        .filter_map(|entry| load(entry.path()))
         .filter(|s| names.insert(s.name.clone()) && descriptions.insert(s.description.clone()))
         .collect()
 }
 
-fn walk(dir: &Path, depth: usize, out: &mut Vec<PathBuf>) {
-    let Ok(entries) = std::fs::read_dir(dir) else {
-        return;
-    };
-    let mut entries: Vec<_> = entries.flatten().map(|e| e.path()).collect();
-    entries.sort();
-    for path in entries {
-        let hidden = path
-            .file_name()
-            .and_then(|n| n.to_str())
-            .is_some_and(|n| n.starts_with('.'));
-        if hidden {
-            continue;
-        }
-        if path.is_dir() {
-            if depth < MAX_DEPTH {
-                walk(&path, depth + 1, out);
-            }
-        } else if path.file_name().is_some_and(|n| n == "SKILL.md") {
-            out.push(path);
-        }
-    }
-}
-
 fn load(path: &Path) -> Option<Skill> {
     let text = std::fs::read_to_string(path).ok()?;
-    let block = frontmatter(&text)?;
-    let description = field(block, "description").filter(|d| !d.is_empty())?;
-    let name = field(block, "name")
+    let meta: Frontmatter = Matter::<YAML>::new().parse(&text).ok()?.data?;
+    let description = meta
+        .description
+        .map(|d| d.split_whitespace().collect::<Vec<_>>().join(" "));
+    let description = description.filter(|d| !d.is_empty())?;
+    let name = meta
+        .name
         .filter(|n| !n.is_empty())
         .or_else(|| path.parent()?.file_name()?.to_str().map(str::to_owned))?;
     Some(Skill {
@@ -87,35 +84,6 @@ fn load(path: &Path) -> Option<Skill> {
         description,
         path: path.to_owned(),
     })
-}
-
-fn frontmatter(text: &str) -> Option<&str> {
-    let rest = text.strip_prefix("---")?.trim_start_matches(['\r', ' ']);
-    let rest = rest.strip_prefix('\n')?;
-    let end = rest.find("\n---")?;
-    Some(&rest[..end])
-}
-
-/// A top-level scalar: plain, quoted, or a `>`/`|` block.
-fn field(block: &str, key: &str) -> Option<String> {
-    let mut lines = block.lines();
-    let prefix = format!("{key}:");
-    let value = lines.by_ref().find_map(|l| l.strip_prefix(&prefix))?.trim();
-    let value = if matches!(value, "" | ">" | ">-" | "|" | "|-") {
-        lines
-            .take_while(|l| l.trim().is_empty() || l.starts_with([' ', '\t']))
-            .map(str::trim)
-            .filter(|l| !l.is_empty())
-            .collect::<Vec<_>>()
-            .join(" ")
-    } else {
-        value.to_owned()
-    };
-    let unquoted = ['"', '\'']
-        .iter()
-        .find_map(|q| value.strip_prefix(*q)?.strip_suffix(*q))
-        .unwrap_or(&value);
-    Some(unquoted.split_whitespace().collect::<Vec<_>>().join(" "))
 }
 
 #[cfg(test)]
