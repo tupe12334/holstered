@@ -9,7 +9,7 @@ task often goes unused. holstered is a prompt hook: on every user prompt it
 shortlists skills with BM25, asks a decision model to pick one (or none), and
 injects that skill's `SKILL.md` into the model's context for the turn.
 
-[![Watch: holstered in 2 minutes](assets/holstered-explainer.png)](assets/holstered-explainer.mp4)
+https://github.com/user-attachments/assets/b6de382b-8ca3-4fe0-9baa-0039342dd3b0
 
 The decision model is your choice: **Jev**, hosted on OpenRouter, or **Kev**,
 an open model you run locally so nothing leaves your machine. See
