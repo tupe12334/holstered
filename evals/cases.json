@@ -1,0 +1,218 @@
+[
+ {
+  "prompt": "write a good commit message for these staged changes",
+  "expect": [
+   "git-commit-messages"
+  ]
+ },
+ {
+  "prompt": "my branch has conflicts after main moved, rebase it",
+  "expect": [
+   "git-rebase-conflicts"
+  ]
+ },
+ {
+  "prompt": "review this pull request and leave comments",
+  "expect": [
+   "github-pr-review"
+  ]
+ },
+ {
+  "prompt": "checks are green, merge the PR",
+  "expect": [
+   "github-pr-merge"
+  ]
+ },
+ {
+  "prompt": "the CI workflow keeps failing on the test job",
+  "expect": [
+   "github-actions-ci-debugging"
+  ]
+ },
+ {
+  "prompt": "containerize this app with a Dockerfile",
+  "expect": [
+   "docker-image-build"
+  ]
+ },
+ {
+  "prompt": "roll back the last deployment on the cluster",
+  "expect": [
+   "kubernetes-deploy"
+  ]
+ },
+ {
+  "prompt": "add an S3 bucket to our terraform",
+  "expect": [
+   "terraform-infrastructure"
+  ]
+ },
+ {
+  "prompt": "add a column to the users table with a migration",
+  "expect": [
+   "database-migrations"
+  ]
+ },
+ {
+  "prompt": "this query takes 30 seconds, make it faster",
+  "expect": [
+   "sql-query-optimization"
+  ]
+ },
+ {
+  "prompt": "my python script throws a KeyError, find out why",
+  "expect": [
+   "python-debugging"
+  ]
+ },
+ {
+  "prompt": "upgrade react and the other npm packages to latest",
+  "expect": [
+   "node-dependency-upgrade"
+  ]
+ },
+ {
+  "prompt": "cargo clippy fails with warnings, fix them",
+  "expect": [
+   "rust-clippy-lints"
+  ]
+ },
+ {
+  "prompt": "write the tests first then implement the parser",
+  "expect": [
+   "unit-test-writing"
+  ]
+ },
+ {
+  "prompt": "check the page for accessibility contrast issues",
+  "expect": [
+   "frontend-accessibility-audit"
+  ]
+ },
+ {
+  "prompt": "test the login form component with user interactions",
+  "expect": [
+   "react-component-testing"
+  ]
+ },
+ {
+  "prompt": "design the endpoints for our orders API",
+  "expect": [
+   "rest-api-design"
+  ]
+ },
+ {
+  "prompt": "are any of our dependencies vulnerable?",
+  "expect": [
+   "dependency-security-audit"
+  ]
+ },
+ {
+  "prompt": "I accidentally committed an API key, rotate it",
+  "expect": [
+   "secrets-rotation"
+  ]
+ },
+ {
+  "prompt": "find why production returned 500 errors last night in the logs",
+  "expect": [
+   "log-investigation"
+  ]
+ },
+ {
+  "prompt": "the service is slow, profile it",
+  "expect": [
+   "performance-profiling"
+  ]
+ },
+ {
+  "prompt": "write release notes for version 2.0",
+  "expect": [
+   "release-notes-writing"
+  ]
+ },
+ {
+  "prompt": "rewrite our README so new users get started faster",
+  "expect": [
+   "readme-documentation"
+  ]
+ },
+ {
+  "prompt": "make me a slide deck about Q3 results",
+  "expect": [
+   "slide-deck-creation"
+  ]
+ },
+ {
+  "prompt": "build a pivot table of sales by region in this spreadsheet",
+  "expect": [
+   "spreadsheet-analysis"
+  ]
+ },
+ {
+  "prompt": "fill out and sign this PDF form",
+  "expect": [
+   "pdf-form-filling"
+  ]
+ },
+ {
+  "prompt": "go through my unread emails and sort them",
+  "expect": [
+   "email-inbox-triage"
+  ]
+ },
+ {
+  "prompt": "schedule a meeting with the team next week",
+  "expect": [
+   "calendar-scheduling"
+  ]
+ },
+ {
+  "prompt": "find me a cheap flight to tokyo next month",
+  "expect": [
+   "flight-search"
+  ]
+ },
+ {
+  "prompt": "what can I cook with eggs, rice and spinach?",
+  "expect": [
+   "recipe-planning"
+  ]
+ },
+ {
+  "prompt": "the pull request has merge conflicts with main",
+  "expect": [
+   "git-rebase-conflicts"
+  ]
+ },
+ {
+  "prompt": "audit the package-lock for security issues",
+  "expect": [
+   "dependency-security-audit"
+  ]
+ },
+ {
+  "prompt": "what's the capital of peru",
+  "expect": []
+ },
+ {
+  "prompt": "translate this paragraph to french",
+  "expect": []
+ },
+ {
+  "prompt": "thanks, that works",
+  "expect": []
+ },
+ {
+  "prompt": "explain how python generators work",
+  "expect": []
+ },
+ {
+  "prompt": "write a haiku about autumn leaves",
+  "expect": []
+ },
+ {
+  "prompt": "rename variable foo to bar in utils.rs",
+  "expect": []
+ }
+]
