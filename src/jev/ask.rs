@@ -1,4 +1,4 @@
-//! Sends the decision request and returns Jev's raw answer.
+//! Sends the decision request to Jev or Kev and returns the raw answer.
 
 use super::{request, Endpoint};
 use crate::skills::Skill;

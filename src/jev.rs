@@ -19,7 +19,7 @@ pub const JEV_MODEL: &str = "~typesafe/jev-latest";
 pub const KEV_MODEL: &str = "kev-latest";
 pub const NONE: &str = "none";
 
-/// Ask Jev which of `pool` fit `prompt`: its pick, then its runners-up when
+/// Ask Jev or Kev which of `pool` fit `prompt`: its pick, then its runners-up when
 /// a runner-up threshold is set. Empty without a pick.
 pub fn choose(at: &Endpoint, prompt: &str, pool: &[&Skill]) -> Result<Vec<String>, String> {
     let answer = ask::ask(at, prompt, pool)?;

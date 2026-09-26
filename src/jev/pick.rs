@@ -1,10 +1,10 @@
-//! Jev's pick: the option it scored highest, `none` included.
+//! The decision model's pick: the option it scored highest, `none` included.
 
 use super::NONE;
 use crate::skills::Skill;
 use serde_json::Value;
 
-/// The skill Jev chose, or `None` when it chose `none` or a skill it was not offered.
+/// The skill the model chose, or `None` when it chose `none` or a skill it was not offered.
 pub fn pick<'a>(answer: &'a Value, pool: &[&Skill]) -> Result<Option<&'a str>, String> {
     let choice = answer["answers"]["skill"]["choice"]
         .as_str()
