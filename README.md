@@ -90,13 +90,6 @@ holstered as the prompt hook of each agent you use.
 ```bash
 hermes plugins install tupe12334/holstered#plugins/hermes --enable
 ```
-Or register a shell hook by hand in `~/.hermes/config.yaml` (not both, or it runs twice;
-approve it on first run, or set `hooks_auto_accept`):
-```yaml
-hooks:
-  pre_llm_call:
-    - command: holstered
-```
 
 **Cline** — hooks are executables named after the event
 ```bash
