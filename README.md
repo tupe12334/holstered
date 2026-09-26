@@ -31,14 +31,7 @@ model answers `none`, names a skill it was not offered, fails or times out
 On a 38-prompt labeled set over a 581-skill library (32 prompts with a correct
 skill, 6 with none):
 
-| Pipeline | Correct pick | Stays silent on no-skill prompts |
-|---|---|---|
-| Keyword match | 14/32 | 5/6 |
-| BM25 top-1 | 17/32 | 2/6 |
-| BM25 top-20 → Cohere rerank-v3.5 | 25/32 | 2/6 |
-| BM25 top-20 → Jev (Python prototype) | 28/32 | 6/6 |
-| **holstered binary (`bm25` crate → Jev)** | **29/32** | **6/6** |
-| holstered binary (`bm25` crate → local Kev-4B) | 26/32 | 6/6 |
+<p align="center"><img src="assets/benchmark.svg" alt="Correct pick of 32 / stays silent of 6: keyword match 14/5, BM25 top-1 17/2, BM25 top-20 → Cohere rerank-v3.5 25/2, BM25 top-20 → Jev (Python prototype) 28/6, holstered binary (bm25 crate → Jev) 29/6, holstered binary (bm25 crate → local Kev-4B) 26/6."></p>
 
 The holstered rows are the release binary run end to end against live Jev
 (median 915 ms per prompt) and a local Kev-4B on an Apple Silicon Mac (median
