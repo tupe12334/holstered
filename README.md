@@ -6,6 +6,8 @@
 
 Fastest draw in the terminal: one skill, or none, in about a second.
 
+<sub>English &middot; <a href="docs/README.zh-CN.md">简体中文</a></sub>
+
 Agents with hundreds of skills see only their names, so the one that fits the
 task often goes unused. holstered is a prompt hook: on every user prompt it
 shortlists skills with BM25, asks a decision model to pick one (or none), and
