@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/logo.svg" alt="holstered logo" width="160"></p>
+
 # holstered
 
 **Hands your coding agent the right skill for each prompt.**

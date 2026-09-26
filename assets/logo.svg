@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="460 260 1130 1540">
+  <defs>
+    <clipPath id="above-lip">
+      <path d="M0 0H2048V1030H1180C1100 1030 1060 1000 1010 950S930 840 820 840H0Z"/>
+    </clipPath>
+  </defs>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <g stroke="#9E9E9E" stroke-width="40">
+      <path d="M620 810V640Q620 600 660 600H900"/>
+      <path d="M740 580V560Q740 520 780 520H960"/>
+      <path d="M830 470Q840 440 880 440H1010"/>
+    </g>
+    <g clip-path="url(#above-lip)"><rect transform="translate(1175 300) rotate(36.6)" x="22" y="22" width="429" height="760" rx="48" fill="#CC6630" stroke="#A5451C" stroke-width="44"/></g>
+    <g stroke="#36373A" stroke-width="64">
+      <path d="M610 745Q546 745 546 820V1500C546 1640 660 1740 800 1740H1130C1270 1740 1384 1640 1384 1500V1010Q1384 950 1350 920"/>
+      <path d="M560 840H820C930 840 960 900 1010 950S1100 1030 1180 1030H1384"/>
+    </g>
+    <path stroke="#36373A" stroke-width="48" d="M678 980V1500Q678 1610 790 1610H1100"/>
+  </g>
+</svg>
