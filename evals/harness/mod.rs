@@ -1,6 +1,9 @@
 //! Deterministic eval over a mocked skill library; see `evals/README.md`.
 
+pub mod clip;
+pub mod confidence;
 pub mod data;
+pub mod decision;
 pub mod live;
 pub mod record;
 pub mod request;

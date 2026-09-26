@@ -7,4 +7,5 @@ rules:
 
 exclude:
   - "Cargo.lock"
+  - "evals/cassettes/**" # recorded by the eval harness, like Cargo.lock
   - "target/**"

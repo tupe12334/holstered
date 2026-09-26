@@ -14,6 +14,7 @@ fn recorded_decisions_meet_the_baseline() {
         let tape: Cassette = data::read(&format!("cassettes/{model}.json"));
         let out = score::evaluate(&model, Mode::Replay(tape.clone()));
         eprintln!("{model}: {:?}\n  {}", out.score, out.misses.join("\n  "));
+        eprintln!("  {}", harness::confidence::report(&tape).join("\n  "));
         let stale = stale(&tape, &out.seen);
         assert!(
             stale.is_empty(),

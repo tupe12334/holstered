@@ -26,7 +26,7 @@ pub fn evaluate(model: &str, mode: server::Mode) -> Outcome {
         let offered = seen
             .lock()
             .unwrap()
-            .get(&case.prompt)
+            .get(&super::clip::clip(&case.prompt))
             .map(|d| d.offered.clone());
         tally(&case, pick, offered, &mut score, &mut misses);
     }

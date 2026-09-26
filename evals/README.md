@@ -9,7 +9,7 @@ up as a failing test instead of a vague feeling.
 |---|---|
 | `skills/` | 30 mocked general-purpose skills (git, CI, containers, databases, docs, office work, travel, …), with deliberate near-neighbours such as PR review vs. PR merge |
 | `cases.json` | Prompts with the skills that count as correct; `"expect": []` means the right answer is to stay silent |
-| `cassettes/<model>.json` | For each prompt that reached the model: the shortlist it was offered and what it chose |
+| `cassettes/<model>.json` | For each prompt that reached the model: the shortlist it was offered, what it chose, and its probability for each option |
 | `baseline.json` | Per model: `correct` picks, `abstained` on no-skill prompts, `recalled` (right skill was in the BM25 shortlist) |
 | `eval.rs`, `harness/` | The test itself, registered in `Cargo.toml` as the `eval` test target |
 
@@ -18,6 +18,16 @@ shortlisted the right skill, so the fix is in search; a **routing miss** means
 it was shortlisted and the model chose otherwise. Half of the no-skill prompts
 are chit-chat that shares words with a skill ("thanks, the merge went
 through fine"), so the shortlist is full of plausible but wrong skills.
+
+## Confidence report
+
+Every run also prints how sure the model was, from the recorded
+probabilities. It never fails the test:
+
+- for each no-skill prompt, `none`'s probability against the best skill's, so a
+  narrow call is visible even when the model answered correctly;
+- a sweep of `HOLSTERED_PICK_THRESHOLD` values with the `correct` and
+  `abstained` counts each would score, to calibrate that setting.
 
 ## What `cargo test` checks
 

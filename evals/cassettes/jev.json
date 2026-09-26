@@ -5,7 +5,13 @@
       "rest-api-design",
       "secrets-rotation"
     ],
-    "choice": "secrets-rotation"
+    "choice": "secrets-rotation",
+    "probabilities": {
+      "git-commit-messages": 0.0,
+      "none": 0.0,
+      "rest-api-design": 0.0,
+      "secrets-rotation": 1.0
+    }
   },
   "```\n#0 [build 0/40] RUN npm ci --workspace packages/pkg-0\n#0 DONE 0.0s\n#1 [build 1/40] RUN npm ci --workspace packages/pkg-1\n#1 DONE 0.1s\n#2 [build 2/40] RUN npm ci --workspace packages/pkg-2\n#2 DONE 0.2s\n#3 [build 3/40] RUN npm ci --workspace packages/pkg-3\n#3 DONE 0.3s\n#4 [build 4/40] RUN npm ci --workspace packages/pkg-4\n#4 DONE 0.4s\n#5 [build 5/40] RUN npm ci --workspace packages/pkg-5\n#5 DONE 0.5s\n#6 [build 6/40] RUN npm ci --workspace packages/pkg-6\n#6 DONE 0.6s\n#7 [build 7/40] RUN npm ci \n…\nspace packages/pkg-19\n#19 DONE 1.9s\n#20 [build 20/40] RUN npm ci --workspace packages/pkg-20\n#20 DONE 2.0s\n#21 [build 21/40] RUN npm ci --workspace packages/pkg-21\n#21 DONE 2.1s\n#22 [build 22/40] RUN npm ci --workspace packages/pkg-22\n#22 DONE 2.2s\n#23 [build 23/40] RUN npm ci --workspace packages/pkg-23\n#23 DONE 2.3s\n#24 [build 24/40] RUN npm ci --workspace packages/pkg-24\n#24 DONE 2.4s\n#25 [build 25/40] RUN npm ci --workspace packages/pkg-25\n#25 DONE 2.5s\n#26 [build 26/40] RUN npm ci --workspace packages/pkg-26\n#26 DONE 2.6s\n#27 [build 27/40] RUN npm ci --workspace packages/pkg-27\n#27 DONE 2.7s\n#28 [build 28/40] RUN npm ci --workspace packages/pkg-28\n#28 DONE 2.8s\n#29 [build 29/40] RUN npm ci --workspace packages/pkg-29\n#29 DONE 2.9s\n#30 [build 30/40] RUN npm ci --workspace packages/pkg-30\n#30 DONE 3.0s\n#31 [build 31/40] RUN npm ci --workspace packages/pkg-31\n#31 DONE 3.1s\n#32 [build 32/40] RUN npm ci --workspace packages/pkg-32\n#32 DONE 3.2s\n#33 [build 33/40] RUN npm ci --workspace packages/pkg-33\n#33 DONE 3.3s\n#34 [build 34/40] RUN npm ci --workspace packages/pkg-34\n#34 DONE 3.4s\n#35 [build 35/40] RUN npm ci --workspace packages/pkg-35\n#35 DONE 3.5s\n#36 [build 36/40] RUN npm ci --workspace packages/pkg-36\n#36 DONE 3.6s\n#37 [build 37/40] RUN npm ci --workspace packages/pkg-37\n#37 DONE 3.7s\n#38 [build 38/40] RUN npm ci --workspace packages/pkg-38\n#38 DONE 3.8s\n#39 [build 39/40] RUN npm ci --workspace packages/pkg-39\n#39 DONE 3.9s\n```\nthanks, the build is green now, all good": {
     "offered": [
@@ -15,7 +21,15 @@
       "github-actions-ci-debugging",
       "node-dependency-upgrade"
     ],
-    "choice": "none"
+    "choice": "none",
+    "probabilities": {
+      "database-migrations": 0.0,
+      "dependency-security-audit": 0.0,
+      "docker-image-build": 0.16,
+      "github-actions-ci-debugging": 0.03,
+      "node-dependency-upgrade": 0.0,
+      "none": 0.81
+    }
   },
   "```diff\n-        image: registry.local/api:1.0.0\n+        image: registry.local/api:1.1.0\n         replicas: 2\n-        image: registry.local/api:1.1.0\n+        image: registry.local/api:1.2.0\n         replicas: 3\n-        image: registry.local/api:1.2.0\n+        image: registry.local/api:1.3.0\n         replicas: 4\n-        image: registry.local/api:1.3.0\n+        image: registry.local/api:1.4.0\n         replicas: 5\n-        image: registry.local/api:1.4.0\n+        image: registry.local/api:1.5.\n…\nocal/api:1.16.0\n+        image: registry.local/api:1.17.0\n         replicas: 3\n-        image: registry.local/api:1.17.0\n+        image: registry.local/api:1.18.0\n         replicas: 4\n-        image: registry.local/api:1.18.0\n+        image: registry.local/api:1.19.0\n         replicas: 5\n-        image: registry.local/api:1.19.0\n+        image: registry.local/api:1.20.0\n         replicas: 6\n-        image: registry.local/api:1.20.0\n+        image: registry.local/api:1.21.0\n         replicas: 2\n-        image: registry.local/api:1.21.0\n+        image: registry.local/api:1.22.0\n         replicas: 3\n-        image: registry.local/api:1.22.0\n+        image: registry.local/api:1.23.0\n         replicas: 4\n-        image: registry.local/api:1.23.0\n+        image: registry.local/api:1.24.0\n         replicas: 5\n-        image: registry.local/api:1.24.0\n+        image: registry.local/api:1.25.0\n         replicas: 6\n-        image: registry.local/api:1.25.0\n+        image: registry.local/api:1.26.0\n         replicas: 2\n-        image: registry.local/api:1.26.0\n+        image: registry.local/api:1.27.0\n         replicas: 3\n-        image: registry.local/api:1.27.0\n+        image: registry.local/api:1.28.0\n         replicas: 4\n-        image: registry.local/api:1.28.0\n+        image: registry.local/api:1.29.0\n         replicas: 5\n-        image: registry.local/api:1.29.0\n+        image: registry.local/api:1.30.0\n         replicas: 6\n```\nwrite a good commit message for these staged changes": {
     "offered": [
@@ -31,7 +45,21 @@
       "terraform-infrastructure",
       "unit-test-writing"
     ],
-    "choice": "git-commit-messages"
+    "choice": "git-commit-messages",
+    "probabilities": {
+      "database-migrations": 0.0,
+      "docker-image-build": 0.0,
+      "git-commit-messages": 1.0,
+      "github-pr-review": 0.0,
+      "node-dependency-upgrade": 0.0,
+      "none": 0.0,
+      "readme-documentation": 0.0,
+      "release-notes-writing": 0.0,
+      "rest-api-design": 0.0,
+      "secrets-rotation": 0.0,
+      "terraform-infrastructure": 0.0,
+      "unit-test-writing": 0.0
+    }
   },
   "add a column to the users table with a migration": {
     "offered": [
@@ -39,34 +67,59 @@
       "react-component-testing",
       "readme-documentation"
     ],
-    "choice": "database-migrations"
+    "choice": "database-migrations",
+    "probabilities": {
+      "database-migrations": 1.0,
+      "none": 0.0,
+      "react-component-testing": 0.0,
+      "readme-documentation": 0.0
+    }
   },
   "add an S3 bucket to our terraform": {
     "offered": [
       "terraform-infrastructure"
     ],
-    "choice": "terraform-infrastructure"
+    "choice": "terraform-infrastructure",
+    "probabilities": {
+      "none": 0.0,
+      "terraform-infrastructure": 1.0
+    }
   },
   "are any of our dependencies vulnerable?": {
     "offered": [
       "dependency-security-audit",
       "node-dependency-upgrade"
     ],
-    "choice": "dependency-security-audit"
+    "choice": "dependency-security-audit",
+    "probabilities": {
+      "dependency-security-audit": 1.0,
+      "node-dependency-upgrade": 0.0,
+      "none": 0.0
+    }
   },
   "audit the package-lock for security issues": {
     "offered": [
       "dependency-security-audit",
       "frontend-accessibility-audit"
     ],
-    "choice": "dependency-security-audit"
+    "choice": "dependency-security-audit",
+    "probabilities": {
+      "dependency-security-audit": 1.0,
+      "frontend-accessibility-audit": 0.0,
+      "none": 0.0
+    }
   },
   "build a pivot table of sales by region in this spreadsheet": {
     "offered": [
       "docker-image-build",
       "spreadsheet-analysis"
     ],
-    "choice": "spreadsheet-analysis"
+    "choice": "spreadsheet-analysis",
+    "probabilities": {
+      "docker-image-build": 0.0,
+      "none": 0.0,
+      "spreadsheet-analysis": 1.0
+    }
   },
   "cargo clippy fails with warnings, fix them": {
     "offered": [
@@ -74,14 +127,25 @@
       "node-dependency-upgrade",
       "rust-clippy-lints"
     ],
-    "choice": "rust-clippy-lints"
+    "choice": "rust-clippy-lints",
+    "probabilities": {
+      "github-actions-ci-debugging": 0.0,
+      "node-dependency-upgrade": 0.0,
+      "none": 0.0,
+      "rust-clippy-lints": 1.0
+    }
   },
   "check the page for accessibility contrast issues": {
     "offered": [
       "frontend-accessibility-audit",
       "github-pr-merge"
     ],
-    "choice": "frontend-accessibility-audit"
+    "choice": "frontend-accessibility-audit",
+    "probabilities": {
+      "frontend-accessibility-audit": 1.0,
+      "github-pr-merge": 0.0,
+      "none": 0.0
+    }
   },
   "checks are green, merge the PR": {
     "offered": [
@@ -89,26 +153,45 @@
       "github-pr-merge",
       "github-pr-review"
     ],
-    "choice": "github-pr-merge"
+    "choice": "github-pr-merge",
+    "probabilities": {
+      "git-rebase-conflicts": 0.0,
+      "github-pr-merge": 1.0,
+      "github-pr-review": 0.0,
+      "none": 0.0
+    }
   },
   "containerize this app with a Dockerfile": {
     "offered": [
       "docker-image-build"
     ],
-    "choice": "docker-image-build"
+    "choice": "docker-image-build",
+    "probabilities": {
+      "docker-image-build": 1.0,
+      "none": 0.0
+    }
   },
   "cool, the spreadsheet numbers match now": {
     "offered": [
       "spreadsheet-analysis"
     ],
-    "choice": "none"
+    "choice": "none",
+    "probabilities": {
+      "none": 0.9,
+      "spreadsheet-analysis": 0.1
+    }
   },
   "design the endpoints for our orders API": {
     "offered": [
       "rest-api-design",
       "secrets-rotation"
     ],
-    "choice": "rest-api-design"
+    "choice": "rest-api-design",
+    "probabilities": {
+      "none": 0.0,
+      "rest-api-design": 1.0,
+      "secrets-rotation": 0.0
+    }
   },
   "explain how python generators work": {
     "offered": [
@@ -116,13 +199,23 @@
       "python-debugging",
       "sql-query-optimization"
     ],
-    "choice": "none"
+    "choice": "none",
+    "probabilities": {
+      "git-commit-messages": 0.0,
+      "none": 1.0,
+      "python-debugging": 0.0,
+      "sql-query-optimization": 0.0
+    }
   },
   "fill out and sign this PDF form": {
     "offered": [
       "pdf-form-filling"
     ],
-    "choice": "pdf-form-filling"
+    "choice": "pdf-form-filling",
+    "probabilities": {
+      "none": 0.0,
+      "pdf-form-filling": 1.0
+    }
   },
   "find me a cheap flight to tokyo next month": {
     "offered": [
@@ -131,7 +224,14 @@
       "log-investigation",
       "performance-profiling"
     ],
-    "choice": "flight-search"
+    "choice": "flight-search",
+    "probabilities": {
+      "calendar-scheduling": 0.0,
+      "flight-search": 1.0,
+      "log-investigation": 0.0,
+      "none": 0.0,
+      "performance-profiling": 0.0
+    }
   },
   "find why production returned 500 errors last night in the logs": {
     "offered": [
@@ -140,19 +240,34 @@
       "performance-profiling",
       "rest-api-design"
     ],
-    "choice": "log-investigation"
+    "choice": "log-investigation",
+    "probabilities": {
+      "calendar-scheduling": 0.0,
+      "log-investigation": 1.0,
+      "none": 0.0,
+      "performance-profiling": 0.0,
+      "rest-api-design": 0.0
+    }
   },
   "go through my unread emails and sort them": {
     "offered": [
       "email-inbox-triage"
     ],
-    "choice": "email-inbox-triage"
+    "choice": "email-inbox-triage",
+    "probabilities": {
+      "email-inbox-triage": 1.0,
+      "none": 0.0
+    }
   },
   "lol the CI is finally green": {
     "offered": [
       "github-actions-ci-debugging"
     ],
-    "choice": "none"
+    "choice": "none",
+    "probabilities": {
+      "github-actions-ci-debugging": 0.0,
+      "none": 1.0
+    }
   },
   "make me a slide deck about Q3 results": {
     "offered": [
@@ -160,19 +275,33 @@
       "rust-clippy-lints",
       "slide-deck-creation"
     ],
-    "choice": "slide-deck-creation"
+    "choice": "slide-deck-creation",
+    "probabilities": {
+      "none": 0.0,
+      "python-debugging": 0.0,
+      "rust-clippy-lints": 0.0,
+      "slide-deck-creation": 1.0
+    }
   },
   "my branch has conflicts after main moved, rebase it": {
     "offered": [
       "git-rebase-conflicts"
     ],
-    "choice": "git-rebase-conflicts"
+    "choice": "git-rebase-conflicts",
+    "probabilities": {
+      "git-rebase-conflicts": 1.0,
+      "none": 0.0
+    }
   },
   "my flight got delayed so I'll be late to standup": {
     "offered": [
       "flight-search"
     ],
-    "choice": "none"
+    "choice": "none",
+    "probabilities": {
+      "flight-search": 0.0,
+      "none": 1.0
+    }
   },
   "my python script throws a KeyError, find out why": {
     "offered": [
@@ -181,20 +310,36 @@
       "performance-profiling",
       "python-debugging"
     ],
-    "choice": "python-debugging"
+    "choice": "python-debugging",
+    "probabilities": {
+      "calendar-scheduling": 0.0,
+      "log-investigation": 0.0,
+      "none": 0.0,
+      "performance-profiling": 0.0,
+      "python-debugging": 1.0
+    }
   },
   "ok the deploy is done, thanks": {
     "offered": [
       "kubernetes-deploy"
     ],
-    "choice": "none"
+    "choice": "none",
+    "probabilities": {
+      "kubernetes-deploy": 0.01,
+      "none": 0.99
+    }
   },
   "review this pull request and leave comments": {
     "offered": [
       "github-pr-merge",
       "github-pr-review"
     ],
-    "choice": "github-pr-review"
+    "choice": "github-pr-review",
+    "probabilities": {
+      "github-pr-merge": 0.0,
+      "github-pr-review": 1.0,
+      "none": 0.0
+    }
   },
   "rewrite our README so new users get started faster": {
     "offered": [
@@ -202,19 +347,33 @@
       "readme-documentation",
       "release-notes-writing"
     ],
-    "choice": "readme-documentation"
+    "choice": "readme-documentation",
+    "probabilities": {
+      "none": 0.0,
+      "react-component-testing": 0.0,
+      "readme-documentation": 1.0,
+      "release-notes-writing": 0.0
+    }
   },
   "roll back the last deployment on the cluster": {
     "offered": [
       "kubernetes-deploy"
     ],
-    "choice": "kubernetes-deploy"
+    "choice": "kubernetes-deploy",
+    "probabilities": {
+      "kubernetes-deploy": 1.0,
+      "none": 0.0
+    }
   },
   "schedule a meeting with the team next week": {
     "offered": [
       "calendar-scheduling"
     ],
-    "choice": "calendar-scheduling"
+    "choice": "calendar-scheduling",
+    "probabilities": {
+      "calendar-scheduling": 1.0,
+      "none": 0.0
+    }
   },
   "test the login form component with user interactions": {
     "offered": [
@@ -223,20 +382,36 @@
       "readme-documentation",
       "unit-test-writing"
     ],
-    "choice": "react-component-testing"
+    "choice": "react-component-testing",
+    "probabilities": {
+      "none": 0.01,
+      "pdf-form-filling": 0.0,
+      "react-component-testing": 0.99,
+      "readme-documentation": 0.0,
+      "unit-test-writing": 0.0
+    }
   },
   "thanks, that works": {
     "offered": [
       "git-commit-messages"
     ],
-    "choice": "none"
+    "choice": "none",
+    "probabilities": {
+      "git-commit-messages": 0.0,
+      "none": 1.0
+    }
   },
   "thanks, the merge went through fine": {
     "offered": [
       "git-rebase-conflicts",
       "github-pr-merge"
     ],
-    "choice": "none"
+    "choice": "none",
+    "probabilities": {
+      "git-rebase-conflicts": 0.0,
+      "github-pr-merge": 0.03,
+      "none": 0.97
+    }
   },
   "the CI workflow keeps failing on the test job": {
     "offered": [
@@ -244,7 +419,13 @@
       "react-component-testing",
       "unit-test-writing"
     ],
-    "choice": "github-actions-ci-debugging"
+    "choice": "github-actions-ci-debugging",
+    "probabilities": {
+      "github-actions-ci-debugging": 1.0,
+      "none": 0.0,
+      "react-component-testing": 0.0,
+      "unit-test-writing": 0.0
+    }
   },
   "the pull request has merge conflicts with main": {
     "offered": [
@@ -252,7 +433,13 @@
       "github-pr-merge",
       "github-pr-review"
     ],
-    "choice": "git-rebase-conflicts"
+    "choice": "git-rebase-conflicts",
+    "probabilities": {
+      "git-rebase-conflicts": 1.0,
+      "github-pr-merge": 0.0,
+      "github-pr-review": 0.0,
+      "none": 0.0
+    }
   },
   "the service is slow, profile it": {
     "offered": [
@@ -260,7 +447,13 @@
       "performance-profiling",
       "sql-query-optimization"
     ],
-    "choice": "performance-profiling"
+    "choice": "performance-profiling",
+    "probabilities": {
+      "kubernetes-deploy": 0.0,
+      "none": 0.0,
+      "performance-profiling": 1.0,
+      "sql-query-optimization": 0.0
+    }
   },
   "the slides looked great in the meeting, nice work": {
     "offered": [
@@ -268,14 +461,25 @@
       "git-commit-messages",
       "slide-deck-creation"
     ],
-    "choice": "none"
+    "choice": "none",
+    "probabilities": {
+      "calendar-scheduling": 0.0,
+      "git-commit-messages": 0.0,
+      "none": 0.97,
+      "slide-deck-creation": 0.03
+    }
   },
   "this query takes 30 seconds, make it faster": {
     "offered": [
       "rust-clippy-lints",
       "sql-query-optimization"
     ],
-    "choice": "sql-query-optimization"
+    "choice": "sql-query-optimization",
+    "probabilities": {
+      "none": 0.29,
+      "rust-clippy-lints": 0.0,
+      "sql-query-optimization": 0.71
+    }
   },
   "upgrade react and the other npm packages to latest": {
     "offered": [
@@ -283,7 +487,13 @@
       "node-dependency-upgrade",
       "react-component-testing"
     ],
-    "choice": "node-dependency-upgrade"
+    "choice": "node-dependency-upgrade",
+    "probabilities": {
+      "dependency-security-audit": 0.0,
+      "node-dependency-upgrade": 1.0,
+      "none": 0.0,
+      "react-component-testing": 0.0
+    }
   },
   "write a good commit message for these staged changes": {
     "offered": [
@@ -296,7 +506,18 @@
       "terraform-infrastructure",
       "unit-test-writing"
     ],
-    "choice": "git-commit-messages"
+    "choice": "git-commit-messages",
+    "probabilities": {
+      "database-migrations": 0.0,
+      "docker-image-build": 0.0,
+      "git-commit-messages": 1.0,
+      "node-dependency-upgrade": 0.0,
+      "none": 0.0,
+      "readme-documentation": 0.0,
+      "release-notes-writing": 0.0,
+      "terraform-infrastructure": 0.0,
+      "unit-test-writing": 0.0
+    }
   },
   "write a haiku about autumn leaves": {
     "offered": [
@@ -308,7 +529,17 @@
       "release-notes-writing",
       "unit-test-writing"
     ],
-    "choice": "none"
+    "choice": "none",
+    "probabilities": {
+      "database-migrations": 0.0,
+      "docker-image-build": 0.0,
+      "git-commit-messages": 0.0,
+      "github-pr-review": 0.0,
+      "none": 1.0,
+      "readme-documentation": 0.0,
+      "release-notes-writing": 0.0,
+      "unit-test-writing": 0.0
+    }
   },
   "write release notes for version 2.0": {
     "offered": [
@@ -319,7 +550,16 @@
       "release-notes-writing",
       "unit-test-writing"
     ],
-    "choice": "release-notes-writing"
+    "choice": "release-notes-writing",
+    "probabilities": {
+      "database-migrations": 0.0,
+      "docker-image-build": 0.0,
+      "git-commit-messages": 0.0,
+      "none": 0.0,
+      "readme-documentation": 0.0,
+      "release-notes-writing": 1.0,
+      "unit-test-writing": 0.0
+    }
   },
   "write the tests first then implement the parser": {
     "offered": [
@@ -331,6 +571,16 @@
       "release-notes-writing",
       "unit-test-writing"
     ],
-    "choice": "unit-test-writing"
+    "choice": "unit-test-writing",
+    "probabilities": {
+      "database-migrations": 0.0,
+      "docker-image-build": 0.0,
+      "git-commit-messages": 0.0,
+      "none": 0.0,
+      "react-component-testing": 0.0,
+      "readme-documentation": 0.0,
+      "release-notes-writing": 0.0,
+      "unit-test-writing": 1.0
+    }
   }
 }
