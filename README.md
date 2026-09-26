@@ -70,8 +70,8 @@ brew install tupe12334/tap/holstered
 cargo install --git https://github.com/tupe12334/holstered
 ```
 
-Then [choose a decision model](#choose-a-decision-model) and register
-holstered as the prompt hook of each agent you use.
+Then [choose a decision model](#choose-a-decision-model) and add holstered to
+each agent you use:
 
 **Claude Code** — install the plugin (send the two commands as separate prompts):
 ```
