@@ -977,16 +977,18 @@ checksum = "a89322df9ebe1c1578d689c92318e070967d1042b512afbe49518723f4e6d5cd"
 
 [[package]]
 name = "polyhook"
-version = "0.1.0"
-source = "git+https://github.com/polyhook/polyhook?branch=feat%2Fcodex-caller#669ff35b0884a32e8d7f6be07a4c4ae8eab1fb02"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7bbb8b8b9cdd11d307370f75a28af4c03c1b1a32ee9d0fbdc5b5816578f88e58"
 dependencies = [
  "polyhook-core",
 ]
 
 [[package]]
 name = "polyhook-core"
-version = "0.1.0"
-source = "git+https://github.com/polyhook/polyhook?branch=feat%2Fcodex-caller#669ff35b0884a32e8d7f6be07a4c4ae8eab1fb02"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bde781b393413cb881595a4d878bdb46305fd40c09bad07ee71a4fd89612df23"
 dependencies = [
  "prettyplease",
  "proc-macro2",
