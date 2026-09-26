@@ -120,7 +120,7 @@ ln -s "$(command -v holstered)" ~/Documents/Cline/Hooks/UserPromptSubmit
 |---|---|---|
 | 设置 | `OPENROUTER_API_KEY` | `HOLSTERED_KEV_URL` |
 | 运行方式 | OpenRouter Decisions API | 你本机上的 [Kev](https://github.com/jaredpalmer/kev) 服务 |
-| 隐私 | 提示词（前 2,000 个字符）和候选技能描述会发送到 OpenRouter | 数据不离开本机 |
+| 隐私 | 提示词（前 500 个和后 1,500 个字符）和候选技能描述会发送到 OpenRouter | 数据不离开本机 |
 | 每条提示词延迟 | 约 1 秒 | 在 Apple Silicon Mac 上约 1.7–3.5 秒 |
 | 在上述测试集上的准确率 | 29/32 | 26/32 |
 
