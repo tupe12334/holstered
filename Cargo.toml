@@ -5,6 +5,11 @@ edition = "2021"
 description = "Hands your coding agent the right skill for each prompt: BM25 recall + the Jev decision model, over polyhook"
 license = "MIT"
 repository = "https://github.com/tupe12334/holstered"
+homepage = "https://github.com/tupe12334/holstered"
+readme = "README.md"
+keywords = ["claude-code", "codex", "agent", "skills", "hooks"]
+categories = ["command-line-utilities", "development-tools"]
+exclude = [".github/", "linecheck.yml"]
 
 [dependencies]
 bm25 = "2.3.2"
