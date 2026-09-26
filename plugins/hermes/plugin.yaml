@@ -1,0 +1,5 @@
+name: holstered
+description: Hands your coding agent the right skill for each prompt. Runs the holstered binary before each LLM turn.
+author: tupe12334
+provides_hooks:
+  - pre_llm_call
