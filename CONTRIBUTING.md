@@ -39,7 +39,8 @@ checks live in that workflow.
 npm gets `holstered` plus one `@holstered/holstered-<os>-<cpu>` package per
 target in `[package.metadata.npm]`, which `holstered` lists as
 `optionalDependencies`; [cargo-npm](https://github.com/abemedia/cargo-npm)
-generates and publishes them. The `NPM_TOKEN` secret authenticates the first
-publish, since npm can only trust a workflow for packages that already exist.
-After that, add a trusted publisher (`release.yml`) for each of the six
-packages on npmjs.com and delete the secret.
+generates and publishes them. Every package trusts `release.yml` (npm trusted
+publishing), so the job authenticates over OIDC with no token. npm can only
+trust a package that exists: a new target's package needs one publish with a
+short-lived token, then `npm trust github <package> --file release.yml
+--allow-publish` (npm >= 11.10), then revoke the token.
