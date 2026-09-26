@@ -6,32 +6,14 @@
 
 Fastest draw in the terminal: one skill, or none, in about a second.
 
-**Without holstered**, a deck request meets one line among 581 in the agent's
-skill list, and the agent may never open it:
+You type **"make me a 5 slide deck about our Q3 results"**:
 
-```
-- productivity-powerpoint: Create, read, edit .pptx decks with python-pptx.
-```
+| | Without holstered | With holstered |
+|---|---|---|
+| What the agent knows about your PowerPoint skill | One line, lost among 581 others | The full skill, loaded before it starts |
+| What happens next | It may write the deck from scratch and ignore your skill | It follows your skill's instructions |
 
-**With holstered**, the whole skill is in context before the agent starts:
-
-```
-> make me a 5 slide deck about our Q3 results
-
-SKILL SELECTED by holstered: powerpoint (~/.claude/skills/productivity-powerpoint/SKILL.md). Follow it for this task.
----
-name: powerpoint
-description: Create, read, edit .pptx decks with python-pptx.
-...
-```
-
-**Nothing fits? It stays holstered:**
-
-```
-> thanks, that fixed it
-
-{}   ← no skill injected, prompt passes through untouched
-```
+You type **"thanks, that fixed it"**: no skill fits, so holstered adds nothing.
 
 Agents with hundreds of skills see only their names, so the one that fits the
 task often goes unused. holstered is a prompt hook: on every user prompt it
