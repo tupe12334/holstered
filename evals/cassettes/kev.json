@@ -1,0 +1,271 @@
+{
+  "I accidentally committed an API key, rotate it": {
+    "offered": [
+      "git-commit-messages",
+      "rest-api-design",
+      "secrets-rotation"
+    ],
+    "choice": "secrets-rotation"
+  },
+  "add a column to the users table with a migration": {
+    "offered": [
+      "database-migrations",
+      "react-component-testing",
+      "readme-documentation"
+    ],
+    "choice": "database-migrations"
+  },
+  "add an S3 bucket to our terraform": {
+    "offered": [
+      "terraform-infrastructure"
+    ],
+    "choice": "terraform-infrastructure"
+  },
+  "are any of our dependencies vulnerable?": {
+    "offered": [
+      "dependency-security-audit",
+      "node-dependency-upgrade"
+    ],
+    "choice": "dependency-security-audit"
+  },
+  "audit the package-lock for security issues": {
+    "offered": [
+      "dependency-security-audit",
+      "frontend-accessibility-audit"
+    ],
+    "choice": "dependency-security-audit"
+  },
+  "build a pivot table of sales by region in this spreadsheet": {
+    "offered": [
+      "docker-image-build",
+      "spreadsheet-analysis"
+    ],
+    "choice": "spreadsheet-analysis"
+  },
+  "cargo clippy fails with warnings, fix them": {
+    "offered": [
+      "github-actions-ci-debugging",
+      "node-dependency-upgrade",
+      "rust-clippy-lints"
+    ],
+    "choice": "rust-clippy-lints"
+  },
+  "check the page for accessibility contrast issues": {
+    "offered": [
+      "frontend-accessibility-audit",
+      "github-pr-merge"
+    ],
+    "choice": "frontend-accessibility-audit"
+  },
+  "checks are green, merge the PR": {
+    "offered": [
+      "git-rebase-conflicts",
+      "github-pr-merge",
+      "github-pr-review"
+    ],
+    "choice": "github-pr-merge"
+  },
+  "containerize this app with a Dockerfile": {
+    "offered": [
+      "docker-image-build"
+    ],
+    "choice": "docker-image-build"
+  },
+  "design the endpoints for our orders API": {
+    "offered": [
+      "rest-api-design",
+      "secrets-rotation"
+    ],
+    "choice": "rest-api-design"
+  },
+  "explain how python generators work": {
+    "offered": [
+      "git-commit-messages",
+      "python-debugging",
+      "sql-query-optimization"
+    ],
+    "choice": "none"
+  },
+  "fill out and sign this PDF form": {
+    "offered": [
+      "pdf-form-filling"
+    ],
+    "choice": "pdf-form-filling"
+  },
+  "find me a cheap flight to tokyo next month": {
+    "offered": [
+      "calendar-scheduling",
+      "flight-search",
+      "log-investigation",
+      "performance-profiling"
+    ],
+    "choice": "flight-search"
+  },
+  "find why production returned 500 errors last night in the logs": {
+    "offered": [
+      "calendar-scheduling",
+      "log-investigation",
+      "performance-profiling",
+      "rest-api-design"
+    ],
+    "choice": "log-investigation"
+  },
+  "go through my unread emails and sort them": {
+    "offered": [
+      "email-inbox-triage"
+    ],
+    "choice": "email-inbox-triage"
+  },
+  "make me a slide deck about Q3 results": {
+    "offered": [
+      "python-debugging",
+      "rust-clippy-lints",
+      "slide-deck-creation"
+    ],
+    "choice": "slide-deck-creation"
+  },
+  "my branch has conflicts after main moved, rebase it": {
+    "offered": [
+      "git-rebase-conflicts"
+    ],
+    "choice": "git-rebase-conflicts"
+  },
+  "my python script throws a KeyError, find out why": {
+    "offered": [
+      "calendar-scheduling",
+      "log-investigation",
+      "performance-profiling",
+      "python-debugging"
+    ],
+    "choice": "python-debugging"
+  },
+  "review this pull request and leave comments": {
+    "offered": [
+      "github-pr-merge",
+      "github-pr-review"
+    ],
+    "choice": "github-pr-review"
+  },
+  "rewrite our README so new users get started faster": {
+    "offered": [
+      "react-component-testing",
+      "readme-documentation",
+      "release-notes-writing"
+    ],
+    "choice": "readme-documentation"
+  },
+  "roll back the last deployment on the cluster": {
+    "offered": [
+      "kubernetes-deploy"
+    ],
+    "choice": "kubernetes-deploy"
+  },
+  "schedule a meeting with the team next week": {
+    "offered": [
+      "calendar-scheduling"
+    ],
+    "choice": "calendar-scheduling"
+  },
+  "test the login form component with user interactions": {
+    "offered": [
+      "pdf-form-filling",
+      "react-component-testing",
+      "readme-documentation",
+      "unit-test-writing"
+    ],
+    "choice": "react-component-testing"
+  },
+  "thanks, that works": {
+    "offered": [
+      "git-commit-messages"
+    ],
+    "choice": "none"
+  },
+  "the CI workflow keeps failing on the test job": {
+    "offered": [
+      "github-actions-ci-debugging",
+      "react-component-testing",
+      "unit-test-writing"
+    ],
+    "choice": "github-actions-ci-debugging"
+  },
+  "the pull request has merge conflicts with main": {
+    "offered": [
+      "git-rebase-conflicts",
+      "github-pr-merge",
+      "github-pr-review"
+    ],
+    "choice": "git-rebase-conflicts"
+  },
+  "the service is slow, profile it": {
+    "offered": [
+      "kubernetes-deploy",
+      "performance-profiling",
+      "sql-query-optimization"
+    ],
+    "choice": "performance-profiling"
+  },
+  "this query takes 30 seconds, make it faster": {
+    "offered": [
+      "rust-clippy-lints",
+      "sql-query-optimization"
+    ],
+    "choice": "none"
+  },
+  "upgrade react and the other npm packages to latest": {
+    "offered": [
+      "dependency-security-audit",
+      "node-dependency-upgrade",
+      "react-component-testing"
+    ],
+    "choice": "node-dependency-upgrade"
+  },
+  "write a good commit message for these staged changes": {
+    "offered": [
+      "database-migrations",
+      "docker-image-build",
+      "git-commit-messages",
+      "node-dependency-upgrade",
+      "readme-documentation",
+      "release-notes-writing",
+      "terraform-infrastructure",
+      "unit-test-writing"
+    ],
+    "choice": "git-commit-messages"
+  },
+  "write a haiku about autumn leaves": {
+    "offered": [
+      "database-migrations",
+      "docker-image-build",
+      "git-commit-messages",
+      "github-pr-review",
+      "readme-documentation",
+      "release-notes-writing",
+      "unit-test-writing"
+    ],
+    "choice": "none"
+  },
+  "write release notes for version 2.0": {
+    "offered": [
+      "database-migrations",
+      "docker-image-build",
+      "git-commit-messages",
+      "readme-documentation",
+      "release-notes-writing",
+      "unit-test-writing"
+    ],
+    "choice": "release-notes-writing"
+  },
+  "write the tests first then implement the parser": {
+    "offered": [
+      "database-migrations",
+      "docker-image-build",
+      "git-commit-messages",
+      "react-component-testing",
+      "readme-documentation",
+      "release-notes-writing",
+      "unit-test-writing"
+    ],
+    "choice": "unit-test-writing"
+  }
+}

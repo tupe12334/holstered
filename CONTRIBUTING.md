@@ -19,6 +19,10 @@ linecheck .                                  # .rs files max 50 lines (linecheck
 The end-to-end tests run against a mock Jev server, so no
 `OPENROUTER_API_KEY` is needed.
 
+`cargo test` also runs the skill-selection eval, which replays recorded model
+decisions over a mocked skill library. After changing retrieval, the request,
+or the model, re-record it as described in [evals/README.md](evals/README.md).
+
 ## Releasing
 
 Bump `version` in `Cargo.toml` through a PR, then tag the merge commit on
