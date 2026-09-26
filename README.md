@@ -47,6 +47,9 @@ guarantee.
 
 ## Supported agents
 
+Agent support comes from polyhook; see its [Supported Tools](https://github.com/polyhook/polyhook#supported-tools)
+for the full list and which agents can take context injection.
+
 | Agent | Hook | Injection |
 |---|---|---|
 | Claude Code | `UserPromptSubmit` | ✅ |
