@@ -23,6 +23,10 @@ The end-to-end tests run against a mock Jev server, so no
 decisions over a mocked skill library. After changing retrieval, the request,
 or the model, re-record it as described in [evals/README.md](evals/README.md).
 
+## Docs
+
+`README.zh-CN.md` translates `README.md`; update both in the same PR.
+
 ## Releasing
 
 Bump `version` in `Cargo.toml` and `gemini-extension.json` through a PR, then tag the merge commit on
