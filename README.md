@@ -28,7 +28,7 @@ user prompt ─▶ agent prompt hook ─▶ holstered
 
 Nothing is injected, and the prompt goes through untouched, when the decision
 model answers `none`, names a skill it was not offered, fails or times out
-(8s), or none is configured. holstered never blocks a prompt.
+(8s by default), or none is configured. holstered never blocks a prompt.
 
 ### Why BM25 + a decision model
 
@@ -123,33 +123,12 @@ Kev wins.
 | Latency per prompt | ~1s | ~1.7–3.5s on an Apple Silicon Mac |
 | Accuracy on the set above | 29/32 | 26/32 |
 
-**Jev**
-
-```bash
-export OPENROUTER_API_KEY=sk-or-...
-```
-
-**Kev**
-
-```bash
-git clone https://github.com/jaredpalmer/kev && cd kev
-uv run --extra serve python -m kev.serve --run jaredpalmer/kev-4b --port 8009
-export HOLSTERED_KEV_URL=http://localhost:8009/v1/systemone
-```
-
-Kev's first request after start loads the model and can outrun the 8s timeout;
-that prompt just goes through untouched.
+Kev setup and first-request timeout: [CONFIGURATION.md](CONFIGURATION.md#local-model-kev).
 
 ## Configuration
 
-| Variable | Default | Purpose |
-|---|---|---|
-| `OPENROUTER_API_KEY` | — | Required for Jev. Read from the environment only; never logged. |
-| `HOLSTERED_SKILLS_DIRS` | `~/.claude/skills`, `~/.codex/skills`, `~/.agents/skills`, `~/.gemini/skills`, `~/.hermes/skills` | PATH-style list of skill roots. Any `SKILL.md` with a `description` in its frontmatter counts, up to 4 levels deep. |
-| `HOLSTERED_JEV_URL` | `https://openrouter.ai/api/alpha/decisions` | Decisions endpoint. |
-| `HOLSTERED_KEV_URL` | — | Local Kev server, e.g. `http://localhost:8009/v1/systemone`. No key needed; takes precedence over Jev. |
-
-The request names `~typesafe/jev-latest` on Jev and `kev-latest` on Kev.
+Environment variables, the data sent to OpenRouter, and running fully offline
+with a local Kev model: see [CONFIGURATION.md](CONFIGURATION.md).
 
 ## Contributing
 

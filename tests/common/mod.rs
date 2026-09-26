@@ -10,6 +10,7 @@ mod run;
 pub use agents::agent_cases;
 pub use backend::{run, run_kev};
 pub use fixtures::skills_dir;
+pub use run::exec;
 
 use mockito::{Mock, ServerGuard};
 use serde_json::{json, Value};
