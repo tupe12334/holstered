@@ -1,6 +1,6 @@
 use super::SKILL_BODY;
 
-/// Three skills: two GitHub PR skills BM25 should shortlist, one unrelated.
+/// Three skills: two GitHub PR skills, one unrelated.
 pub fn skills_dir() -> tempfile::TempDir {
     let dir = tempfile::tempdir().unwrap();
     for (name, desc, body) in [

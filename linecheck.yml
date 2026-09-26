@@ -8,3 +8,5 @@ rules:
 exclude:
   - "Cargo.lock"
   - "target/**"
+  # Recorded by the eval (evals/README.md), not written by hand.
+  - "evals/cassettes/**"

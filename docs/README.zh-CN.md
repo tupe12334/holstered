@@ -9,7 +9,7 @@
 <sub><a href="../README.md">English</a> &middot; 简体中文</sub>
 
 装了几百个技能的智能体只能看到技能名称，真正对口的那个往往用不上。holstered
-是一个提示词钩子（prompt hook）：每收到一条用户提示词，它先用 BM25 筛出候选技能，
+是一个提示词钩子（prompt hook）：每收到一条用户提示词，它先用关键词（BM25）和语义（内置于二进制的小型向量模型）筛出候选技能，
 再让决策模型从中选出一个（或者一个都不选），然后把该技能的 `SKILL.md`
 注入到模型本轮的上下文中。设置[候选阈值](../CONFIGURATION.md)后，涉及多个任务的
 提示词还会一并注入概率超过阈值的候选技能。
@@ -24,7 +24,7 @@ https://github.com/user-attachments/assets/b6de382b-8ca3-4fe0-9baa-0039342dd3b0
 
 ## 工作原理
 
-<p align="center"><img src="../assets/flow.svg" alt="用户提示词 → 智能体提示词钩子 → holstered：polyhook 读取提示词，BM25 筛出前 20 个技能，Jev 或 Kev 选出一个或不选，设置候选阈值时外加最多 2 个超过该阈值的候选技能，polyhook 注入它们的 SKILL.md → 模型在本轮看到这些技能。若模型回答 none、给出未提供的技能、出错或超时，则不注入任何内容，提示词原样通过。" width="560"></p>
+<p align="center"><img src="../assets/flow.svg" alt="用户提示词 → 智能体提示词钩子 → holstered：polyhook 读取提示词，BM25 与向量检索筛出前 20 个技能，Jev 或 Kev 选出一个或不选，设置候选阈值时外加最多 2 个超过该阈值的候选技能，polyhook 注入它们的 SKILL.md → 模型在本轮看到这些技能。若模型回答 none、给出未提供的技能、出错或超时，则不注入任何内容，提示词原样通过。" width="560"></p>
 
 以下情况不会注入任何内容，提示词原样通过：决策模型回答 `none`、给出了不在候选列表中的技能、
 调用失败或超时（默认 8 秒），或者没有配置任何决策模型。holstered 永远不会阻断提示词。
@@ -43,6 +43,12 @@ holstered 这几行是发布版二进制端到端运行的结果：对接线上 
 以及在 Apple Silicon Mac 上运行的本地 Kev-4B（中位数 1.7 秒）。三次失误中有一次是：
 对一条制作幻灯片的提示词选了 `pptx` 技能，而标注只认可另一个技能。样本少、仅一人标注：
 请把它看作方向参考，而非保证。
+
+仅靠关键词，会漏掉与技能没有共同词语的提示词：“what can I cook with eggs, rice and spinach?”
+从未匹配到“Plan meals and recipes from ingredients on hand”。因此候选列表还会按语义排序：
+使用内置的 [potion-base-4M](https://huggingface.co/minishlab/potion-base-4M) 静态向量（离线运行，
+每条提示词约 0.1 秒），再将两种排序融合。在仓库的[评测](../evals/README.md)中，Jev 和 Kev
+的所有标注技能现在都能进入候选列表。
 
 ## 支持的智能体
 

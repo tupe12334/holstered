@@ -22,10 +22,11 @@ fn valid_pick_injects_the_skill_into_claude_code() {
                 .as_object()
                 .unwrap()
                 .clone();
-            // BM25 shortlists the PR skills and drops the unrelated one.
+            // The PR skills are shortlisted; the pool of 20 holds all three
+            // fixture skills, so dropping "cooking" is left to Jev.
             criteria.contains_key("none")
                 && criteria.contains_key("github-pr-merge")
-                && !criteria.contains_key("cooking")
+                && criteria.contains_key("github-pr-review")
         })
         .with_body(picks("github-pr-merge"))
         .create();

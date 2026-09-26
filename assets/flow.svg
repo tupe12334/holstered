@@ -57,8 +57,8 @@
 
   <rect class="step" x="40" y="266" width="360" height="52" rx="8"/>
   <text class="n" x="56" y="288">2</text>
-  <text class="t" x="76" y="288">BM25 over name + description</text>
-  <text class="s" x="76" y="306">shortlist top 20 skills</text>
+  <text class="t" x="76" y="288">BM25 + embeddings, fused</text>
+  <text class="s" x="76" y="306">keyword and meaning → top 20 skills</text>
   <path class="a" d="M220 318V332" marker-end="url(#ah)"/>
 
   <rect class="step" x="40" y="334" width="360" height="52" rx="8"/>
