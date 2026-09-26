@@ -77,6 +77,9 @@ for the full list and which agents can take context injection.
 Pick one:
 
 ```bash
+# npm (prebuilt binary, no Rust toolchain)
+npm install -g holstered
+
 # crates.io
 cargo install holstered
 
