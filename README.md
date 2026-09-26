@@ -6,6 +6,8 @@
 
 Fastest draw in the terminal: one skill, or none, in about a second.
 
+<sub>English &middot; <a href="docs/README.zh-CN.md">简体中文</a></sub>
+
 You type **"make me a 5 slide deck about our Q3 results"**:
 
 | | Without holstered | With holstered |
@@ -79,8 +81,8 @@ brew install tupe12334/tap/holstered
 cargo install --git https://github.com/tupe12334/holstered
 ```
 
-Then [choose a decision model](#choose-a-decision-model) and register
-holstered as the prompt hook of each agent you use.
+Then [choose a decision model](#choose-a-decision-model) and add holstered to
+each agent you use:
 
 **Claude Code** — install the plugin (send the two commands as separate prompts):
 ```
