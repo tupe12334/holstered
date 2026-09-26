@@ -11,9 +11,20 @@ mod jev;
 mod select;
 mod skills;
 
+use clap::Parser;
 use polyhook::HookResponse;
 
+// Only flags are parsed; the hook payload always arrives on stdin.
+#[derive(Parser)]
+#[command(version, about, disable_version_flag = true)]
+struct Cli {
+    /// Print version
+    #[arg(short = 'v', long, action = clap::ArgAction::Version)]
+    version: Option<bool>,
+}
+
 fn main() {
+    Cli::parse();
     // A prompt hook must never block the user: unreadable input means no-op.
     let Ok(event) = polyhook::read() else {
         return;
