@@ -108,13 +108,6 @@ The model is `~typesafe/jev-latest`. When the key is set, the prompt (first
 2,000 characters) and the shortlisted skill descriptions are sent to
 OpenRouter. Each prompt with a shortlist takes about 0.7–1s longer.
 
-## Releasing
-
-Bump `version` in `Cargo.toml` through a PR, then tag the merged commit on
-`main` and push the tag (for example `v0.2.0`). `release.yml` publishes to
-crates.io only when the tag is on `main` and matches `Cargo.toml`, after fmt,
-clippy and tests pass. It uses the `CARGO_REGISTRY_TOKEN` repository secret.
-
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
