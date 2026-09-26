@@ -4,3 +4,7 @@ rules:
   - pattern: "**/*.rs"
     error: 50
     error_message: "File exceeds 50 lines — split it up"
+
+exclude:
+  - "Cargo.lock"
+  - "target/**"
