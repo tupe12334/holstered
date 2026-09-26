@@ -85,10 +85,6 @@ holstered as the prompt hook of each agent you use.
 ```bash
 gemini extensions install https://github.com/tupe12334/holstered
 ```
-Or register the hook by hand in `~/.gemini/settings.json` (not both, or it runs twice):
-```json
-{ "hooks": { "BeforeAgent": [ { "hooks": [ { "type": "command", "command": "holstered" } ] } ] } }
-```
 
 **Hermes Agent** — `~/.hermes/config.yaml` (approve it on first run, or set `hooks_auto_accept`)
 ```yaml
