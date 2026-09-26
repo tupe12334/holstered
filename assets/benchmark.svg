@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 330" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title>Skill-pick accuracy by pipeline</title>
+  <style>
+    .bg { fill: #ffffff; }
+    .t { fill: #1f2328; font-size: 14px; }
+    .b { font-weight: 700; }
+    .s { fill: #59636e; font-size: 13px; }
+    .h { fill: #1f2328; font-size: 14px; font-weight: 600; }
+    .track { fill: #eaeef2; }
+    .bar { fill: #8c959f; }
+    .win { fill: #CC6630; }
+    .rule { stroke: #d0d7de; stroke-width: 1; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0d1117; }
+      .t, .h { fill: #e6edf3; }
+      .s { fill: #9198a1; }
+      .track { fill: #21262d; }
+      .bar { fill: #6e7681; }
+      .win { fill: #e0804c; }
+      .rule { stroke: #3d444d; }
+    }
+  </style>
+  <rect class="bg" width="960" height="330" rx="12"/>
+
+  <text class="h" x="410" y="34">Correct pick</text>
+  <text class="s" x="510" y="34">of 32 prompts with a skill</text>
+  <text class="h" x="700" y="34">Stays silent</text>
+  <text class="s" x="793" y="34">of 6 with none</text>
+  <line class="rule" x1="20" y1="48" x2="940" y2="48"/>
+
+  <!-- row: y = label baseline; bars at y-13, height 18; widths = value/max * track -->
+  <g>
+    <text class="t" x="20" y="80">Keyword match</text>
+    <rect class="track" x="410" y="67" width="220" height="18" rx="3"/><rect class="bar" x="410" y="67" width="96.25" height="18" rx="3"/>
+    <text class="s" x="640" y="80">14</text>
+    <rect class="track" x="700" y="67" width="180" height="18" rx="3"/><rect class="bar" x="700" y="67" width="150" height="18" rx="3"/>
+    <text class="s" x="890" y="80">5</text>
+  </g>
+  <g>
+    <text class="t" x="20" y="122">BM25 top-1</text>
+    <rect class="track" x="410" y="109" width="220" height="18" rx="3"/><rect class="bar" x="410" y="109" width="116.88" height="18" rx="3"/>
+    <text class="s" x="640" y="122">17</text>
+    <rect class="track" x="700" y="109" width="180" height="18" rx="3"/><rect class="bar" x="700" y="109" width="60" height="18" rx="3"/>
+    <text class="s" x="890" y="122">2</text>
+  </g>
+  <g>
+    <text class="t" x="20" y="164">BM25 top-20 → Cohere rerank-v3.5</text>
+    <rect class="track" x="410" y="151" width="220" height="18" rx="3"/><rect class="bar" x="410" y="151" width="171.88" height="18" rx="3"/>
+    <text class="s" x="640" y="164">25</text>
+    <rect class="track" x="700" y="151" width="180" height="18" rx="3"/><rect class="bar" x="700" y="151" width="60" height="18" rx="3"/>
+    <text class="s" x="890" y="164">2</text>
+  </g>
+  <g>
+    <text class="t" x="20" y="206">BM25 top-20 → Jev (Python prototype)</text>
+    <rect class="track" x="410" y="193" width="220" height="18" rx="3"/><rect class="bar" x="410" y="193" width="192.5" height="18" rx="3"/>
+    <text class="s" x="640" y="206">28</text>
+    <rect class="track" x="700" y="193" width="180" height="18" rx="3"/><rect class="bar" x="700" y="193" width="180" height="18" rx="3"/>
+    <text class="s" x="890" y="206">6</text>
+  </g>
+  <g>
+    <text class="t b" x="20" y="248">holstered binary (bm25 crate → Jev)</text>
+    <rect class="track" x="410" y="235" width="220" height="18" rx="3"/><rect class="win" x="410" y="235" width="199.38" height="18" rx="3"/>
+    <text class="t b" x="640" y="248">29</text>
+    <rect class="track" x="700" y="235" width="180" height="18" rx="3"/><rect class="win" x="700" y="235" width="180" height="18" rx="3"/>
+    <text class="t b" x="890" y="248">6</text>
+  </g>
+  <g>
+    <text class="t" x="20" y="290">holstered binary (bm25 crate → local Kev-4B)</text>
+    <rect class="track" x="410" y="277" width="220" height="18" rx="3"/><rect class="win" x="410" y="277" width="178.75" height="18" rx="3" opacity="0.55"/>
+    <text class="s" x="640" y="290">26</text>
+    <rect class="track" x="700" y="277" width="180" height="18" rx="3"/><rect class="win" x="700" y="277" width="180" height="18" rx="3" opacity="0.55"/>
+    <text class="s" x="890" y="290">6</text>
+  </g>
+</svg>
