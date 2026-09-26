@@ -7,7 +7,7 @@
 
 ## Checks
 
-Run these before opening a PR. CI currently runs `linecheck` only.
+Run these before opening a PR; CI runs the same checks (`ci.yml`, `linecheck.yml`).
 
 ```bash
 cargo test                                   # unit + end-to-end against a mock Jev, per agent format
@@ -18,3 +18,9 @@ linecheck .                                  # .rs files max 50 lines (linecheck
 
 The end-to-end tests run against a mock Jev server, so no
 `OPENROUTER_API_KEY` is needed.
+
+## Releasing
+
+Bump `version` in `Cargo.toml` through a PR, then tag the merge commit on
+`main` with `v<version>` and push the tag. `release.yml` publishes it to
+crates.io; its guards and checks live in that workflow.
