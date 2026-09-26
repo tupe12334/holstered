@@ -39,6 +39,12 @@ Nothing is injected, and the prompt goes through untouched, when the decision
 model answers `none`, names a skill it was not offered, fails or times out
 (8s by default), or none is configured. holstered never blocks a prompt.
 
+An injected `SKILL.md` is capped at 8,000 bytes, since some agents cut hook
+output past ~10KB. A longer skill is cut there and ends with a pointer to the
+file for the rest, which the model may not follow. Keep `SKILL.md` under 8KB
+(about 100 lines of prose; check with `wc -c`) and move detail into files it
+references.
+
 ### Why BM25 + a decision model
 
 On a 38-prompt labeled set over a 581-skill library (32 prompts with a correct
