@@ -78,10 +78,6 @@ holstered as the prompt hook of each agent you use.
 ```
 /plugin install holstered@holstered
 ```
-Or register the hook by hand in `~/.claude/settings.json` (not both, or it runs twice):
-```json
-{ "hooks": { "UserPromptSubmit": [ { "hooks": [ { "type": "command", "command": "holstered" } ] } ] } }
-```
 
 **Codex** — `~/.codex/hooks.json`
 ```json
