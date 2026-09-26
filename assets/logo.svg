@@ -1,10 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="460 260 1130 1540">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="420 220 1210 1620">
   <defs>
+    <filter id="outline" x="-10%" y="-10%" width="120%" height="120%">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="28" result="grown"/>
+      <feFlood flood-color="#fff"/>
+      <feComposite in2="grown" operator="in"/>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
     <clipPath id="above-lip">
       <path d="M0 0H2048V1030H1180C1100 1030 1060 1000 1010 950S930 840 820 840H0Z"/>
     </clipPath>
   </defs>
-  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <g filter="url(#outline)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path fill="#fff" d="M546 840V1500C546 1640 660 1740 800 1740H1130C1270 1740 1384 1640 1384 1500V1030H1180C1100 1030 1060 1000 1010 950S930 840 820 840ZM620 840V640Q620 600 660 600H740V560Q740 520 780 520H830Q840 440 880 440H1010L1100 840Z"/>
     <g stroke="#9E9E9E" stroke-width="40">
       <path d="M620 810V640Q620 600 660 600H900"/>
       <path d="M740 580V560Q740 520 780 520H960"/>
