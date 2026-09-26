@@ -81,7 +81,11 @@ holstered as the prompt hook of each agent you use.
 { "hooks": { "UserPromptSubmit": [ { "hooks": [ { "type": "command", "command": "holstered" } ] } ] } }
 ```
 
-**Gemini CLI** — `~/.gemini/settings.json`
+**Gemini CLI** — install the extension:
+```bash
+gemini extensions install https://github.com/tupe12334/holstered
+```
+Or register the hook by hand in `~/.gemini/settings.json` (not both, or it runs twice):
 ```json
 { "hooks": { "BeforeAgent": [ { "hooks": [ { "type": "command", "command": "holstered" } ] } ] } }
 ```

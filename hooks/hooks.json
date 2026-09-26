@@ -1,0 +1,7 @@
+{
+  "hooks": {
+    "BeforeAgent": [
+      { "hooks": [ { "type": "command", "command": "holstered" } ] }
+    ]
+  }
+}
