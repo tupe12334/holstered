@@ -16,7 +16,12 @@ use polyhook::HookResponse;
 
 // Only flags are parsed; the hook payload always arrives on stdin.
 #[derive(Parser)]
-#[command(version, about, disable_version_flag = true)]
+#[command(
+    version,
+    about,
+    disable_version_flag = true,
+    after_help = "Run with no flags as a prompt hook: reads the hook event JSON on stdin."
+)]
 struct Cli {
     /// Print version
     #[arg(short = 'v', long, action = clap::ArgAction::Version)]
