@@ -90,11 +90,9 @@ codex plugin add holstered@holstered
 { "hooks": { "BeforeAgent": [ { "hooks": [ { "type": "command", "command": "holstered" } ] } ] } }
 ```
 
-**Hermes Agent** — `~/.hermes/config.yaml` (approve it on first run, or set `hooks_auto_accept`)
-```yaml
-hooks:
-  pre_llm_call:
-    - command: holstered
+**Hermes Agent** — install the plugin, then restart Hermes:
+```bash
+hermes plugins install tupe12334/holstered#plugins/hermes --enable
 ```
 
 **Cline** — hooks are executables named after the event
