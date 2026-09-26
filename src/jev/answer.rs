@@ -7,9 +7,13 @@ use serde_json::Value;
 /// More than this many SKILL.md bodies crowd the agent's context.
 const MAX_SKILLS: usize = 3;
 
-/// The pick plus every other offered skill whose probability reaches
-/// `threshold`, best first, at most `MAX_SKILLS`; the pick alone without a
-/// threshold. Empty when Jev answers `none` or names a skill it was not offered.
+/// The skills to inject, pick first. The pick is Jev's `choice`, the option
+/// it scored highest with `none` competing, so a weak best skill loses to
+/// `none` and nothing is injected. The threshold never gates the pick: it only
+/// admits runners-up, the other offered skills whose probability reaches it,
+/// best first, at most `MAX_SKILLS` in total. Without a threshold the pick is
+/// injected alone. Empty when Jev answers `none` or names a skill it was not
+/// offered.
 pub fn picks(
     answer: &Value,
     pool: &[&Skill],
