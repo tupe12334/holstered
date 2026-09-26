@@ -3,8 +3,10 @@
 //! Request and response shapes follow the typed-decision-models skill
 //! (`references/jev-system-one-api.md`).
 
+mod request;
+
 use crate::skills::Skill;
-use serde_json::{json, Map, Value};
+use serde_json::Value;
 use std::time::Duration;
 
 pub const DEFAULT_URL: &str = "https://openrouter.ai/api/alpha/decisions";
@@ -20,30 +22,6 @@ pub fn choose(
     prompt: &str,
     pool: &[&Skill],
 ) -> Result<Option<String>, String> {
-    let mut criteria: Map<String, Value> = pool
-        .iter()
-        .map(|s| {
-            let text = format!(
-                "The user's prompt is a task this skill covers: {}",
-                s.description
-            );
-            (s.name.clone(), Value::String(text))
-        })
-        .collect();
-    criteria.insert(
-        NONE.into(),
-        "None of the other options covers the task in the user's prompt.".into(),
-    );
-    let body = json!({
-        "state": { "user_prompt": prompt },
-        "model": MODEL,
-        "questions": { "skill": {
-            "type": "choice",
-            "instructions": "Pick the one skill the coding agent should load for this prompt, or none.",
-            "criteria": criteria,
-        }},
-    });
-
     let agent: ureq::Agent = ureq::Agent::config_builder()
         .timeout_global(Some(TIMEOUT))
         .build()
@@ -53,7 +31,7 @@ pub fn choose(
     let answer: Value = agent
         .post(url)
         .header("authorization", &format!("Bearer {key}"))
-        .send_json(&body)
+        .send_json(request::body(prompt, pool))
         .map_err(|e| format!("jev request failed: {e}"))?
         .body_mut()
         .read_json()
