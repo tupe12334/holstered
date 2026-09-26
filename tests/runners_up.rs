@@ -1,4 +1,4 @@
-//! Runners-up at or over a set threshold follow the pick; unset, it is alone.
+//! Runners-up at or over the runner-up threshold follow the pick; unset, none do.
 
 mod common;
 
@@ -12,12 +12,12 @@ fn answer() -> String {
     .to_string()
 }
 
-fn run(server: &Server, threshold: Option<&str>) -> String {
+fn run(server: &Server, runner_up_threshold: Option<&str>) -> String {
     let mut env = vec![
         ("HOLSTERED_JEV_URL", format!("{}/decisions", server.url())),
         ("OPENROUTER_API_KEY", KEY.to_owned()),
     ];
-    env.extend(threshold.map(|t| ("HOLSTERED_THRESHOLD", t.to_owned())));
+    env.extend(runner_up_threshold.map(|t| ("HOLSTERED_RUNNER_UP_THRESHOLD", t.to_owned())));
     let out = exec(&claude_prompt(), &env);
     out["hookSpecificOutput"]["additionalContext"]
         .as_str()
@@ -38,11 +38,11 @@ fn runner_up_over_threshold_is_injected_second() {
 }
 
 #[test]
-fn unset_or_raised_threshold_keeps_only_the_pick() {
-    for threshold in [None, Some("0.5")] {
+fn unset_or_raised_threshold_means_no_runner_up() {
+    for runner_up_threshold in [None, Some("0.5")] {
         let mut server = Server::new();
         let jev = mock_jev(&mut server, 200, answer(), 1);
-        let context = run(&server, threshold);
+        let context = run(&server, runner_up_threshold);
         jev.assert();
         assert!(context.contains("github-pr-merge"));
         assert!(!context.contains("github-pr-review"));

@@ -4,39 +4,34 @@
 //! Request and response shapes follow the typed-decision-models skill
 //! (`references/jev-system-one-api.md`).
 
-mod answer;
+mod ask;
 mod endpoint;
+mod pick;
 mod request;
+mod runners_up;
 
 pub use endpoint::{endpoint, Endpoint};
 
 use crate::skills::Skill;
-use serde_json::Value;
 
 pub const DEFAULT_URL: &str = "https://openrouter.ai/api/alpha/decisions";
 pub const JEV_MODEL: &str = "~typesafe/jev-latest";
 pub const KEV_MODEL: &str = "kev-latest";
 pub const NONE: &str = "none";
 
-/// Ask Jev which of `pool` fit `prompt`: its pick plus any runners-up at or
-/// over the endpoint's threshold, if one is set. Empty when it answers `none`.
+/// Ask Jev which of `pool` fit `prompt`: its pick, then its runners-up when
+/// a runner-up threshold is set. Empty without a pick.
 pub fn choose(at: &Endpoint, prompt: &str, pool: &[&Skill]) -> Result<Vec<String>, String> {
-    let agent: ureq::Agent = ureq::Agent::config_builder()
-        .timeout_global(Some(at.timeout))
-        .build()
-        .into();
-    // Errors carry the status or transport failure only, never request headers,
-    // so the key cannot leak through them.
-    let mut req = agent.post(&at.url);
-    if let Some(key) = &at.key {
-        req = req.header("authorization", &format!("Bearer {key}"));
-    }
-    let answer: Value = req
-        .send_json(request::body(at.model, prompt, pool))
-        .map_err(|e| format!("jev request failed: {e}"))?
-        .body_mut()
-        .read_json()
-        .map_err(|e| format!("jev response unreadable: {e}"))?;
-
-    answer::picks(&answer, pool, at.threshold)
+    let answer = ask::ask(at, prompt, pool)?;
+    let Some(pick) = pick::pick(&answer, pool)? else {
+        return Ok(Vec::new());
+    };
+    let runners_up = at
+        .runner_up_threshold
+        .map(|t| runners_up::runners_up(&answer, pool, pick, t))
+        .unwrap_or_default();
+    Ok(std::iter::once(pick)
+        .chain(runners_up)
+        .map(str::to_owned)
+        .collect())
 }

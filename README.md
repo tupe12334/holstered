@@ -21,8 +21,8 @@ Agents with hundreds of skills see only their names, so the one that fits the
 task often goes unused. holstered is a prompt hook: on every user prompt it
 shortlists skills with BM25, asks a decision model to pick one (or none), and
 injects that skill's `SKILL.md` into the model's context for the turn. Set a
-[threshold](CONFIGURATION.md) and a prompt that spans several tasks also gets
-its runner-up skills.
+[runner-up threshold](CONFIGURATION.md) and a prompt that spans several tasks
+also gets its runner-up skills.
 
 https://github.com/user-attachments/assets/b6de382b-8ca3-4fe0-9baa-0039342dd3b0
 
@@ -35,7 +35,7 @@ which translates each agent's hook payload and response format.
 
 ## How it works
 
-<p align="center"><img src="assets/flow.svg" alt="user prompt → agent prompt hook → holstered: polyhook reads the prompt, BM25 shortlists the top 20 skills, Jev or Kev picks one or none, plus, with a threshold set, runners-up over it (max 3), polyhook injects their SKILL.md → the model sees the skills this turn. On none, an unknown skill, an error or a timeout, nothing is injected and the prompt passes untouched." width="560"></p>
+<p align="center"><img src="assets/flow.svg" alt="user prompt → agent prompt hook → holstered: polyhook reads the prompt, BM25 shortlists the top 20 skills, Jev or Kev picks one or none, plus, with a runner-up threshold set, up to 2 runners-up over it, polyhook injects their SKILL.md → the model sees the skills this turn. On none, an unknown skill, an error or a timeout, nothing is injected and the prompt passes untouched." width="560"></p>
 
 Nothing is injected, and the prompt goes through untouched, when the decision
 model answers `none`, names a skill it was not offered, fails or times out

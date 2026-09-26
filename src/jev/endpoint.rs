@@ -7,14 +7,13 @@ const DEFAULT_TIMEOUT_MS: u64 = 8000;
 
 /// A decisions endpoint, its model and key, how long to wait for its answer
 /// (`HOLSTERED_TIMEOUT_MS`, default 8s), and the probability a runner-up
-/// skill needs to be injected too (`HOLSTERED_THRESHOLD`; unset injects the
-/// pick alone).
+/// needs (`HOLSTERED_RUNNER_UP_THRESHOLD`; unset, no runners-up).
 pub struct Endpoint {
     pub url: String,
     pub model: &'static str,
     pub key: Option<String>,
     pub timeout: Duration,
-    pub threshold: Option<f64>,
+    pub runner_up_threshold: Option<f64>,
 }
 
 /// `HOLSTERED_KEV_URL` selects a local Kev server, which needs no key.
@@ -33,7 +32,8 @@ pub fn endpoint() -> Option<Endpoint> {
         model,
         key,
         timeout: Duration::from_millis(num("HOLSTERED_TIMEOUT_MS", DEFAULT_TIMEOUT_MS)),
-        threshold: var("HOLSTERED_THRESHOLD").and_then(|v| v.trim().parse().ok()),
+        runner_up_threshold: var("HOLSTERED_RUNNER_UP_THRESHOLD")
+            .and_then(|v| v.trim().parse().ok()),
     })
 }
 
