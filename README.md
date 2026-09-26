@@ -2,7 +2,9 @@
 
 # holstered
 
-**Hands your coding agent the right skill for each prompt.**
+**Your agent has 500+ skills holstered. It draws none. holstered draws the right one.**
+
+Fastest draw in the terminal: one skill, or none, in about a second.
 
 Agents with hundreds of skills see only their names, so the one that fits the
 task often goes unused. holstered is a prompt hook: on every user prompt it
