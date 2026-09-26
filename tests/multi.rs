@@ -1,4 +1,4 @@
-//! Runners-up at or over the threshold are injected after the pick.
+//! Runners-up at or over a set threshold follow the pick; unset, it is alone.
 
 mod common;
 
@@ -26,10 +26,10 @@ fn run(server: &Server, threshold: Option<&str>) -> String {
 }
 
 #[test]
-fn runner_up_over_default_threshold_is_injected_second() {
+fn runner_up_over_threshold_is_injected_second() {
     let mut server = Server::new();
     let jev = mock_jev(&mut server, 200, answer(), 1);
-    let context = run(&server, None);
+    let context = run(&server, Some("0.2"));
     jev.assert();
     let merge = context.find("SKILL SELECTED by holstered: github-pr-merge");
     let review = context.find("SKILL SELECTED by holstered: github-pr-review");
@@ -38,11 +38,13 @@ fn runner_up_over_default_threshold_is_injected_second() {
 }
 
 #[test]
-fn raised_threshold_keeps_only_the_pick() {
-    let mut server = Server::new();
-    let jev = mock_jev(&mut server, 200, answer(), 1);
-    let context = run(&server, Some("0.5"));
-    jev.assert();
-    assert!(context.contains("github-pr-merge"));
-    assert!(!context.contains("github-pr-review"));
+fn unset_or_raised_threshold_keeps_only_the_pick() {
+    for threshold in [None, Some("0.5")] {
+        let mut server = Server::new();
+        let jev = mock_jev(&mut server, 200, answer(), 1);
+        let context = run(&server, threshold);
+        jev.assert();
+        assert!(context.contains("github-pr-merge"));
+        assert!(!context.contains("github-pr-review"));
+    }
 }

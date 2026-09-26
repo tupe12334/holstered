@@ -4,18 +4,17 @@ use super::{DEFAULT_URL, JEV_MODEL, KEV_MODEL};
 use std::time::Duration;
 
 const DEFAULT_TIMEOUT_MS: u64 = 8000;
-// Jev put a two-task prompt's second skill at 0.21; one-task prompts sit near 1.
-const DEFAULT_THRESHOLD: f64 = 0.2;
 
 /// A decisions endpoint, its model and key, how long to wait for its answer
 /// (`HOLSTERED_TIMEOUT_MS`, default 8s), and the probability a runner-up
-/// skill needs to be injected too (`HOLSTERED_THRESHOLD`, default 0.2).
+/// skill needs to be injected too (`HOLSTERED_THRESHOLD`; unset injects the
+/// pick alone).
 pub struct Endpoint {
     pub url: String,
     pub model: &'static str,
     pub key: Option<String>,
     pub timeout: Duration,
-    pub threshold: f64,
+    pub threshold: Option<f64>,
 }
 
 /// `HOLSTERED_KEV_URL` selects a local Kev server, which needs no key.
@@ -34,7 +33,7 @@ pub fn endpoint() -> Option<Endpoint> {
         model,
         key,
         timeout: Duration::from_millis(num("HOLSTERED_TIMEOUT_MS", DEFAULT_TIMEOUT_MS)),
-        threshold: num("HOLSTERED_THRESHOLD", DEFAULT_THRESHOLD),
+        threshold: var("HOLSTERED_THRESHOLD").and_then(|v| v.trim().parse().ok()),
     })
 }
 

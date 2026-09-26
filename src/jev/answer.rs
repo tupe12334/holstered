@@ -8,9 +8,13 @@ use serde_json::Value;
 const MAX_SKILLS: usize = 3;
 
 /// The pick plus every other offered skill whose probability reaches
-/// `threshold`, best first, at most `MAX_SKILLS`. Empty when Jev answers
-/// `none` or names a skill it was not offered.
-pub fn picks(answer: &Value, pool: &[&Skill], threshold: f64) -> Result<Vec<String>, String> {
+/// `threshold`, best first, at most `MAX_SKILLS`; the pick alone without a
+/// threshold. Empty when Jev answers `none` or names a skill it was not offered.
+pub fn picks(
+    answer: &Value,
+    pool: &[&Skill],
+    threshold: Option<f64>,
+) -> Result<Vec<String>, String> {
     let skill = &answer["answers"]["skill"];
     let choice = skill["choice"]
         .as_str()
@@ -19,6 +23,9 @@ pub fn picks(answer: &Value, pool: &[&Skill], threshold: f64) -> Result<Vec<Stri
     if !offered(choice) {
         return Ok(Vec::new());
     }
+    let Some(threshold) = threshold else {
+        return Ok(vec![choice.to_owned()]);
+    };
     let mut ranked: Vec<(&str, f64)> = skill["probabilities"]
         .as_object()
         .into_iter()

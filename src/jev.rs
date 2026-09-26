@@ -19,7 +19,7 @@ pub const KEV_MODEL: &str = "kev-latest";
 pub const NONE: &str = "none";
 
 /// Ask Jev which of `pool` fit `prompt`: its pick plus any runners-up at or
-/// over the endpoint's threshold. Empty when it answers `none`.
+/// over the endpoint's threshold, if one is set. Empty when it answers `none`.
 pub fn choose(at: &Endpoint, prompt: &str, pool: &[&Skill]) -> Result<Vec<String>, String> {
     let agent: ureq::Agent = ureq::Agent::config_builder()
         .timeout_global(Some(at.timeout))

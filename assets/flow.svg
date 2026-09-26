@@ -64,7 +64,7 @@
   <rect class="step" x="40" y="334" width="360" height="52" rx="8"/>
   <text class="n" x="56" y="356">3</text>
   <text class="t" x="76" y="356">Jev (hosted) or Kev (local)</text>
-  <text class="s" x="76" y="374">pick one or "none", + runners-up ≥ threshold</text>
+  <text class="s" x="76" y="374">pick one or "none" (+ runners-up ≥ threshold)</text>
   <path class="a" d="M220 386V400" marker-end="url(#ah)"/>
 
   <rect class="step" x="40" y="402" width="360" height="52" rx="8"/>
