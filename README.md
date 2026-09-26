@@ -20,15 +20,7 @@ which translates each agent's hook payload and response format.
 
 ## How it works
 
-```
-user prompt ─▶ agent prompt hook ─▶ holstered
-                                      │ polyhook: detect agent, read prompt
-                                      │ BM25 over name + description → top 20
-                                      │ Jev (hosted) or Kev (local): pick one or "none"
-                                      │ polyhook: inject SKILL.md in the agent's format
-                                      ▼
-                            model sees the skill this turn
-```
+<p align="center"><img src="assets/flow.svg" alt="user prompt → agent prompt hook → holstered: polyhook reads the prompt, BM25 shortlists the top 20 skills, Jev or Kev picks one or none, polyhook injects its SKILL.md → the model sees the skill this turn. On none, an unknown skill, an error or a timeout, nothing is injected and the prompt passes untouched." width="560"></p>
 
 Nothing is injected, and the prompt goes through untouched, when the decision
 model answers `none`, names a skill it was not offered, fails or times out
