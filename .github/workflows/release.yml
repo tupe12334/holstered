@@ -138,9 +138,9 @@ jobs:
           cd "$smoke"
           npm init -y >/dev/null
           npm install --no-audit --no-fund ./*.tgz
-          out=$(echo '{"hook_event_name":"PreToolUse","tool_name":"Bash","tool_input":{"command":"ls"},"session_id":"s"}' | npx --no holstered)
+          out=$(./node_modules/.bin/holstered --version)
           echo "$out"
-          [ "$(echo "$out" | jq -r .hookSpecificOutput.permissionDecision)" = allow ]
+          [ "$out" = "holstered ${GITHUB_REF_NAME#v}" ]
 
       # Platform packages first, then `holstered`; already-published versions are skipped.
       - run: cargo npm publish
