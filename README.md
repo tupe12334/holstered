@@ -4,9 +4,12 @@
 
 Agents with hundreds of skills see only their names, so the one that fits the
 task often goes unused. holstered is a prompt hook: on every user prompt it
-shortlists skills with BM25, asks the [Jev](https://openrouter.ai) decision
-model to pick one (or none), and injects that skill's `SKILL.md` into the
-model's context for the turn.
+shortlists skills with BM25, asks a decision model to pick one (or none), and
+injects that skill's `SKILL.md` into the model's context for the turn.
+
+The decision model is your choice: **Jev**, hosted on OpenRouter, or **Kev**,
+an open model you run locally so nothing leaves your machine. See
+[Choose a decision model](#choose-a-decision-model).
 
 One Rust binary serves every agent through [polyhook](https://github.com/polyhook/polyhook),
 which translates each agent's hook payload and response format.
@@ -17,17 +20,17 @@ which translates each agent's hook payload and response format.
 user prompt ─▶ agent prompt hook ─▶ holstered
                                       │ polyhook: detect agent, read prompt
                                       │ BM25 over name + description → top 20
-                                      │ Jev (OpenRouter Decisions API): pick one or "none"
+                                      │ Jev (hosted) or Kev (local): pick one or "none"
                                       │ polyhook: inject SKILL.md in the agent's format
                                       ▼
                             model sees the skill this turn
 ```
 
-Nothing is injected, and the prompt goes through untouched, when Jev answers
-`none`, names a skill it was not offered, the API fails or times out (8s), or
-`OPENROUTER_API_KEY` is unset. holstered never blocks a prompt.
+Nothing is injected, and the prompt goes through untouched, when the decision
+model answers `none`, names a skill it was not offered, fails or times out
+(8s), or none is configured. holstered never blocks a prompt.
 
-### Why BM25 + Jev
+### Why BM25 + a decision model
 
 On a 38-prompt labeled set over a 581-skill library (32 prompts with a correct
 skill, 6 with none):
@@ -39,9 +42,11 @@ skill, 6 with none):
 | BM25 top-20 → Cohere rerank-v3.5 | 25/32 | 2/6 |
 | BM25 top-20 → Jev (Python prototype) | 28/32 | 6/6 |
 | **holstered binary (`bm25` crate → Jev)** | **29/32** | **6/6** |
+| holstered binary (`bm25` crate → local Kev-4B) | 26/32 | 6/6 |
 
-The holstered row is the release binary run end to end against live Jev
-(median 915 ms per prompt). One of its three misses picked a `pptx` skill for a
+The holstered rows are the release binary run end to end against live Jev
+(median 915 ms per prompt) and a local Kev-4B on an Apple Silicon Mac (median
+1.7s). One of its three misses picked a `pptx` skill for a
 slide-deck prompt the labels credited only to another skill. Small set, single labeler: read it as a direction, not a
 guarantee.
 
@@ -74,11 +79,8 @@ brew install tupe12334/tap/holstered
 cargo install --git https://github.com/tupe12334/holstered
 ```
 
-Then give it a decision model in the environment your agent starts from:
-`OPENROUTER_API_KEY` for Jev, or `HOLSTERED_KEV_URL` for a local
-[Kev](#local-model-kev) server.
-
-Register it as the prompt hook of each agent you use.
+Then [choose a decision model](#choose-a-decision-model) and register
+holstered as the prompt hook of each agent you use.
 
 **Claude Code** — `~/.claude/settings.json`
 ```json
@@ -108,24 +110,26 @@ mkdir -p ~/Documents/Cline/Hooks
 ln -s "$(command -v holstered)" ~/Documents/Cline/Hooks/UserPromptSubmit
 ```
 
-## Configuration
+## Choose a decision model
 
-| Variable | Default | Purpose |
+Set one of these in the environment your agent starts from. If both are set,
+Kev wins.
+
+| | Jev (hosted) | Kev (local) |
 |---|---|---|
-| `OPENROUTER_API_KEY` | — | Required for Jev. Read from the environment only; never logged. |
-| `HOLSTERED_SKILLS_DIRS` | `~/.claude/skills`, `~/.codex/skills`, `~/.agents/skills`, `~/.gemini/skills`, `~/.hermes/skills` | PATH-style list of skill roots. Any `SKILL.md` with a `description` in its frontmatter counts, up to 4 levels deep. |
-| `HOLSTERED_JEV_URL` | `https://openrouter.ai/api/alpha/decisions` | Decisions endpoint. |
-| `HOLSTERED_KEV_URL` | — | Use a local [Kev](#local-model-kev) server instead of Jev, e.g. `http://localhost:8009/v1/systemone`. No key needed; takes precedence over Jev. |
+| Set | `OPENROUTER_API_KEY` | `HOLSTERED_KEV_URL` |
+| Runs | OpenRouter Decisions API | [Kev](https://github.com/jaredpalmer/kev) server on your machine |
+| Privacy | prompt (first 2,000 chars) and shortlisted skill descriptions go to OpenRouter | nothing leaves the machine |
+| Latency per prompt | ~1s | ~1.7–3.5s on an Apple Silicon Mac |
+| Accuracy on the set above | 29/32 | 26/32 |
 
-The model is `~typesafe/jev-latest` on Jev and `kev-latest` on Kev. When the key is set, the prompt (first
-2,000 characters) and the shortlisted skill descriptions are sent to
-OpenRouter. Each prompt with a shortlist takes about 0.7–1s longer.
+**Jev**
 
-### Local model: Kev
+```bash
+export OPENROUTER_API_KEY=sk-or-...
+```
 
-[Kev](https://github.com/jaredpalmer/kev) is an open-weights decision model that
-serves the same System One API, so holstered can run fully offline: prompts
-and skill descriptions never leave the machine.
+**Kev**
 
 ```bash
 git clone https://github.com/jaredpalmer/kev && cd kev
@@ -133,10 +137,19 @@ uv run --extra serve python -m kev.serve --run jaredpalmer/kev-4b --port 8009
 export HOLSTERED_KEV_URL=http://localhost:8009/v1/systemone
 ```
 
-On an Apple Silicon Mac, Kev-4B picked the same skills as Jev on a live spot
-check, at about 2–3.5s per prompt instead of ~1s. Its first request after
-start loads the model and outruns the 8s timeout; that prompt just goes
-through untouched. Kev's README puts it a few points below Jev.
+Kev's first request after start loads the model and can outrun the 8s timeout;
+that prompt just goes through untouched.
+
+## Configuration
+
+| Variable | Default | Purpose |
+|---|---|---|
+| `OPENROUTER_API_KEY` | — | Required for Jev. Read from the environment only; never logged. |
+| `HOLSTERED_SKILLS_DIRS` | `~/.claude/skills`, `~/.codex/skills`, `~/.agents/skills`, `~/.gemini/skills`, `~/.hermes/skills` | PATH-style list of skill roots. Any `SKILL.md` with a `description` in its frontmatter counts, up to 4 levels deep. |
+| `HOLSTERED_JEV_URL` | `https://openrouter.ai/api/alpha/decisions` | Decisions endpoint. |
+| `HOLSTERED_KEV_URL` | — | Local Kev server, e.g. `http://localhost:8009/v1/systemone`. No key needed; takes precedence over Jev. |
+
+The request names `~typesafe/jev-latest` on Jev and `kev-latest` on Kev.
 
 ## Contributing
 
