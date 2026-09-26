@@ -22,17 +22,21 @@ pub fn mock(server: &mut ServerGuard, mode: Mode, seen: Arc<Mutex<Cassette>>) ->
         .with_body_from_request(move |req| {
             let body: Value = serde_json::from_slice(req.body().unwrap()).unwrap();
             let (prompt, offered) = super::request::parse(&body);
-            let choice = match &mode {
+            let (choice, probabilities) = match &mode {
                 Mode::Replay(tape) => match tape.get(&prompt) {
-                    Some(d) if d.offered == offered => d.choice.clone(),
-                    _ => "<shortlist changed>".into(),
+                    Some(d) if d.offered == offered => (d.choice.clone(), d.probabilities.clone()),
+                    _ => ("<shortlist changed>".into(), Default::default()),
                 },
                 Mode::Record { upstream, key } => super::live::decide(upstream, key, &body),
             };
-            let answer = json!({"answers": {"skill": {"type": "choice", "choice": choice}}});
-            seen.lock()
-                .unwrap()
-                .insert(prompt, Decision { offered, choice });
+            let skill = json!({"type": "choice", "choice": choice, "probabilities": probabilities});
+            let answer = json!({"answers": {"skill": skill}});
+            let decision = Decision {
+                offered,
+                choice,
+                probabilities,
+            };
+            seen.lock().unwrap().insert(prompt, decision);
             answer.to_string().into_bytes()
         })
         .create()

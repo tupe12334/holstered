@@ -21,6 +21,7 @@ pub fn record() {
     assert!(errors.is_empty(), "live calls failed: {errors:?}");
     data::write(&format!("cassettes/{model}.json"), &out.seen);
     eprintln!("{model}: {:?}\n  {}", out.score, out.misses.join("\n  "));
+    eprintln!("  {}", super::confidence::report(&out.seen).join("\n  "));
     let mut baselines: BTreeMap<String, Baseline> = data::read("baseline.json");
     baselines.insert(model, out.score);
     data::write("baseline.json", &baselines);

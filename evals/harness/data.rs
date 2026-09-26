@@ -1,7 +1,6 @@
 //! The eval's inputs: labelled cases, recorded decisions, and the baseline.
 
 use serde::{Deserialize, Serialize};
-use std::collections::BTreeMap;
 use std::path::PathBuf;
 
 #[derive(Deserialize)]
@@ -11,14 +10,7 @@ pub struct Case {
     pub expect: Vec<String>,
 }
 
-/// What the decision model was offered for one prompt, and what it chose.
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct Decision {
-    pub offered: Vec<String>,
-    pub choice: String,
-}
-
-pub type Cassette = BTreeMap<String, Decision>;
+pub use super::decision::{Cassette, Decision};
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Baseline {
