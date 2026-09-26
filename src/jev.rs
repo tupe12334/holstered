@@ -11,19 +11,17 @@ pub use endpoint::{endpoint, Endpoint};
 
 use crate::skills::Skill;
 use serde_json::Value;
-use std::time::Duration;
 
 pub const DEFAULT_URL: &str = "https://openrouter.ai/api/alpha/decisions";
 pub const JEV_MODEL: &str = "~typesafe/jev-latest";
 pub const KEV_MODEL: &str = "kev-latest";
 pub const NONE: &str = "none";
-const TIMEOUT: Duration = Duration::from_secs(8);
 
 /// Ask Jev which of `pool` fits `prompt`. `Ok(None)` when it answers `none`
 /// or names a skill it was not offered.
 pub fn choose(at: &Endpoint, prompt: &str, pool: &[&Skill]) -> Result<Option<String>, String> {
     let agent: ureq::Agent = ureq::Agent::config_builder()
-        .timeout_global(Some(TIMEOUT))
+        .timeout_global(Some(at.timeout))
         .build()
         .into();
     // Errors carry the status or transport failure only, never request headers,

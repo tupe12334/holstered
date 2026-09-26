@@ -24,7 +24,7 @@ user prompt ─▶ agent prompt hook ─▶ holstered
 ```
 
 Nothing is injected, and the prompt goes through untouched, when Jev answers
-`none`, names a skill it was not offered, the API fails or times out (8s), or
+`none`, names a skill it was not offered, the API fails or times out (8s by default), or
 `OPENROUTER_API_KEY` is unset. holstered never blocks a prompt.
 
 ### Why BM25 + Jev
@@ -104,6 +104,7 @@ ln -s "$(command -v holstered)" ~/Documents/Cline/Hooks/UserPromptSubmit
 | `HOLSTERED_SKILLS_DIRS` | `~/.claude/skills`, `~/.codex/skills`, `~/.agents/skills`, `~/.gemini/skills`, `~/.hermes/skills` | PATH-style list of skill roots. Any `SKILL.md` with a `description` in its frontmatter counts, up to 4 levels deep. |
 | `HOLSTERED_JEV_URL` | `https://openrouter.ai/api/alpha/decisions` | Decisions endpoint. |
 | `HOLSTERED_KEV_URL` | — | Use a local [Kev](#local-model-kev) server instead of Jev, e.g. `http://localhost:8009/v1/systemone`. No key needed; takes precedence over Jev. |
+| `HOLSTERED_TIMEOUT_MS` | `8000` | How long to wait for the decision before letting the prompt through untouched. |
 
 The model is `~typesafe/jev-latest` on Jev and `kev-latest` on Kev. When the key is set, the prompt (first
 2,000 characters) and the shortlisted skill descriptions are sent to
@@ -123,8 +124,9 @@ export HOLSTERED_KEV_URL=http://localhost:8009/v1/systemone
 
 On an Apple Silicon Mac, Kev-4B picked the same skills as Jev on a live spot
 check, at about 2–3.5s per prompt instead of ~1s. Its first request after
-start loads the model and outruns the 8s timeout; that prompt just goes
-through untouched. Kev's README puts it a few points below Jev.
+start loads the model (~30s) and outruns the default 8s timeout, so that prompt
+goes through untouched; set `HOLSTERED_TIMEOUT_MS=45000` to wait it out instead.
+Keep it under your agent's own hook timeout (60s in Claude Code by default). Kev's README puts it a few points below Jev.
 
 ## Contributing
 
