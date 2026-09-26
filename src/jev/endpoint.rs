@@ -7,12 +7,14 @@ const DEFAULT_TIMEOUT_MS: u64 = 8000;
 
 /// A decisions endpoint, its model and key, how long to wait for its answer
 /// (`HOLSTERED_TIMEOUT_MS`, default 8s), and the probability a runner-up
-/// needs (`HOLSTERED_RUNNER_UP_THRESHOLD`; unset, no runners-up).
+/// needs (`HOLSTERED_RUNNER_UP_THRESHOLD`; unset, no runners-up), and the
+/// probability the pick needs (`HOLSTERED_PICK_THRESHOLD`; unset, any).
 pub struct Endpoint {
     pub url: String,
     pub model: &'static str,
     pub key: Option<String>,
     pub timeout: Duration,
+    pub pick_threshold: Option<f64>,
     pub runner_up_threshold: Option<f64>,
 }
 
@@ -31,16 +33,16 @@ pub fn endpoint() -> Option<Endpoint> {
         url,
         model,
         key,
-        timeout: Duration::from_millis(num("HOLSTERED_TIMEOUT_MS", DEFAULT_TIMEOUT_MS)),
-        runner_up_threshold: var("HOLSTERED_RUNNER_UP_THRESHOLD")
-            .and_then(|v| v.trim().parse().ok()),
+        timeout: Duration::from_millis(
+            parsed("HOLSTERED_TIMEOUT_MS").unwrap_or(DEFAULT_TIMEOUT_MS),
+        ),
+        pick_threshold: parsed("HOLSTERED_PICK_THRESHOLD"),
+        runner_up_threshold: parsed("HOLSTERED_RUNNER_UP_THRESHOLD"),
     })
 }
 
-fn num<T: std::str::FromStr>(name: &str, default: T) -> T {
-    var(name)
-        .and_then(|v| v.trim().parse().ok())
-        .unwrap_or(default)
+fn parsed<T: std::str::FromStr>(name: &str) -> Option<T> {
+    var(name).and_then(|v| v.trim().parse().ok())
 }
 
 fn var(name: &str) -> Option<String> {

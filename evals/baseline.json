@@ -1,12 +1,12 @@
 {
   "jev": {
     "correct": 31,
-    "abstained": 6,
+    "abstained": 12,
     "recalled": 31
   },
   "kev": {
     "correct": 30,
-    "abstained": 6,
+    "abstained": 11,
     "recalled": 31
   }
 }

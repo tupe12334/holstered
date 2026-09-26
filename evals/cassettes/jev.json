@@ -71,6 +71,12 @@
     ],
     "choice": "docker-image-build"
   },
+  "cool, the spreadsheet numbers match now": {
+    "offered": [
+      "spreadsheet-analysis"
+    ],
+    "choice": "none"
+  },
   "design the endpoints for our orders API": {
     "offered": [
       "rest-api-design",
@@ -116,6 +122,12 @@
     ],
     "choice": "email-inbox-triage"
   },
+  "lol the CI is finally green": {
+    "offered": [
+      "github-actions-ci-debugging"
+    ],
+    "choice": "none"
+  },
   "make me a slide deck about Q3 results": {
     "offered": [
       "python-debugging",
@@ -130,6 +142,12 @@
     ],
     "choice": "git-rebase-conflicts"
   },
+  "my flight got delayed so I'll be late to standup": {
+    "offered": [
+      "flight-search"
+    ],
+    "choice": "none"
+  },
   "my python script throws a KeyError, find out why": {
     "offered": [
       "calendar-scheduling",
@@ -138,6 +156,12 @@
       "python-debugging"
     ],
     "choice": "python-debugging"
+  },
+  "ok the deploy is done, thanks": {
+    "offered": [
+      "kubernetes-deploy"
+    ],
+    "choice": "none"
   },
   "review this pull request and leave comments": {
     "offered": [
@@ -181,6 +205,13 @@
     ],
     "choice": "none"
   },
+  "thanks, the merge went through fine": {
+    "offered": [
+      "git-rebase-conflicts",
+      "github-pr-merge"
+    ],
+    "choice": "none"
+  },
   "the CI workflow keeps failing on the test job": {
     "offered": [
       "github-actions-ci-debugging",
@@ -204,6 +235,14 @@
       "sql-query-optimization"
     ],
     "choice": "performance-profiling"
+  },
+  "the slides looked great in the meeting, nice work": {
+    "offered": [
+      "calendar-scheduling",
+      "git-commit-messages",
+      "slide-deck-creation"
+    ],
+    "choice": "none"
   },
   "this query takes 30 seconds, make it faster": {
     "offered": [

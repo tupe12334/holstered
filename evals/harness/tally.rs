@@ -1,5 +1,6 @@
 //! Score one case: was the right skill shortlisted, picked, or correctly
-//! left out.
+//! left out. A miss names its stage: retrieval (BM25 never offered the right
+//! skill) or routing (it was offered and the model chose otherwise).
 
 use super::data::{Baseline, Case};
 
@@ -18,17 +19,19 @@ pub fn tally(
         }
         return;
     }
-    if want
+    let shortlisted = want
         .iter()
-        .any(|w| offered.iter().flatten().any(|o| o == w))
-    {
-        score.recalled += 1;
-    } else {
-        misses.push(format!("not shortlisted: {p:?} (want {want:?})"));
-    }
+        .any(|w| offered.iter().flatten().any(|o| o == w));
+    score.recalled += usize::from(shortlisted);
     if pick.as_ref().is_some_and(|s| want.contains(s)) {
         score.correct += 1;
+    } else if shortlisted {
+        misses.push(format!(
+            "routing miss: {p:?} -> {pick:?} (want {want:?}, shortlisted)"
+        ));
     } else {
-        misses.push(format!("wrong pick: {p:?} -> {pick:?} (want {want:?})"));
+        misses.push(format!(
+            "retrieval miss: {p:?} (want {want:?}, not shortlisted)"
+        ));
     }
 }
