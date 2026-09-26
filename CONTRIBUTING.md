@@ -44,3 +44,9 @@ publishing), so the job authenticates over OIDC with no token. npm can only
 trust a package that exists: a new target's package needs one publish with a
 short-lived token, then `npm trust github <package> --file release.yml
 --allow-publish` (npm >= 11.10), then revoke the token.
+
+The same binaries go to a GitHub Release as `holstered-<GOOS>-<GOARCH>` with a
+`SHA256SUMS` file and a build provenance attestation, and the workflow tags the commit `go/v<version>`. The Go
+module in `go/` is a wrapper: `go install` builds it, and on first run it
+downloads the release binary matching its own module version, checks the hash,
+caches it in the user cache dir, and runs it.
