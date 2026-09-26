@@ -11,10 +11,11 @@ up as a failing test instead of a vague feeling.
 | `cases.json` | Prompts with the skills that count as correct; `"expect": []` means the right answer is to stay silent |
 | `cassettes/<model>.json` | For each prompt that reached the model: the shortlist it was offered and what it chose |
 | `baseline.json` | Per model: `correct` picks, `abstained` on no-skill prompts, `recalled` (right skill was in the BM25 shortlist) |
+| `eval.rs`, `harness/` | The test itself, registered in `Cargo.toml` as the `eval` test target |
 
 ## What `cargo test` checks
 
-`tests/eval.rs` runs the real binary on every case, with `evals/skills` as the
+`eval.rs` (with its `harness/`) runs the real binary on every case, with `evals/skills` as the
 skill library and a local mock as the decisions endpoint. The mock answers with
 the recorded choice. For each model in `baseline.json` the test fails when:
 

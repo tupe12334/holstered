@@ -1,10 +1,10 @@
 //! Skill-selection eval: labelled prompts over `evals/skills`, scored against
 //! recorded model decisions so every run is deterministic and offline.
 
-mod evals;
+mod harness;
 
-use evals::data::{self, Baseline, Cassette};
-use evals::{score, server::Mode, stale};
+use harness::data::{self, Baseline, Cassette};
+use harness::{score, server::Mode, stale};
 use std::collections::BTreeMap;
 
 #[test]
@@ -33,5 +33,5 @@ fn recorded_decisions_meet_the_baseline() {
 #[test]
 #[ignore = "calls a live decision model; see evals/README.md"]
 fn record() {
-    evals::record::record();
+    harness::record::record();
 }
