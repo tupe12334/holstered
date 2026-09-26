@@ -28,7 +28,13 @@ pub fn evaluate(model: &str, mode: server::Mode) -> Outcome {
             .unwrap()
             .get(&case.prompt)
             .map(|d| d.offered.clone());
-        tally(&case, pick, offered, &mut score, &mut misses);
+        tally(
+            &case,
+            pick.as_deref(),
+            offered.as_deref(),
+            &mut score,
+            &mut misses,
+        );
     }
     let seen = seen.lock().unwrap().clone();
     Outcome {
