@@ -1,9 +1,13 @@
-//! The Jev decision model, called through OpenRouter's Decisions API.
+//! The Jev decision model, called through OpenRouter's Decisions API, or
+//! Kev, an open-weights model serving the same API locally.
 //!
 //! Request and response shapes follow the typed-decision-models skill
 //! (`references/jev-system-one-api.md`).
 
+mod endpoint;
 mod request;
+
+pub use endpoint::{endpoint, Endpoint};
 
 use crate::skills::Skill;
 use serde_json::Value;
@@ -16,21 +20,18 @@ const TIMEOUT: Duration = Duration::from_secs(8);
 
 /// Ask Jev which of `pool` fits `prompt`. `Ok(None)` when it answers `none`
 /// or names a skill it was not offered.
-pub fn choose(
-    url: &str,
-    key: &str,
-    prompt: &str,
-    pool: &[&Skill],
-) -> Result<Option<String>, String> {
+pub fn choose(at: &Endpoint, prompt: &str, pool: &[&Skill]) -> Result<Option<String>, String> {
     let agent: ureq::Agent = ureq::Agent::config_builder()
         .timeout_global(Some(TIMEOUT))
         .build()
         .into();
     // Errors carry the status or transport failure only, never request headers,
     // so the key cannot leak through them.
-    let answer: Value = agent
-        .post(url)
-        .header("authorization", &format!("Bearer {key}"))
+    let mut req = agent.post(&at.url);
+    if let Some(key) = &at.key {
+        req = req.header("authorization", &format!("Bearer {key}"));
+    }
+    let answer: Value = req
         .send_json(request::body(prompt, pool))
         .map_err(|e| format!("jev request failed: {e}"))?
         .body_mut()
