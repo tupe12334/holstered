@@ -61,10 +61,22 @@ for the full list and which agents can take context injection.
 
 ## Install
 
+Pick one:
+
 ```bash
+# crates.io
 cargo install holstered
-export OPENROUTER_API_KEY=sk-or-...   # in the environment your agent starts from
+
+# Homebrew (builds from source)
+brew install tupe12334/tap/holstered
+
+# latest main from GitHub
+cargo install --git https://github.com/tupe12334/holstered
 ```
+
+Then give it a decision model in the environment your agent starts from:
+`OPENROUTER_API_KEY` for Jev, or `HOLSTERED_KEV_URL` for a local
+[Kev](#local-model-kev) server.
 
 Register it as the prompt hook of each agent you use.
 
