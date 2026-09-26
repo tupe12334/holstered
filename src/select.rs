@@ -1,6 +1,6 @@
-//! Picks the skills for a prompt event: BM25 shortlist, then Jev decides.
+//! Picks the skills for a prompt event: keyword + meaning shortlist, then Jev decides.
 
-use crate::{bm25, inject, jev, prompt, skills};
+use crate::{inject, jev, prompt, recall, skills};
 use polyhook::{HookEvent, HookEventEvent};
 
 const POOL: usize = 20;
@@ -17,7 +17,7 @@ pub fn select(event: &HookEvent) -> Option<String> {
     }
 
     let skills = skills::discover(&skills::dirs());
-    let pool: Vec<_> = bm25::rank(&prompt, &skills, POOL)
+    let pool: Vec<_> = recall::shortlist(&prompt, &skills, POOL)
         .into_iter()
         .filter(|s| s.name != jev::NONE)
         .collect();

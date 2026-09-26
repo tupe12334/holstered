@@ -10,11 +10,11 @@ up as a failing test instead of a vague feeling.
 | `skills/` | 30 mocked general-purpose skills (git, CI, containers, databases, docs, office work, travel, …), with deliberate near-neighbours such as PR review vs. PR merge |
 | `cases.json` | Prompts with the skills that count as correct; `"expect": []` means the right answer is to stay silent |
 | `cassettes/<model>.json` | For each prompt that reached the model: the shortlist it was offered and what it chose |
-| `baseline.json` | Per model: `correct` picks, `abstained` on no-skill prompts, `recalled` (right skill was in the BM25 shortlist) |
+| `baseline.json` | Per model: `correct` picks, `abstained` on no-skill prompts, `recalled` (right skill was in the shortlist) |
 | `eval.rs`, `harness/` | The test itself, registered in `Cargo.toml` as the `eval` test target |
 
-Each miss is printed with its stage: a **retrieval miss** means BM25 never
-shortlisted the right skill, so the fix is in search; a **routing miss** means
+Each miss is printed with its stage: a **retrieval miss** means recall (BM25 +
+embeddings) never shortlisted the right skill, so the fix is in search; a **routing miss** means
 it was shortlisted and the model chose otherwise. Half of the no-skill prompts
 are chit-chat that shares words with a skill ("thanks, the merge went
 through fine"), so the shortlist is full of plausible but wrong skills.

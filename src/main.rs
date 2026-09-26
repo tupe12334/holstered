@@ -1,14 +1,14 @@
 //! holstered: a prompt hook that hands the agent the skills it needs.
 //!
-//! On each user prompt it shortlists skills with BM25, asks the Jev decision
+//! On each user prompt it shortlists skills by keyword and meaning, asks the Jev decision
 //! model to pick one (or none) plus, when a runner-up threshold is set, any
 //! runners-up over it, and injects those SKILL.md files into the model's context through polyhook, so one binary serves every agent.
 //! Any failure, missing key, or `none` answer leaves the prompt untouched.
 
-mod bm25;
 mod inject;
 mod jev;
 mod prompt;
+mod recall;
 mod select;
 mod skills;
 

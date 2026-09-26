@@ -19,7 +19,8 @@ You type **"thanks, that fixed it"**: no skill fits, so holstered adds nothing.
 
 Agents with hundreds of skills see only their names, so the one that fits the
 task often goes unused. holstered is a prompt hook: on every user prompt it
-shortlists skills with BM25, asks a decision model to pick one (or none), and
+shortlists skills by keyword (BM25) and by meaning (a small embedding model
+built into the binary), asks a decision model to pick one (or none), and
 injects that skill's `SKILL.md` into the model's context for the turn. Set a
 [runner-up threshold](CONFIGURATION.md) and a prompt that spans several tasks
 also gets its runner-up skills.
@@ -35,7 +36,7 @@ which translates each agent's hook payload and response format.
 
 ## How it works
 
-<p align="center"><img src="assets/flow.svg" alt="user prompt → agent prompt hook → holstered: polyhook reads the prompt, BM25 shortlists the top 20 skills, Jev or Kev picks one or none, plus, with a runner-up threshold set, up to 2 runners-up over it, polyhook injects their SKILL.md → the model sees the skills this turn. On none, an unknown skill, an error or a timeout, nothing is injected and the prompt passes untouched." width="560"></p>
+<p align="center"><img src="assets/flow.svg" alt="user prompt → agent prompt hook → holstered: polyhook reads the prompt, BM25 and embeddings shortlist the top 20 skills, Jev or Kev picks one or none, plus, with a runner-up threshold set, up to 2 runners-up over it, polyhook injects their SKILL.md → the model sees the skills this turn. On none, an unknown skill, an error or a timeout, nothing is injected and the prompt passes untouched." width="560"></p>
 
 Nothing is injected, and the prompt goes through untouched, when the decision
 model answers `none`, names a skill it was not offered, fails or times out
@@ -59,6 +60,14 @@ The holstered rows are the release binary run end to end against live Jev
 1.7s). One of its three misses picked a `pptx` skill for a
 slide-deck prompt the labels credited only to another skill. Small set, single labeler: read it as a direction, not a
 guarantee.
+
+Keywords alone miss a prompt that shares no word with its skill: "what can I
+cook with eggs, rice and spinach?" never reached "Plan meals and recipes from
+ingredients on hand". So the shortlist also ranks skills by meaning, with
+[potion-base-4M](https://huggingface.co/minishlab/potion-base-4M) static
+embeddings compiled in (offline, ~0.1s per prompt), and fuses both rankings.
+In the repo's [eval](evals/README.md) every labeled skill is now shortlisted,
+for Jev and Kev alike.
 
 ## Supported agents
 

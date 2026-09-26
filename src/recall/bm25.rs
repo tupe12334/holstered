@@ -1,8 +1,6 @@
-//! BM25 recall over skill names and descriptions.
-//!
-//! Recall only: this picks the shortlist Jev chooses from, so it only has to
-//! keep the right skill in the top N, not put it first.
+//! Keyword recall: BM25 over skill names and descriptions.
 
+use super::document;
 use crate::skills::Skill;
 use bm25::{Document, Language, SearchEngineBuilder};
 
@@ -15,7 +13,7 @@ pub fn rank<'a>(query: &str, skills: &'a [Skill], limit: usize) -> Vec<&'a Skill
     let documents = skills
         .iter()
         .enumerate()
-        .map(|(i, s)| Document::new(i, format!("{} {}", s.name.replace('-', " "), s.description)));
+        .map(|(i, s)| Document::new(i, document(s)));
     SearchEngineBuilder::<usize>::with_documents(Language::English, documents)
         .build()
         .search(query, limit)
