@@ -62,7 +62,7 @@ for the full list and which agents can take context injection.
 ## Install
 
 ```bash
-cargo install --git https://github.com/tupe12334/holstered
+cargo install holstered
 export OPENROUTER_API_KEY=sk-or-...   # in the environment your agent starts from
 ```
 
@@ -129,3 +129,7 @@ through untouched. Kev's README puts it a few points below Jev.
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## License
+
+[MIT](LICENSE)
