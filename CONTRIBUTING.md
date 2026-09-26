@@ -23,4 +23,7 @@ The end-to-end tests run against a mock Jev server, so no
 
 Bump `version` in `Cargo.toml` through a PR, then tag the merge commit on
 `main` with `v<version>` and push the tag. `release.yml` publishes it to
-crates.io; its guards and checks live in that workflow.
+crates.io, then points the formula in
+[tupe12334/homebrew-tap](https://github.com/tupe12334/homebrew-tap) at the new
+tag, pushing with the `HOMEBREW_TAP_DEPLOY_KEY` deploy key. Its guards and
+checks live in that workflow.

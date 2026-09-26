@@ -41,3 +41,25 @@ jobs:
       - run: cargo publish --locked
         env:
           CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+
+  homebrew:
+    name: Bump Homebrew formula
+    needs: publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Homebrew/actions/setup-homebrew@main
+      # Write access to tupe12334/homebrew-tap only, via a deploy key.
+      - uses: webfactory/ssh-agent@v0.10.0
+        with:
+          ssh-private-key: ${{ secrets.HOMEBREW_TAP_DEPLOY_KEY }}
+
+      - name: Point the formula at this tag and push
+        run: |
+          brew tap tupe12334/tap
+          tap="$(brew --repo tupe12334/tap)"
+          git -C "$tap" config user.name "github-actions[bot]"
+          git -C "$tap" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          brew bump-formula-pr --write-only --commit --no-audit \
+            --url "https://github.com/${GITHUB_REPOSITORY}/archive/refs/tags/${GITHUB_REF_NAME}.tar.gz" \
+            tupe12334/tap/holstered
+          git -C "$tap" push git@github.com:tupe12334/homebrew-tap.git HEAD:main
