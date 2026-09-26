@@ -81,10 +81,6 @@ holstered as the prompt hook of each agent you use.
 codex plugin marketplace add tupe12334/holstered
 codex plugin add holstered@holstered
 ```
-Or register the hook by hand in `~/.codex/hooks.json` (not both, or it runs twice):
-```json
-{ "hooks": { "UserPromptSubmit": [ { "hooks": [ { "type": "command", "command": "holstered" } ] } ] } }
-```
 
 **Gemini CLI** — `~/.gemini/settings.json`
 ```json
