@@ -85,9 +85,9 @@ codex plugin marketplace add tupe12334/holstered
 codex plugin add holstered@holstered
 ```
 
-**Gemini CLI** — `~/.gemini/settings.json`
-```json
-{ "hooks": { "BeforeAgent": [ { "hooks": [ { "type": "command", "command": "holstered" } ] } ] } }
+**Gemini CLI** — install the extension:
+```bash
+gemini extensions install https://github.com/tupe12334/holstered
 ```
 
 **Hermes Agent** — install the plugin, then restart Hermes:

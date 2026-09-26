@@ -25,7 +25,7 @@ or the model, re-record it as described in [evals/README.md](evals/README.md).
 
 ## Releasing
 
-Bump `version` in `Cargo.toml` through a PR, then tag the merge commit on
+Bump `version` in `Cargo.toml` and `gemini-extension.json` through a PR, then tag the merge commit on
 `main` with `v<version>` and push the tag. `release.yml` publishes it to
 crates.io, then points the formula in
 [tupe12334/homebrew-tap](https://github.com/tupe12334/homebrew-tap) at the new
