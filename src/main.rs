@@ -1,8 +1,8 @@
-//! holstered: a prompt hook that hands the agent the one skill it needs.
+//! holstered: a prompt hook that hands the agent the skills it needs.
 //!
 //! On each user prompt it shortlists skills with BM25, asks the Jev decision
-//! model to pick one (or none), and injects that skill's SKILL.md into the
-//! model's context through polyhook, so one binary serves every agent.
+//! model to pick one (or none) plus any runners-up over a probability
+//! threshold, and injects those SKILL.md files into the model's context through polyhook, so one binary serves every agent.
 //! Any failure, missing key, or `none` answer leaves the prompt untouched.
 
 mod bm25;

@@ -4,6 +4,7 @@
 //! Request and response shapes follow the typed-decision-models skill
 //! (`references/jev-system-one-api.md`).
 
+mod answer;
 mod endpoint;
 mod request;
 
@@ -17,9 +18,9 @@ pub const JEV_MODEL: &str = "~typesafe/jev-latest";
 pub const KEV_MODEL: &str = "kev-latest";
 pub const NONE: &str = "none";
 
-/// Ask Jev which of `pool` fits `prompt`. `Ok(None)` when it answers `none`
-/// or names a skill it was not offered.
-pub fn choose(at: &Endpoint, prompt: &str, pool: &[&Skill]) -> Result<Option<String>, String> {
+/// Ask Jev which of `pool` fit `prompt`: its pick plus any runners-up at or
+/// over the endpoint's threshold. Empty when it answers `none`.
+pub fn choose(at: &Endpoint, prompt: &str, pool: &[&Skill]) -> Result<Vec<String>, String> {
     let agent: ureq::Agent = ureq::Agent::config_builder()
         .timeout_global(Some(at.timeout))
         .build()
@@ -37,11 +38,5 @@ pub fn choose(at: &Endpoint, prompt: &str, pool: &[&Skill]) -> Result<Option<Str
         .read_json()
         .map_err(|e| format!("jev response unreadable: {e}"))?;
 
-    let choice = answer["answers"]["skill"]["choice"]
-        .as_str()
-        .ok_or("jev response has no answers.skill.choice")?;
-    Ok(pool
-        .iter()
-        .any(|s| s.name == choice)
-        .then(|| choice.to_owned()))
+    answer::picks(&answer, pool, at.threshold)
 }

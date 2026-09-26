@@ -17,6 +17,7 @@ pub fn exec(payload: &Value, env: &[(&str, String)]) -> Value {
         "OPENROUTER_API_KEY",
         "HOLSTERED_JEV_URL",
         "HOLSTERED_KEV_URL",
+        "HOLSTERED_THRESHOLD",
     ] {
         cmd.env_remove(var);
     }

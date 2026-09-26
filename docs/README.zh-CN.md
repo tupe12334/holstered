@@ -11,7 +11,8 @@
 装了几百个技能的智能体只能看到技能名称，真正对口的那个往往用不上。holstered
 是一个提示词钩子（prompt hook）：每收到一条用户提示词，它先用 BM25 筛出候选技能，
 再让决策模型从中选出一个（或者一个都不选），然后把该技能的 `SKILL.md`
-注入到模型本轮的上下文中。
+注入到模型本轮的上下文中。涉及多个任务的提示词，还会一并注入概率超过
+[阈值](../CONFIGURATION.md)的候选技能。
 
 https://github.com/user-attachments/assets/b6de382b-8ca3-4fe0-9baa-0039342dd3b0
 
@@ -23,7 +24,7 @@ https://github.com/user-attachments/assets/b6de382b-8ca3-4fe0-9baa-0039342dd3b0
 
 ## 工作原理
 
-<p align="center"><img src="../assets/flow.svg" alt="用户提示词 → 智能体提示词钩子 → holstered：polyhook 读取提示词，BM25 筛出前 20 个技能，Jev 或 Kev 选出一个或不选，polyhook 注入其 SKILL.md → 模型在本轮看到该技能。若模型回答 none、给出未提供的技能、出错或超时，则不注入任何内容，提示词原样通过。" width="560"></p>
+<p align="center"><img src="../assets/flow.svg" alt="用户提示词 → 智能体提示词钩子 → holstered：polyhook 读取提示词，BM25 筛出前 20 个技能，Jev 或 Kev 选出一个或不选，外加超过阈值的候选技能（最多 3 个），polyhook 注入它们的 SKILL.md → 模型在本轮看到这些技能。若模型回答 none、给出未提供的技能、出错或超时，则不注入任何内容，提示词原样通过。" width="560"></p>
 
 以下情况不会注入任何内容，提示词原样通过：决策模型回答 `none`、给出了不在候选列表中的技能、
 调用失败或超时（默认 8 秒），或者没有配置任何决策模型。holstered 永远不会阻断提示词。

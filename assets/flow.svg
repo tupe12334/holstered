@@ -64,7 +64,7 @@
   <rect class="step" x="40" y="334" width="360" height="52" rx="8"/>
   <text class="n" x="56" y="356">3</text>
   <text class="t" x="76" y="356">Jev (hosted) or Kev (local)</text>
-  <text class="s" x="76" y="374">pick one skill or "none"</text>
+  <text class="s" x="76" y="374">pick one or "none", + runners-up ≥ threshold</text>
   <path class="a" d="M220 386V400" marker-end="url(#ah)"/>
 
   <rect class="step" x="40" y="402" width="360" height="52" rx="8"/>
@@ -74,7 +74,7 @@
   <path class="a" d="M220 466V492" marker-end="url(#ah)"/>
 
   <rect class="box" x="40" y="494" width="360" height="44" rx="8"/>
-  <text class="t" x="220" y="521" text-anchor="middle">model sees the skill this turn</text>
+  <text class="t" x="220" y="521" text-anchor="middle">model sees the skills this turn</text>
 
   <path class="d" d="M400 360H468" marker-end="url(#dh)"/>
   <rect class="skip" x="470" y="310" width="230" height="100" rx="8"/>
