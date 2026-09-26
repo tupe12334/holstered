@@ -14,7 +14,7 @@ mod skills;
 use clap::Parser;
 use polyhook::HookResponse;
 
-/// Only flags are parsed; the hook payload always arrives on stdin.
+// Only flags are parsed; the hook payload always arrives on stdin.
 #[derive(Parser)]
 #[command(version, about, disable_version_flag = true)]
 struct Cli {
