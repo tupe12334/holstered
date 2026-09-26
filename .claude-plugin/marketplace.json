@@ -1,0 +1,9 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "holstered",
+  "description": "Hands your coding agent the right skill for each prompt.",
+  "owner": { "name": "tupe12334", "url": "https://github.com/tupe12334" },
+  "plugins": [
+    { "name": "holstered", "description": "Hands your coding agent the right skill for each prompt.", "source": "./plugins/claude-code", "category": "productivity" }
+  ]
+}

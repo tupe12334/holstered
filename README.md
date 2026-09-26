@@ -71,9 +71,12 @@ cargo install --git https://github.com/tupe12334/holstered
 Then [choose a decision model](#choose-a-decision-model) and register
 holstered as the prompt hook of each agent you use.
 
-**Claude Code** — `~/.claude/settings.json`
-```json
-{ "hooks": { "UserPromptSubmit": [ { "hooks": [ { "type": "command", "command": "holstered" } ] } ] } }
+**Claude Code** — install the plugin (send the two commands as separate prompts):
+```
+/plugin marketplace add tupe12334/holstered
+```
+```
+/plugin install holstered@holstered
 ```
 
 **Codex** — install the plugin, then open `/hooks` in `codex` and trust its hook:

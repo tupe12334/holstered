@@ -1,0 +1,7 @@
+{
+  "name": "holstered",
+  "description": "Hands your coding agent the right skill for each prompt. Runs the holstered binary as a UserPromptSubmit hook.",
+  "author": { "name": "tupe12334", "url": "https://github.com/tupe12334" },
+  "homepage": "https://github.com/tupe12334/holstered",
+  "license": "MIT"
+}
