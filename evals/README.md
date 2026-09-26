@@ -13,6 +13,12 @@ up as a failing test instead of a vague feeling.
 | `baseline.json` | Per model: `correct` picks, `abstained` on no-skill prompts, `recalled` (right skill was in the BM25 shortlist) |
 | `eval.rs`, `harness/` | The test itself, registered in `Cargo.toml` as the `eval` test target |
 
+Each miss is printed with its stage: a **retrieval miss** means BM25 never
+shortlisted the right skill, so the fix is in search; a **routing miss** means
+it was shortlisted and the model chose otherwise. Half of the no-skill prompts
+are chit-chat that shares words with a skill ("thanks, the merge went
+through fine"), so the shortlist is full of plausible but wrong skills.
+
 ## What `cargo test` checks
 
 `eval.rs` (with its `harness/`) runs the real binary on every case, with `evals/skills` as the

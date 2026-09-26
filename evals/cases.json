@@ -214,5 +214,29 @@
  {
   "prompt": "rename variable foo to bar in utils.rs",
   "expect": []
+ },
+ {
+  "prompt": "thanks, the merge went through fine",
+  "expect": []
+ },
+ {
+  "prompt": "ok the deploy is done, thanks",
+  "expect": []
+ },
+ {
+  "prompt": "my flight got delayed so I'll be late to standup",
+  "expect": []
+ },
+ {
+  "prompt": "the slides looked great in the meeting, nice work",
+  "expect": []
+ },
+ {
+  "prompt": "cool, the spreadsheet numbers match now",
+  "expect": []
+ },
+ {
+  "prompt": "lol the CI is finally green",
+  "expect": []
  }
 ]

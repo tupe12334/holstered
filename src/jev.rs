@@ -23,7 +23,7 @@ pub const NONE: &str = "none";
 /// a runner-up threshold is set. Empty without a pick.
 pub fn choose(at: &Endpoint, prompt: &str, pool: &[&Skill]) -> Result<Vec<String>, String> {
     let answer = ask::ask(at, prompt, pool)?;
-    let Some(pick) = pick::pick(&answer, pool)? else {
+    let Some(pick) = pick::pick(&answer, pool, at.pick_threshold)? else {
         return Ok(Vec::new());
     };
     let runners_up = at
