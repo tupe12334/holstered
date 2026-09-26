@@ -978,7 +978,7 @@ checksum = "a89322df9ebe1c1578d689c92318e070967d1042b512afbe49518723f4e6d5cd"
 [[package]]
 name = "polyhook"
 version = "0.1.0"
-source = "git+https://github.com/polyhook/polyhook?branch=feat%2Fprompt-submit-context#325967ba018a1f2e668de7ca29f051b5f7b470f8"
+source = "git+https://github.com/polyhook/polyhook?branch=feat%2Fcodex-caller#669ff35b0884a32e8d7f6be07a4c4ae8eab1fb02"
 dependencies = [
  "polyhook-core",
 ]
@@ -986,7 +986,7 @@ dependencies = [
 [[package]]
 name = "polyhook-core"
 version = "0.1.0"
-source = "git+https://github.com/polyhook/polyhook?branch=feat%2Fprompt-submit-context#325967ba018a1f2e668de7ca29f051b5f7b470f8"
+source = "git+https://github.com/polyhook/polyhook?branch=feat%2Fcodex-caller#669ff35b0884a32e8d7f6be07a4c4ae8eab1fb02"
 dependencies = [
  "prettyplease",
  "proc-macro2",
