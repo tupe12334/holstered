@@ -14,7 +14,8 @@ use serde_json::Value;
 use std::time::Duration;
 
 pub const DEFAULT_URL: &str = "https://openrouter.ai/api/alpha/decisions";
-pub const MODEL: &str = "~typesafe/jev-latest";
+pub const JEV_MODEL: &str = "~typesafe/jev-latest";
+pub const KEV_MODEL: &str = "kev-latest";
 pub const NONE: &str = "none";
 const TIMEOUT: Duration = Duration::from_secs(8);
 
@@ -32,7 +33,7 @@ pub fn choose(at: &Endpoint, prompt: &str, pool: &[&Skill]) -> Result<Option<Str
         req = req.header("authorization", &format!("Bearer {key}"));
     }
     let answer: Value = req
-        .send_json(request::body(prompt, pool))
+        .send_json(request::body(at.model, prompt, pool))
         .map_err(|e| format!("jev request failed: {e}"))?
         .body_mut()
         .read_json()
