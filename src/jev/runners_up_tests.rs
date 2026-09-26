@@ -9,7 +9,7 @@ fn skill(name: &str) -> Skill {
     }
 }
 
-fn answer(probabilities: Value) -> Value {
+fn answer(probabilities: &Value) -> Value {
     json!({"answers": {"skill": {"choice": "merge", "probabilities": probabilities}}})
 }
 
@@ -19,7 +19,7 @@ fn at_or_over_threshold_best_first_without_the_pick() {
     let pool: Vec<_> = skills.iter().collect();
     let probs = json!({"merge": 0.5, "ci": 0.2, "rebase": 0.25, "docs": 0.05, "none": 0.3});
     assert_eq!(
-        runners_up(&answer(probs), &pool, "merge", 0.2),
+        runners_up(&answer(&probs), &pool, "merge", 0.2),
         ["rebase", "ci"]
     );
 }
@@ -30,7 +30,7 @@ fn capped_and_offered_only() {
     let pool: Vec<_> = skills.iter().collect();
     let probs = json!({"a": 0.3, "b": 0.3, "c": 0.2, "ghost": 0.9});
     assert_eq!(
-        runners_up(&answer(probs), &pool, "merge", 0.1).len(),
+        runners_up(&answer(&probs), &pool, "merge", 0.1).len(),
         MAX_RUNNERS_UP
     );
 }
