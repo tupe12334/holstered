@@ -105,10 +105,6 @@ The model is `~typesafe/jev-latest`. When the key is set, the prompt (first
 2,000 characters) and the shortlisted skill descriptions are sent to
 OpenRouter. Each prompt with a shortlist takes about 0.7–1s longer.
 
-## Development
+## Contributing
 
-```bash
-cargo test                                   # unit + end-to-end against a mock Jev, per agent format
-cargo clippy --all-targets -- -D warnings
-cargo fmt -- --check
-```
+See [CONTRIBUTING.md](CONTRIBUTING.md).
