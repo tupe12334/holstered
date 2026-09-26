@@ -151,6 +151,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write # create the release and push the go/ tag
+      id-token: write # sign the build provenance attestation
+      attestations: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
@@ -173,6 +175,12 @@ jobs:
           x86_64-pc-windows-msvc holstered-windows-amd64.exe
           MAP
           (cd dist && sha256sum -- * > SHA256SUMS && cat SHA256SUMS)
+
+      # SHA256SUMS only catches corrupt downloads; the attestation ties each
+      # binary to this workflow run: `gh attestation verify <file> -R tupe12334/holstered`.
+      - uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: dist/holstered-*
 
       - run: gh release create "$GITHUB_REF_NAME" dist/* --verify-tag --generate-notes
         env:

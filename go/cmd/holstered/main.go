@@ -18,6 +18,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"regexp"
 	"runtime"
 	"runtime/debug"
 	"strings"
@@ -43,10 +44,15 @@ func main() {
 	}
 }
 
+// release matches the tags release.yml publishes. Local builds carry
+// "(devel)" or, since Go 1.24, a VCS pseudo-version like
+// v0.0.0-20260926-abcdef+dirty, which has no release to download.
+var release = regexp.MustCompile(`^v\d+\.\d+\.\d+$`)
+
 // version is the module version `go install ...@vX.Y.Z` recorded, which
-// matches the binary's release tag. Local builds have none.
+// matches the binary's release tag, or "" for a local build.
 func version() string {
-	if info, ok := debug.ReadBuildInfo(); ok && strings.HasPrefix(info.Main.Version, "v") {
+	if info, ok := debug.ReadBuildInfo(); ok && release.MatchString(info.Main.Version) {
 		return info.Main.Version
 	}
 	return ""
@@ -65,7 +71,7 @@ func assetName(goos, goarch string) (string, error) {
 
 func ensureBinary(ver string) (string, error) {
 	if ver == "" {
-		return "", errors.New("unknown version; install with `go install github.com/tupe12334/holstered/go/cmd/holstered@latest`")
+		return "", errors.New("local build has no matching release; install a released version with `go install github.com/tupe12334/holstered/go/cmd/holstered@latest`")
 	}
 	asset, err := assetName(runtime.GOOS, runtime.GOARCH)
 	if err != nil {

@@ -67,6 +67,7 @@ npm install -g holstered
 
 # Go（首次运行时下载预编译二进制）
 go install github.com/tupe12334/holstered/go/cmd/holstered@latest
+# 或在 Go 项目中固定版本（Go 1.24+）：go get -tool github.com/tupe12334/holstered/go/cmd/holstered
 
 # crates.io
 cargo install holstered

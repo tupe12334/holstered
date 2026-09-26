@@ -82,6 +82,7 @@ npm install -g holstered
 
 # Go (downloads the prebuilt binary on first run)
 go install github.com/tupe12334/holstered/go/cmd/holstered@latest
+# or pin it in a Go project (Go 1.24+): go get -tool github.com/tupe12334/holstered/go/cmd/holstered
 
 # crates.io
 cargo install holstered

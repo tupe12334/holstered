@@ -27,6 +27,18 @@ func TestAssetName(t *testing.T) {
 	}
 }
 
+func TestReleaseVersion(t *testing.T) {
+	for v, want := range map[string]bool{
+		"v1.3.0": true, "(devel)": false, "": false,
+		"v0.0.0-20260926120000-abcdef123456":         false,
+		"v1.3.1-0.20260926120000-abcdef123456+dirty": false,
+	} {
+		if got := release.MatchString(v); got != want {
+			t.Errorf("release.MatchString(%q) = %v, want %v", v, got, want)
+		}
+	}
+}
+
 func TestChecksumFor(t *testing.T) {
 	sums := "aaa  holstered-linux-amd64\nbbb *holstered-windows-amd64.exe\n"
 	if got, _ := checksumFor(sums, "holstered-windows-amd64.exe"); got != "bbb" {
