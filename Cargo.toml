@@ -9,7 +9,7 @@ homepage = "https://github.com/tupe12334/holstered"
 readme = "README.md"
 keywords = ["claude-code", "codex", "agent", "skills", "hooks"]
 categories = ["command-line-utilities", "development-tools"]
-exclude = [".github/", "linecheck.yml"]
+exclude = [".github/", "assets/", "linecheck.yml"]
 
 [dependencies]
 bm25 = "2.3.2"
