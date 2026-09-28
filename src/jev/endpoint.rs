@@ -5,10 +5,8 @@ use std::time::Duration;
 
 const DEFAULT_TIMEOUT_MS: u64 = 8000;
 
-/// A decisions endpoint, its model and key, how long to wait for its answer
-/// (`HOLSTERED_TIMEOUT_MS`, default 8s), and the probability a runner-up
-/// needs (`HOLSTERED_RUNNER_UP_THRESHOLD`; default 0.2 on Jev, 0.15 on Kev), and the
-/// probability the pick needs (`HOLSTERED_PICK_THRESHOLD`; unset, any).
+/// A decisions endpoint, its model and key, and its knobs (CONFIGURATION.md):
+/// timeout, pick threshold, and runner-up threshold (per-backend default).
 pub struct Endpoint {
     pub url: String,
     pub model: &'static str,
