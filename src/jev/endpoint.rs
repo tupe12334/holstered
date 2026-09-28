@@ -1,32 +1,31 @@
 //! Where the decision goes: local Kev when configured, else Jev on OpenRouter.
 
-use super::{DEFAULT_URL, JEV_MODEL, KEV_MODEL};
+use super::{DEFAULT_URL, JEV_MODEL, JEV_RUNNER_UP, KEV_MODEL, KEV_RUNNER_UP};
 use std::time::Duration;
 
 const DEFAULT_TIMEOUT_MS: u64 = 8000;
 
-/// A decisions endpoint, its model and key, how long to wait for its answer
-/// (`HOLSTERED_TIMEOUT_MS`, default 8s), and the probability a runner-up
-/// needs (`HOLSTERED_RUNNER_UP_THRESHOLD`; unset, no runners-up), and the
-/// probability the pick needs (`HOLSTERED_PICK_THRESHOLD`; unset, any).
+/// A decisions endpoint, its model and key, and its knobs (CONFIGURATION.md):
+/// timeout, pick threshold, and runner-up threshold (per-backend default).
 pub struct Endpoint {
     pub url: String,
     pub model: &'static str,
     pub key: Option<String>,
     pub timeout: Duration,
     pub pick_threshold: Option<f64>,
-    pub runner_up_threshold: Option<f64>,
+    pub runner_up_threshold: f64,
 }
 
 /// `HOLSTERED_KEV_URL` selects a local Kev server, which needs no key.
 /// Otherwise Jev needs `OPENROUTER_API_KEY`; `None` when it is unset.
 pub fn endpoint() -> Option<Endpoint> {
-    let (url, model, key) = match var("HOLSTERED_KEV_URL") {
-        Some(url) => (url, KEV_MODEL, None),
+    let (url, model, key, runner_up_threshold) = match var("HOLSTERED_KEV_URL") {
+        Some(url) => (url, KEV_MODEL, None, KEV_RUNNER_UP),
         None => (
             var("HOLSTERED_JEV_URL").unwrap_or_else(|| DEFAULT_URL.into()),
             JEV_MODEL,
             Some(var("OPENROUTER_API_KEY")?),
+            JEV_RUNNER_UP,
         ),
     };
     Some(Endpoint {
@@ -37,7 +36,7 @@ pub fn endpoint() -> Option<Endpoint> {
             parsed("HOLSTERED_TIMEOUT_MS").unwrap_or(DEFAULT_TIMEOUT_MS),
         ),
         pick_threshold: parsed("HOLSTERED_PICK_THRESHOLD"),
-        runner_up_threshold: parsed("HOLSTERED_RUNNER_UP_THRESHOLD"),
+        runner_up_threshold: parsed("HOLSTERED_RUNNER_UP_THRESHOLD").unwrap_or(runner_up_threshold),
     })
 }
 
