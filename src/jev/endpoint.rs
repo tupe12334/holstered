@@ -1,12 +1,9 @@
 //! Where the decision goes: local Kev when configured, else Jev on OpenRouter.
 
-use super::{DEFAULT_URL, JEV_MODEL, KEV_MODEL};
+use super::{DEFAULT_URL, JEV_MODEL, JEV_RUNNER_UP, KEV_MODEL, KEV_RUNNER_UP};
 use std::time::Duration;
 
 const DEFAULT_TIMEOUT_MS: u64 = 8000;
-// Kev spreads its scores flatter than Jev, so its runners-up score lower.
-const JEV_RUNNER_UP_THRESHOLD: f64 = 0.2;
-const KEV_RUNNER_UP_THRESHOLD: f64 = 0.15;
 
 /// A decisions endpoint, its model and key, how long to wait for its answer
 /// (`HOLSTERED_TIMEOUT_MS`, default 8s), and the probability a runner-up
@@ -25,12 +22,12 @@ pub struct Endpoint {
 /// Otherwise Jev needs `OPENROUTER_API_KEY`; `None` when it is unset.
 pub fn endpoint() -> Option<Endpoint> {
     let (url, model, key, runner_up_threshold) = match var("HOLSTERED_KEV_URL") {
-        Some(url) => (url, KEV_MODEL, None, KEV_RUNNER_UP_THRESHOLD),
+        Some(url) => (url, KEV_MODEL, None, KEV_RUNNER_UP),
         None => (
             var("HOLSTERED_JEV_URL").unwrap_or_else(|| DEFAULT_URL.into()),
             JEV_MODEL,
             Some(var("OPENROUTER_API_KEY")?),
-            JEV_RUNNER_UP_THRESHOLD,
+            JEV_RUNNER_UP,
         ),
     };
     Some(Endpoint {

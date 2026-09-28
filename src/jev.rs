@@ -18,6 +18,9 @@ pub const DEFAULT_URL: &str = "https://openrouter.ai/api/alpha/decisions";
 pub const JEV_MODEL: &str = "~typesafe/jev-latest";
 pub const KEV_MODEL: &str = "kev-latest";
 pub const NONE: &str = "none";
+// Kev scores flatter than Jev, so its runners-up need less (CONFIGURATION.md).
+pub const JEV_RUNNER_UP: f64 = 0.2;
+pub const KEV_RUNNER_UP: f64 = 0.15;
 
 /// Ask Jev or Kev which of `pool` fit `prompt`: its pick, then its runners-up
 /// over the runner-up threshold. Empty without a pick.
