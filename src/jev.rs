@@ -19,17 +19,14 @@ pub const JEV_MODEL: &str = "~typesafe/jev-latest";
 pub const KEV_MODEL: &str = "kev-latest";
 pub const NONE: &str = "none";
 
-/// Ask Jev or Kev which of `pool` fit `prompt`: its pick, then its runners-up when
-/// a runner-up threshold is set. Empty without a pick.
+/// Ask Jev or Kev which of `pool` fit `prompt`: its pick, then its runners-up
+/// over the runner-up threshold. Empty without a pick.
 pub fn choose(at: &Endpoint, prompt: &str, pool: &[&Skill]) -> Result<Vec<String>, String> {
     let answer = ask::ask(at, prompt, pool)?;
     let Some(pick) = pick::pick(&answer, pool, at.pick_threshold)? else {
         return Ok(Vec::new());
     };
-    let runners_up = at
-        .runner_up_threshold
-        .map(|t| runners_up::runners_up(&answer, pool, pick, t))
-        .unwrap_or_default();
+    let runners_up = runners_up::runners_up(&answer, pool, pick, at.runner_up_threshold);
     Ok(std::iter::once(pick)
         .chain(runners_up)
         .map(str::to_owned)
