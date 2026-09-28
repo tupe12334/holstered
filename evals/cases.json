@@ -260,5 +260,549 @@
  {
   "prompt": "```\n#0 [build 0/40] RUN npm ci --workspace packages/pkg-0\n#0 DONE 0.0s\n#1 [build 1/40] RUN npm ci --workspace packages/pkg-1\n#1 DONE 0.1s\n#2 [build 2/40] RUN npm ci --workspace packages/pkg-2\n#2 DONE 0.2s\n#3 [build 3/40] RUN npm ci --workspace packages/pkg-3\n#3 DONE 0.3s\n#4 [build 4/40] RUN npm ci --workspace packages/pkg-4\n#4 DONE 0.4s\n#5 [build 5/40] RUN npm ci --workspace packages/pkg-5\n#5 DONE 0.5s\n#6 [build 6/40] RUN npm ci --workspace packages/pkg-6\n#6 DONE 0.6s\n#7 [build 7/40] RUN npm ci --workspace packages/pkg-7\n#7 DONE 0.7s\n#8 [build 8/40] RUN npm ci --workspace packages/pkg-8\n#8 DONE 0.8s\n#9 [build 9/40] RUN npm ci --workspace packages/pkg-9\n#9 DONE 0.9s\n#10 [build 10/40] RUN npm ci --workspace packages/pkg-10\n#10 DONE 1.0s\n#11 [build 11/40] RUN npm ci --workspace packages/pkg-11\n#11 DONE 1.1s\n#12 [build 12/40] RUN npm ci --workspace packages/pkg-12\n#12 DONE 1.2s\n#13 [build 13/40] RUN npm ci --workspace packages/pkg-13\n#13 DONE 1.3s\n#14 [build 14/40] RUN npm ci --workspace packages/pkg-14\n#14 DONE 1.4s\n#15 [build 15/40] RUN npm ci --workspace packages/pkg-15\n#15 DONE 1.5s\n#16 [build 16/40] RUN npm ci --workspace packages/pkg-16\n#16 DONE 1.6s\n#17 [build 17/40] RUN npm ci --workspace packages/pkg-17\n#17 DONE 1.7s\n#18 [build 18/40] RUN npm ci --workspace packages/pkg-18\n#18 DONE 1.8s\n#19 [build 19/40] RUN npm ci --workspace packages/pkg-19\n#19 DONE 1.9s\n#20 [build 20/40] RUN npm ci --workspace packages/pkg-20\n#20 DONE 2.0s\n#21 [build 21/40] RUN npm ci --workspace packages/pkg-21\n#21 DONE 2.1s\n#22 [build 22/40] RUN npm ci --workspace packages/pkg-22\n#22 DONE 2.2s\n#23 [build 23/40] RUN npm ci --workspace packages/pkg-23\n#23 DONE 2.3s\n#24 [build 24/40] RUN npm ci --workspace packages/pkg-24\n#24 DONE 2.4s\n#25 [build 25/40] RUN npm ci --workspace packages/pkg-25\n#25 DONE 2.5s\n#26 [build 26/40] RUN npm ci --workspace packages/pkg-26\n#26 DONE 2.6s\n#27 [build 27/40] RUN npm ci --workspace packages/pkg-27\n#27 DONE 2.7s\n#28 [build 28/40] RUN npm ci --workspace packages/pkg-28\n#28 DONE 2.8s\n#29 [build 29/40] RUN npm ci --workspace packages/pkg-29\n#29 DONE 2.9s\n#30 [build 30/40] RUN npm ci --workspace packages/pkg-30\n#30 DONE 3.0s\n#31 [build 31/40] RUN npm ci --workspace packages/pkg-31\n#31 DONE 3.1s\n#32 [build 32/40] RUN npm ci --workspace packages/pkg-32\n#32 DONE 3.2s\n#33 [build 33/40] RUN npm ci --workspace packages/pkg-33\n#33 DONE 3.3s\n#34 [build 34/40] RUN npm ci --workspace packages/pkg-34\n#34 DONE 3.4s\n#35 [build 35/40] RUN npm ci --workspace packages/pkg-35\n#35 DONE 3.5s\n#36 [build 36/40] RUN npm ci --workspace packages/pkg-36\n#36 DONE 3.6s\n#37 [build 37/40] RUN npm ci --workspace packages/pkg-37\n#37 DONE 3.7s\n#38 [build 38/40] RUN npm ci --workspace packages/pkg-38\n#38 DONE 3.8s\n#39 [build 39/40] RUN npm ci --workspace packages/pkg-39\n#39 DONE 3.9s\n```\nthanks, the build is green now, all good",
   "expect": []
+ },
+ {
+  "prompt": "make an animated video explaining how BM25 ranking works",
+  "expect": [
+   "explainer-video"
+  ],
+  "note": "modality-collision"
+ },
+ {
+  "prompt": "record a walkthrough video of the signup flow on staging",
+  "expect": [
+   "screen-recording-walkthrough"
+  ],
+  "note": "modality-collision"
+ },
+ {
+  "prompt": "generate a 5 second AI video clip of waves crashing at sunset",
+  "expect": [
+   "image-generation"
+  ],
+  "note": "modality-collision"
+ },
+ {
+  "prompt": "narrate this script with a natural voice and give me the mp3",
+  "expect": [
+   "text-to-speech"
+  ],
+  "note": "modality-collision"
+ },
+ {
+  "prompt": "compose calm background music for my demo video",
+  "expect": [
+   "music-generation"
+  ],
+  "note": "modality-collision"
+ },
+ {
+  "prompt": "transcribe this meeting recording into text",
+  "expect": [
+   "audio-transcription"
+  ],
+  "note": "modality-collision"
+ },
+ {
+  "prompt": "turn this video into a transcript with timestamps",
+  "expect": [
+   "audio-transcription"
+  ],
+  "note": "modality-collision"
+ },
+ {
+  "prompt": "design a youtube thumbnail for the release video",
+  "expect": [
+   "thumbnail-design"
+  ],
+  "note": "modality-collision"
+ },
+ {
+  "prompt": "send a funny gif to celebrate the launch",
+  "expect": [
+   "gif-search"
+  ],
+  "note": "modality-collision"
+ },
+ {
+  "prompt": "draw a diagram of how the services talk to each other",
+  "expect": [
+   "diagram-drawing"
+  ],
+  "note": "modality-collision"
+ },
+ {
+  "prompt": "make a short explainer about how our cache invalidation works, with voiceover",
+  "expect": [
+   "explainer-video"
+  ],
+  "note": "modality-collision"
+ },
+ {
+  "prompt": "generate a logo image for our new product",
+  "expect": [
+   "image-generation",
+   "thumbnail-design"
+  ],
+  "note": "modality-collision"
+ },
+ {
+  "prompt": "convert this .mov to .mp4 and shrink it",
+  "expect": [
+   "media-toolkit"
+  ],
+  "note": "modality-collision"
+ },
+ {
+  "prompt": "summarize this spreadsheet and email the numbers to finance",
+  "expect": [
+   "spreadsheet-analysis"
+  ],
+  "note": "delivery-channel"
+ },
+ {
+  "prompt": "write release notes for 2.1 and post them in #releases on slack",
+  "expect": [
+   "release-notes-writing"
+  ],
+  "note": "delivery-channel"
+ },
+ {
+  "prompt": "make a slide deck on Q4 goals and share it with the team on slack",
+  "expect": [
+   "slide-deck-creation"
+  ],
+  "note": "delivery-channel"
+ },
+ {
+  "prompt": "send ben a slack message that the deploy is done",
+  "expect": [
+   "slack-messaging"
+  ],
+  "note": "delivery-channel"
+ },
+ {
+  "prompt": "post in #eng that CI is fixed",
+  "expect": [
+   "slack-messaging"
+  ],
+  "note": "delivery-channel"
+ },
+ {
+  "prompt": "summarize yesterday's standup transcript and open jira tickets for the action items",
+  "expect": [
+   "meeting-notes",
+   "jira-ticket-management"
+  ],
+  "note": "delivery-channel"
+ },
+ {
+  "prompt": "open a jira ticket for the login bug",
+  "expect": [
+   "jira-ticket-management"
+  ],
+  "note": "delivery-channel"
+ },
+ {
+  "prompt": "create a video of how kev works detailed and send to ben on slack",
+  "expect": [
+   "explainer-video"
+  ],
+  "note": "named-entity"
+ },
+ {
+  "prompt": "ask kev whether we should merge this PR now",
+  "expect": [
+   "local-decision-model"
+  ],
+  "note": "named-entity"
+ },
+ {
+  "prompt": "did https://github.com/acme/holstered worked?",
+  "expect": [],
+  "note": "named-entity"
+ },
+ {
+  "prompt": "kev said 0.8, nice",
+  "expect": [],
+  "note": "named-entity"
+ },
+ {
+  "prompt": "don't containerize it, just give me a plain node start script",
+  "expect": [],
+  "note": "negation"
+ },
+ {
+  "prompt": "no need for slides, just write me a one-paragraph summary",
+  "expect": [],
+  "note": "negation"
+ },
+ {
+  "prompt": "don't send anything on slack yet, I'll do it myself",
+  "expect": [],
+  "note": "negation"
+ },
+ {
+  "prompt": "yes",
+  "expect": [],
+  "note": "short-follow-up"
+ },
+ {
+  "prompt": "go ahead",
+  "expect": [],
+  "note": "short-follow-up"
+ },
+ {
+  "prompt": "continue",
+  "expect": [],
+  "note": "short-follow-up"
+ },
+ {
+  "prompt": "which one?",
+  "expect": [],
+  "note": "short-follow-up"
+ },
+ {
+  "prompt": "stop",
+  "expect": [],
+  "note": "short-follow-up"
+ },
+ {
+  "prompt": "?",
+  "expect": [],
+  "note": "short-follow-up"
+ },
+ {
+  "prompt": "👍",
+  "expect": [],
+  "note": "short-follow-up"
+ },
+ {
+  "prompt": "lgtm",
+  "expect": [],
+  "note": "short-follow-up"
+ },
+ {
+  "prompt": "can you make it shorter?",
+  "expect": [],
+  "note": "short-follow-up"
+ },
+ {
+  "prompt": "merge it",
+  "expect": [
+   "github-pr-merge"
+  ],
+  "note": "short-follow-up"
+ },
+ {
+  "prompt": "ship it to the cluster",
+  "expect": [
+   "kubernetes-deploy"
+  ],
+  "note": "short-follow-up"
+ },
+ {
+  "prompt": "rebsae my brnach on mian",
+  "expect": [
+   "git-rebase-conflicts"
+  ],
+  "note": "typo"
+ },
+ {
+  "prompt": "mak a slid deck about our roadmap",
+  "expect": [
+   "slide-deck-creation"
+  ],
+  "note": "typo"
+ },
+ {
+  "prompt": "the ci pipline keeps faling on tests",
+  "expect": [
+   "github-actions-ci-debugging"
+  ],
+  "note": "typo"
+ },
+ {
+  "prompt": "scheduel a meting with dana tomorow",
+  "expect": [
+   "calendar-scheduling"
+  ],
+  "note": "typo"
+ },
+ {
+  "prompt": "תכין לי מצגת על תוצאות הרבעון",
+  "expect": [
+   "slide-deck-creation"
+  ],
+  "note": "non-english"
+ },
+ {
+  "prompt": "תעשה לי סרטון שמסביר איך המערכת עובדת",
+  "expect": [
+   "explainer-video"
+  ],
+  "note": "non-english"
+ },
+ {
+  "prompt": "haz merge del pull request",
+  "expect": [
+   "github-pr-merge"
+  ],
+  "note": "non-english"
+ },
+ {
+  "prompt": "busca un vuelo barato a Tokio",
+  "expect": [
+   "flight-search"
+  ],
+  "note": "non-english"
+ },
+ {
+  "prompt": "תודה, עבד",
+  "expect": [],
+  "note": "non-english"
+ },
+ {
+  "prompt": "what's the difference between rebase and merge?",
+  "expect": [],
+  "note": "question-not-task"
+ },
+ {
+  "prompt": "how does kubernetes scheduling work in general?",
+  "expect": [],
+  "note": "question-not-task"
+ },
+ {
+  "prompt": "what is stable diffusion?",
+  "expect": [],
+  "note": "question-not-task"
+ },
+ {
+  "prompt": "is terraform better than pulumi?",
+  "expect": [],
+  "note": "question-not-task"
+ },
+ {
+  "prompt": "haha that gif was perfect",
+  "expect": [],
+  "note": "chit-chat"
+ },
+ {
+  "prompt": "the video came out great, thanks",
+  "expect": [],
+  "note": "chit-chat"
+ },
+ {
+  "prompt": "I listened to the narration, sounds good",
+  "expect": [],
+  "note": "chit-chat"
+ },
+ {
+  "prompt": "saw your slack message, will check later",
+  "expect": [],
+  "note": "chit-chat"
+ },
+ {
+  "prompt": "the jira board is a mess lol",
+  "expect": [],
+  "note": "chit-chat"
+ },
+ {
+  "prompt": "the thumbnail looks nice",
+  "expect": [],
+  "note": "chit-chat"
+ },
+ {
+  "prompt": "music was a bit loud in the demo but fine",
+  "expect": [],
+  "note": "chit-chat"
+ },
+ {
+  "prompt": "write release notes about the docker image fix",
+  "expect": [
+   "release-notes-writing"
+  ],
+  "note": "keyword-is-object"
+ },
+ {
+  "prompt": "write a commit message for the terraform change",
+  "expect": [
+   "git-commit-messages"
+  ],
+  "note": "keyword-is-object"
+ },
+ {
+  "prompt": "make slides explaining our kubernetes setup",
+  "expect": [
+   "slide-deck-creation"
+  ],
+  "note": "keyword-is-object"
+ },
+ {
+  "prompt": "write a README section on how to run the migrations",
+  "expect": [
+   "readme-documentation"
+  ],
+  "note": "keyword-is-object"
+ },
+ {
+  "prompt": "create a jira ticket to upgrade react",
+  "expect": [
+   "jira-ticket-management"
+  ],
+  "note": "keyword-is-object"
+ },
+ {
+  "prompt": "draw a diagram of the CI pipeline",
+  "expect": [
+   "diagram-drawing"
+  ],
+  "note": "keyword-is-object"
+ },
+ {
+  "prompt": "review the PR that adds the Dockerfile",
+  "expect": [
+   "github-pr-review"
+  ],
+  "note": "keyword-is-object"
+ },
+ {
+  "prompt": "profile the orders endpoint, the API is slow",
+  "expect": [
+   "performance-profiling"
+  ],
+  "note": "keyword-is-object"
+ },
+ {
+  "prompt": "run the cleanup script every night at 2am",
+  "expect": [
+   "cron-scheduling"
+  ],
+  "note": "near-neighbour"
+ },
+ {
+  "prompt": "set up a launchd job that syncs the repo hourly",
+  "expect": [
+   "cron-scheduling"
+  ],
+  "note": "near-neighbour"
+ },
+ {
+  "prompt": "book 30 minutes with the design team on thursday",
+  "expect": [
+   "calendar-scheduling"
+  ],
+  "note": "near-neighbour"
+ },
+ {
+  "prompt": "write a word document with the onboarding checklist",
+  "expect": [
+   "word-document-writing"
+  ],
+  "note": "near-neighbour"
+ },
+ {
+  "prompt": "turn this outline into a presentation",
+  "expect": [
+   "slide-deck-creation"
+  ],
+  "note": "near-neighbour"
+ },
+ {
+  "prompt": "scrape the pricing table from the competitor's site",
+  "expect": [
+   "web-scraping"
+  ],
+  "note": "near-neighbour"
+ },
+ {
+  "prompt": "fill in the tax PDF",
+  "expect": [
+   "pdf-form-filling"
+  ],
+  "note": "near-neighbour"
+ },
+ {
+  "prompt": "summarize the meeting and list action items",
+  "expect": [
+   "meeting-notes"
+  ],
+  "note": "near-neighbour"
+ },
+ {
+  "prompt": "reply to the unread emails from yesterday",
+  "expect": [
+   "email-inbox-triage"
+  ],
+  "note": "near-neighbour"
+ },
+ {
+  "prompt": "rebase onto main, then merge the PR",
+  "expect": [
+   "git-rebase-conflicts",
+   "github-pr-merge"
+  ],
+  "note": "multi-intent"
+ },
+ {
+  "prompt": "fix the clippy warnings and write a commit message",
+  "expect": [
+   "rust-clippy-lints",
+   "git-commit-messages"
+  ],
+  "note": "multi-intent"
+ },
+ {
+  "prompt": "add a migration for the orders table and document it in the README",
+  "expect": [
+   "database-migrations"
+  ],
+  "note": "multi-intent"
+ },
+ {
+  "prompt": "URGENT!!! PROD IS DOWN, CHECK THE LOGS",
+  "expect": [
+   "log-investigation"
+  ],
+  "note": "shouting"
+ },
+ {
+  "prompt": "Dana: point 0 about the retry queue and how jobs move between workers\nBen: point 1 about the retry queue and how jobs move between workers\nOfek: point 2 about the retry queue and how jobs move between workers\nDana: point 3 about the retry queue and how jobs move between workers\nBen: point 4 about the retry queue and how jobs move between workers\nOfek: point 5 about the retry queue and how jobs move between workers\nDana: point 6 about the retry queue and how jobs move between workers\nBen: point 7 about the retry queue and how jobs move between workers\nOfek: point 8 about the retry queue and how jobs move between workers\nDana: point 9 about the retry queue and how jobs move between workers\nBen: point 10 about the retry queue and how jobs move between workers\nOfek: point 11 about the retry queue and how jobs move between workers\nDana: point 12 about the retry queue and how jobs move between workers\nBen: point 13 about the retry queue and how jobs move between workers\nOfek: point 14 about the retry queue and how jobs move between workers\nDana: point 15 about the retry queue and how jobs move between workers\nBen: point 16 about the retry queue and how jobs move between workers\nOfek: point 17 about the retry queue and how jobs move between workers\nDana: point 18 about the retry queue and how jobs move between workers\nBen: point 19 about the retry queue and how jobs move between workers\nOfek: point 20 about the retry queue and how jobs move between workers\nDana: point 21 about the retry queue and how jobs move between workers\nBen: point 22 about the retry queue and how jobs move between workers\nOfek: point 23 about the retry queue and how jobs move between workers\nDana: point 24 about the retry queue and how jobs move between workers\nBen: point 25 about the retry queue and how jobs move between workers\nOfek: point 26 about the retry queue and how jobs move between workers\nDana: point 27 about the retry queue and how jobs move between workers\nBen: point 28 about the retry queue and how jobs move between workers\nOfek: point 29 about the retry queue and how jobs move between workers\nDana: point 30 about the retry queue and how jobs move between workers\nBen: point 31 about the retry queue and how jobs move between workers\nOfek: point 32 about the retry queue and how jobs move between workers\nDana: point 33 about the retry queue and how jobs move between workers\nBen: point 34 about the retry queue and how jobs move between workers\nOfek: point 35 about the retry queue and how jobs move between workers\nDana: point 36 about the retry queue and how jobs move between workers\nBen: point 37 about the retry queue and how jobs move between workers\nOfek: point 38 about the retry queue and how jobs move between workers\nDana: point 39 about the retry queue and how jobs move between workers\n\nturn this into an animated explainer video",
+  "expect": [
+   "explainer-video"
+  ],
+  "note": "pasted-context"
+ },
+ {
+  "prompt": "Traceback (most recent call last):\n  File \"app/handlers/h0.py\", line 10, in handle\n    return nxt(req)\n  File \"app/handlers/h1.py\", line 11, in handle\n    return nxt(req)\n  File \"app/handlers/h2.py\", line 12, in handle\n    return nxt(req)\n  File \"app/handlers/h3.py\", line 13, in handle\n    return nxt(req)\n  File \"app/handlers/h4.py\", line 14, in handle\n    return nxt(req)\n  File \"app/handlers/h5.py\", line 15, in handle\n    return nxt(req)\n  File \"app/handlers/h6.py\", line 16, in handle\n    return nxt(req)\n  File \"app/handlers/h7.py\", line 17, in handle\n    return nxt(req)\n  File \"app/handlers/h8.py\", line 18, in handle\n    return nxt(req)\n  File \"app/handlers/h9.py\", line 19, in handle\n    return nxt(req)\n  File \"app/handlers/h10.py\", line 20, in handle\n    return nxt(req)\n  File \"app/handlers/h11.py\", line 21, in handle\n    return nxt(req)\n  File \"app/handlers/h12.py\", line 22, in handle\n    return nxt(req)\n  File \"app/handlers/h13.py\", line 23, in handle\n    return nxt(req)\n  File \"app/handlers/h14.py\", line 24, in handle\n    return nxt(req)\n  File \"app/handlers/h15.py\", line 25, in handle\n    return nxt(req)\n  File \"app/handlers/h16.py\", line 26, in handle\n    return nxt(req)\n  File \"app/handlers/h17.py\", line 27, in handle\n    return nxt(req)\n  File \"app/handlers/h18.py\", line 28, in handle\n    return nxt(req)\n  File \"app/handlers/h19.py\", line 29, in handle\n    return nxt(req)\n  File \"app/handlers/h20.py\", line 30, in handle\n    return nxt(req)\n  File \"app/handlers/h21.py\", line 31, in handle\n    return nxt(req)\n  File \"app/handlers/h22.py\", line 32, in handle\n    return nxt(req)\n  File \"app/handlers/h23.py\", line 33, in handle\n    return nxt(req)\n  File \"app/handlers/h24.py\", line 34, in handle\n    return nxt(req)\n  File \"app/handlers/h25.py\", line 35, in handle\n    return nxt(req)\n  File \"app/handlers/h26.py\", line 36, in handle\n    return nxt(req)\n  File \"app/handlers/h27.py\", line 37, in handle\n    return nxt(req)\n  File \"app/handlers/h28.py\", line 38, in handle\n    return nxt(req)\n  File \"app/handlers/h29.py\", line 39, in handle\n    return nxt(req)\nKeyError: 'user_id'\n\nwhy does this fail?",
+  "expect": [
+   "python-debugging"
+  ],
+  "note": "pasted-context"
+ },
+ {
+  "prompt": "Dana: point 0 about the retry queue and how jobs move between workers\nBen: point 1 about the retry queue and how jobs move between workers\nOfek: point 2 about the retry queue and how jobs move between workers\nDana: point 3 about the retry queue and how jobs move between workers\nBen: point 4 about the retry queue and how jobs move between workers\nOfek: point 5 about the retry queue and how jobs move between workers\nDana: point 6 about the retry queue and how jobs move between workers\nBen: point 7 about the retry queue and how jobs move between workers\nOfek: point 8 about the retry queue and how jobs move between workers\nDana: point 9 about the retry queue and how jobs move between workers\nBen: point 10 about the retry queue and how jobs move between workers\nOfek: point 11 about the retry queue and how jobs move between workers\nDana: point 12 about the retry queue and how jobs move between workers\nBen: point 13 about the retry queue and how jobs move between workers\nOfek: point 14 about the retry queue and how jobs move between workers\nDana: point 15 about the retry queue and how jobs move between workers\nBen: point 16 about the retry queue and how jobs move between workers\nOfek: point 17 about the retry queue and how jobs move between workers\nDana: point 18 about the retry queue and how jobs move between workers\nBen: point 19 about the retry queue and how jobs move between workers\nOfek: point 20 about the retry queue and how jobs move between workers\nDana: point 21 about the retry queue and how jobs move between workers\nBen: point 22 about the retry queue and how jobs move between workers\nOfek: point 23 about the retry queue and how jobs move between workers\nDana: point 24 about the retry queue and how jobs move between workers\nBen: point 25 about the retry queue and how jobs move between workers\nOfek: point 26 about the retry queue and how jobs move between workers\nDana: point 27 about the retry queue and how jobs move between workers\nBen: point 28 about the retry queue and how jobs move between workers\nOfek: point 29 about the retry queue and how jobs move between workers\nDana: point 30 about the retry queue and how jobs move between workers\nBen: point 31 about the retry queue and how jobs move between workers\nOfek: point 32 about the retry queue and how jobs move between workers\nDana: point 33 about the retry queue and how jobs move between workers\nBen: point 34 about the retry queue and how jobs move between workers\nOfek: point 35 about the retry queue and how jobs move between workers\nDana: point 36 about the retry queue and how jobs move between workers\nBen: point 37 about the retry queue and how jobs move between workers\nOfek: point 38 about the retry queue and how jobs move between workers\nDana: point 39 about the retry queue and how jobs move between workers\n\nthanks, good meeting",
+  "expect": [],
+  "note": "pasted-context"
+ },
+ {
+  "prompt": "/help",
+  "expect": [],
+  "note": "slash-or-meta"
+ },
+ {
+  "prompt": "/compact",
+  "expect": [],
+  "note": "slash-or-meta"
+ },
+ {
+  "prompt": "stop caveman",
+  "expect": [],
+  "note": "slash-or-meta"
+ },
+ {
+  "prompt": "```rust\nfn main() {\n    println!(\"hi\");\n}\n```",
+  "expect": [],
+  "note": "code-only"
  }
 ]
