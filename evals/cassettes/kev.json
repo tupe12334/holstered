@@ -7,10 +7,10 @@
     ],
     "choice": "secrets-rotation",
     "probabilities": {
-      "git-commit-messages": 0.0056,
-      "none": 0.0618,
-      "rest-api-design": 0.0034,
-      "secrets-rotation": 0.9291
+      "git-commit-messages": 0.0058,
+      "none": 0.062,
+      "rest-api-design": 0.0035,
+      "secrets-rotation": 0.9288
     }
   },
   "```\n#0 [build 0/40] RUN npm ci --workspace packages/pkg-0\n#0 DONE 0.0s\n#1 [build 1/40] RUN npm ci --workspace packages/pkg-1\n#1 DONE 0.1s\n#2 [build 2/40] RUN npm ci --workspace packages/pkg-2\n#2 DONE 0.2s\n#3 [build 3/40] RUN npm ci --workspace packages/pkg-3\n#3 DONE 0.3s\n#4 [build 4/40] RUN npm ci --workspace packages/pkg-4\n#4 DONE 0.4s\n#5 [build 5/40] RUN npm ci --workspace packages/pkg-5\n#5 DONE 0.5s\n#6 [build 6/40] RUN npm ci --workspace packages/pkg-6\n#6 DONE 0.6s\n#7 [build 7/40] RUN npm ci \n…\nspace packages/pkg-19\n#19 DONE 1.9s\n#20 [build 20/40] RUN npm ci --workspace packages/pkg-20\n#20 DONE 2.0s\n#21 [build 21/40] RUN npm ci --workspace packages/pkg-21\n#21 DONE 2.1s\n#22 [build 22/40] RUN npm ci --workspace packages/pkg-22\n#22 DONE 2.2s\n#23 [build 23/40] RUN npm ci --workspace packages/pkg-23\n#23 DONE 2.3s\n#24 [build 24/40] RUN npm ci --workspace packages/pkg-24\n#24 DONE 2.4s\n#25 [build 25/40] RUN npm ci --workspace packages/pkg-25\n#25 DONE 2.5s\n#26 [build 26/40] RUN npm ci --workspace packages/pkg-26\n#26 DONE 2.6s\n#27 [build 27/40] RUN npm ci --workspace packages/pkg-27\n#27 DONE 2.7s\n#28 [build 28/40] RUN npm ci --workspace packages/pkg-28\n#28 DONE 2.8s\n#29 [build 29/40] RUN npm ci --workspace packages/pkg-29\n#29 DONE 2.9s\n#30 [build 30/40] RUN npm ci --workspace packages/pkg-30\n#30 DONE 3.0s\n#31 [build 31/40] RUN npm ci --workspace packages/pkg-31\n#31 DONE 3.1s\n#32 [build 32/40] RUN npm ci --workspace packages/pkg-32\n#32 DONE 3.2s\n#33 [build 33/40] RUN npm ci --workspace packages/pkg-33\n#33 DONE 3.3s\n#34 [build 34/40] RUN npm ci --workspace packages/pkg-34\n#34 DONE 3.4s\n#35 [build 35/40] RUN npm ci --workspace packages/pkg-35\n#35 DONE 3.5s\n#36 [build 36/40] RUN npm ci --workspace packages/pkg-36\n#36 DONE 3.6s\n#37 [build 37/40] RUN npm ci --workspace packages/pkg-37\n#37 DONE 3.7s\n#38 [build 38/40] RUN npm ci --workspace packages/pkg-38\n#38 DONE 3.8s\n#39 [build 39/40] RUN npm ci --workspace packages/pkg-39\n#39 DONE 3.9s\n```\nthanks, the build is green now, all good": {
@@ -25,10 +25,10 @@
     "probabilities": {
       "database-migrations": 0.0066,
       "dependency-security-audit": 0.046,
-      "docker-image-build": 0.4784,
-      "github-actions-ci-debugging": 0.0711,
-      "node-dependency-upgrade": 0.0665,
-      "none": 0.3313
+      "docker-image-build": 0.4741,
+      "github-actions-ci-debugging": 0.0722,
+      "node-dependency-upgrade": 0.067,
+      "none": 0.3342
     }
   },
   "```diff\n-        image: registry.local/api:1.0.0\n+        image: registry.local/api:1.1.0\n         replicas: 2\n-        image: registry.local/api:1.1.0\n+        image: registry.local/api:1.2.0\n         replicas: 3\n-        image: registry.local/api:1.2.0\n+        image: registry.local/api:1.3.0\n         replicas: 4\n-        image: registry.local/api:1.3.0\n+        image: registry.local/api:1.4.0\n         replicas: 5\n-        image: registry.local/api:1.4.0\n+        image: registry.local/api:1.5.\n…\nocal/api:1.16.0\n+        image: registry.local/api:1.17.0\n         replicas: 3\n-        image: registry.local/api:1.17.0\n+        image: registry.local/api:1.18.0\n         replicas: 4\n-        image: registry.local/api:1.18.0\n+        image: registry.local/api:1.19.0\n         replicas: 5\n-        image: registry.local/api:1.19.0\n+        image: registry.local/api:1.20.0\n         replicas: 6\n-        image: registry.local/api:1.20.0\n+        image: registry.local/api:1.21.0\n         replicas: 2\n-        image: registry.local/api:1.21.0\n+        image: registry.local/api:1.22.0\n         replicas: 3\n-        image: registry.local/api:1.22.0\n+        image: registry.local/api:1.23.0\n         replicas: 4\n-        image: registry.local/api:1.23.0\n+        image: registry.local/api:1.24.0\n         replicas: 5\n-        image: registry.local/api:1.24.0\n+        image: registry.local/api:1.25.0\n         replicas: 6\n-        image: registry.local/api:1.25.0\n+        image: registry.local/api:1.26.0\n         replicas: 2\n-        image: registry.local/api:1.26.0\n+        image: registry.local/api:1.27.0\n         replicas: 3\n-        image: registry.local/api:1.27.0\n+        image: registry.local/api:1.28.0\n         replicas: 4\n-        image: registry.local/api:1.28.0\n+        image: registry.local/api:1.29.0\n         replicas: 5\n-        image: registry.local/api:1.29.0\n+        image: registry.local/api:1.30.0\n         replicas: 6\n```\nwrite a good commit message for these staged changes": {
@@ -37,6 +37,7 @@
       "docker-image-build",
       "git-commit-messages",
       "github-pr-review",
+      "image-generation",
       "node-dependency-upgrade",
       "readme-documentation",
       "release-notes-writing",
@@ -47,18 +48,19 @@
     ],
     "choice": "git-commit-messages",
     "probabilities": {
-      "database-migrations": 0.0069,
-      "docker-image-build": 0.0361,
-      "git-commit-messages": 0.4859,
-      "github-pr-review": 0.0956,
-      "node-dependency-upgrade": 0.0233,
-      "none": 0.1665,
-      "readme-documentation": 0.0031,
-      "release-notes-writing": 0.0961,
+      "database-migrations": 0.0067,
+      "docker-image-build": 0.0352,
+      "git-commit-messages": 0.4725,
+      "github-pr-review": 0.093,
+      "image-generation": 0.0033,
+      "node-dependency-upgrade": 0.0303,
+      "none": 0.1669,
+      "readme-documentation": 0.0033,
+      "release-notes-writing": 0.1041,
       "rest-api-design": 0.0029,
-      "secrets-rotation": 0.0041,
-      "terraform-infrastructure": 0.0767,
-      "unit-test-writing": 0.0029
+      "secrets-rotation": 0.0038,
+      "terraform-infrastructure": 0.0748,
+      "unit-test-writing": 0.003
     }
   },
   "add a column to the users table with a migration": {
@@ -69,10 +71,10 @@
     ],
     "choice": "database-migrations",
     "probabilities": {
-      "database-migrations": 0.792,
-      "none": 0.2052,
+      "database-migrations": 0.7965,
+      "none": 0.2008,
       "react-component-testing": 0.0014,
-      "readme-documentation": 0.0014
+      "readme-documentation": 0.0013
     }
   },
   "add an S3 bucket to our terraform": {
@@ -104,9 +106,9 @@
     ],
     "choice": "dependency-security-audit",
     "probabilities": {
-      "dependency-security-audit": 0.7069,
+      "dependency-security-audit": 0.7031,
       "frontend-accessibility-audit": 0.0038,
-      "none": 0.2893
+      "none": 0.2931
     }
   },
   "build a pivot table of sales by region in this spreadsheet": {
@@ -116,9 +118,9 @@
     ],
     "choice": "spreadsheet-analysis",
     "probabilities": {
-      "docker-image-build": 0.0023,
-      "none": 0.101,
-      "spreadsheet-analysis": 0.8967
+      "docker-image-build": 0.0022,
+      "none": 0.1014,
+      "spreadsheet-analysis": 0.8964
     }
   },
   "cargo clippy fails with warnings, fix them": {
@@ -131,8 +133,8 @@
     "probabilities": {
       "github-actions-ci-debugging": 0.0053,
       "node-dependency-upgrade": 0.0019,
-      "none": 0.0372,
-      "rust-clippy-lints": 0.9556
+      "none": 0.0371,
+      "rust-clippy-lints": 0.9557
     }
   },
   "check the page for accessibility contrast issues": {
@@ -142,9 +144,9 @@
     ],
     "choice": "frontend-accessibility-audit",
     "probabilities": {
-      "frontend-accessibility-audit": 0.9165,
+      "frontend-accessibility-audit": 0.9147,
       "github-pr-merge": 0.0013,
-      "none": 0.0822
+      "none": 0.084
     }
   },
   "checks are green, merge the PR": {
@@ -156,9 +158,9 @@
     "choice": "github-pr-merge",
     "probabilities": {
       "git-rebase-conflicts": 0.0039,
-      "github-pr-merge": 0.9526,
-      "github-pr-review": 0.0033,
-      "none": 0.0403
+      "github-pr-merge": 0.9521,
+      "github-pr-review": 0.0034,
+      "none": 0.0406
     }
   },
   "containerize this app with a Dockerfile": {
@@ -181,6 +183,24 @@
       "spreadsheet-analysis": 0.3375
     }
   },
+  "create a video of how our deploy pipeline works, detailed, and send it to the team on slack": {
+    "offered": [
+      "explainer-video",
+      "git-commit-messages",
+      "image-generation",
+      "kubernetes-deploy",
+      "slide-deck-creation"
+    ],
+    "choice": "explainer-video",
+    "probabilities": {
+      "explainer-video": 0.7683,
+      "git-commit-messages": 0.0034,
+      "image-generation": 0.088,
+      "kubernetes-deploy": 0.0144,
+      "none": 0.1169,
+      "slide-deck-creation": 0.009
+    }
+  },
   "design the endpoints for our orders API": {
     "offered": [
       "rest-api-design",
@@ -188,22 +208,26 @@
     ],
     "choice": "rest-api-design",
     "probabilities": {
-      "none": 0.1261,
-      "rest-api-design": 0.8731,
+      "none": 0.1259,
+      "rest-api-design": 0.8733,
       "secrets-rotation": 0.0008
     }
   },
   "explain how python generators work": {
     "offered": [
+      "explainer-video",
       "git-commit-messages",
+      "image-generation",
       "python-debugging",
       "sql-query-optimization"
     ],
     "choice": "none",
     "probabilities": {
-      "git-commit-messages": 0.0152,
-      "none": 0.9604,
-      "python-debugging": 0.0199,
+      "explainer-video": 0.1652,
+      "git-commit-messages": 0.0076,
+      "image-generation": 0.0147,
+      "none": 0.7911,
+      "python-debugging": 0.017,
       "sql-query-optimization": 0.0044
     }
   },
@@ -229,7 +253,7 @@
       "calendar-scheduling": 0.0014,
       "flight-search": 0.9652,
       "log-investigation": 0.0009,
-      "none": 0.0322,
+      "none": 0.0321,
       "performance-profiling": 0.0003
     }
   },
@@ -242,11 +266,23 @@
     ],
     "choice": "log-investigation",
     "probabilities": {
-      "calendar-scheduling": 0.0016,
-      "log-investigation": 0.9456,
+      "calendar-scheduling": 0.0017,
+      "log-investigation": 0.9457,
       "none": 0.0458,
       "performance-profiling": 0.0023,
       "rest-api-design": 0.0046
+    }
+  },
+  "generate an image of a fox in a spacesuit with stable diffusion": {
+    "offered": [
+      "docker-image-build",
+      "image-generation"
+    ],
+    "choice": "image-generation",
+    "probabilities": {
+      "docker-image-build": 0.0039,
+      "image-generation": 0.9042,
+      "none": 0.0919
     }
   },
   "go through my unread emails and sort them": {
@@ -277,10 +313,10 @@
     ],
     "choice": "slide-deck-creation",
     "probabilities": {
-      "none": 0.2749,
-      "python-debugging": 0.003,
-      "rust-clippy-lints": 0.0033,
-      "slide-deck-creation": 0.7189
+      "none": 0.2715,
+      "python-debugging": 0.0028,
+      "rust-clippy-lints": 0.0031,
+      "slide-deck-creation": 0.7225
     }
   },
   "my branch has conflicts after main moved, rebase it": {
@@ -313,10 +349,10 @@
     "choice": "python-debugging",
     "probabilities": {
       "calendar-scheduling": 0.0024,
-      "log-investigation": 0.0756,
-      "none": 0.1752,
-      "performance-profiling": 0.0026,
-      "python-debugging": 0.7443
+      "log-investigation": 0.0746,
+      "none": 0.1733,
+      "performance-profiling": 0.0025,
+      "python-debugging": 0.7472
     }
   },
   "ok the deploy is done, thanks": {
@@ -336,8 +372,8 @@
     ],
     "choice": "github-pr-review",
     "probabilities": {
-      "github-pr-merge": 0.0076,
-      "github-pr-review": 0.9374,
+      "github-pr-merge": 0.0077,
+      "github-pr-review": 0.9373,
       "none": 0.055
     }
   },
@@ -349,10 +385,10 @@
     ],
     "choice": "readme-documentation",
     "probabilities": {
-      "none": 0.0923,
+      "none": 0.0949,
       "react-component-testing": 0.0016,
-      "readme-documentation": 0.9,
-      "release-notes-writing": 0.0061
+      "readme-documentation": 0.8971,
+      "release-notes-writing": 0.0063
     }
   },
   "roll back the last deployment on the cluster": {
@@ -384,11 +420,11 @@
     ],
     "choice": "react-component-testing",
     "probabilities": {
-      "none": 0.1496,
+      "none": 0.1483,
       "pdf-form-filling": 0.0066,
-      "react-component-testing": 0.7749,
+      "react-component-testing": 0.7776,
       "readme-documentation": 0.0019,
-      "unit-test-writing": 0.0671
+      "unit-test-writing": 0.0655
     }
   },
   "thanks, that works": {
@@ -408,23 +444,25 @@
     ],
     "choice": "github-pr-merge",
     "probabilities": {
-      "git-rebase-conflicts": 0.03,
-      "github-pr-merge": 0.5309,
-      "none": 0.4391
+      "git-rebase-conflicts": 0.0306,
+      "github-pr-merge": 0.5216,
+      "none": 0.4478
     }
   },
   "the CI workflow keeps failing on the test job": {
     "offered": [
       "github-actions-ci-debugging",
+      "image-generation",
       "react-component-testing",
       "unit-test-writing"
     ],
     "choice": "github-actions-ci-debugging",
     "probabilities": {
-      "github-actions-ci-debugging": 0.8673,
-      "none": 0.1209,
-      "react-component-testing": 0.0052,
-      "unit-test-writing": 0.0065
+      "github-actions-ci-debugging": 0.8781,
+      "image-generation": 0.0015,
+      "none": 0.1057,
+      "react-component-testing": 0.0076,
+      "unit-test-writing": 0.0071
     }
   },
   "the pull request has merge conflicts with main": {
@@ -435,10 +473,10 @@
     ],
     "choice": "git-rebase-conflicts",
     "probabilities": {
-      "git-rebase-conflicts": 0.5825,
-      "github-pr-merge": 0.0313,
-      "github-pr-review": 0.0606,
-      "none": 0.3255
+      "git-rebase-conflicts": 0.5861,
+      "github-pr-merge": 0.0308,
+      "github-pr-review": 0.0608,
+      "none": 0.3222
     }
   },
   "the service is slow, profile it": {
@@ -449,10 +487,10 @@
     ],
     "choice": "performance-profiling",
     "probabilities": {
-      "kubernetes-deploy": 0.0078,
-      "none": 0.2126,
-      "performance-profiling": 0.7601,
-      "sql-query-optimization": 0.0196
+      "kubernetes-deploy": 0.0079,
+      "none": 0.2159,
+      "performance-profiling": 0.7557,
+      "sql-query-optimization": 0.0205
     }
   },
   "the slides looked great in the meeting, nice work": {
@@ -463,10 +501,10 @@
     ],
     "choice": "none",
     "probabilities": {
-      "calendar-scheduling": 0.0334,
-      "git-commit-messages": 0.1351,
-      "none": 0.6929,
-      "slide-deck-creation": 0.1386
+      "calendar-scheduling": 0.0344,
+      "git-commit-messages": 0.1274,
+      "none": 0.695,
+      "slide-deck-creation": 0.1432
     }
   },
   "this query takes 30 seconds, make it faster": {
@@ -476,9 +514,9 @@
     ],
     "choice": "none",
     "probabilities": {
-      "none": 0.6798,
-      "rust-clippy-lints": 0.0253,
-      "sql-query-optimization": 0.2949
+      "none": 0.6767,
+      "rust-clippy-lints": 0.0256,
+      "sql-query-optimization": 0.2977
     }
   },
   "upgrade react and the other npm packages to latest": {
@@ -489,9 +527,9 @@
     ],
     "choice": "node-dependency-upgrade",
     "probabilities": {
-      "dependency-security-audit": 0.0086,
-      "node-dependency-upgrade": 0.8979,
-      "none": 0.0921,
+      "dependency-security-audit": 0.0089,
+      "node-dependency-upgrade": 0.8962,
+      "none": 0.0935,
       "react-component-testing": 0.0014
     }
   },
@@ -508,13 +546,13 @@
     ],
     "choice": "git-commit-messages",
     "probabilities": {
-      "database-migrations": 0.0024,
-      "docker-image-build": 0.0012,
-      "git-commit-messages": 0.9467,
-      "node-dependency-upgrade": 0.0016,
-      "none": 0.0364,
-      "readme-documentation": 0.0012,
-      "release-notes-writing": 0.0078,
+      "database-migrations": 0.0026,
+      "docker-image-build": 0.0013,
+      "git-commit-messages": 0.9453,
+      "node-dependency-upgrade": 0.0017,
+      "none": 0.0371,
+      "readme-documentation": 0.0013,
+      "release-notes-writing": 0.0081,
       "terraform-infrastructure": 0.0016,
       "unit-test-writing": 0.0011
     }

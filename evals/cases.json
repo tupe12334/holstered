@@ -192,6 +192,18 @@
   ]
  },
  {
+  "prompt": "create a video of how our deploy pipeline works, detailed, and send it to the team on slack",
+  "expect": [
+   "explainer-video"
+  ]
+ },
+ {
+  "prompt": "generate an image of a fox in a spacesuit with stable diffusion",
+  "expect": [
+   "image-generation"
+  ]
+ },
+ {
   "prompt": "what's the capital of peru",
   "expect": []
  },
