@@ -7,8 +7,8 @@ up as a failing test instead of a vague feeling.
 
 | Path | What it holds |
 |---|---|
-| `skills/` | 30 mocked general-purpose skills (git, CI, containers, databases, docs, office work, travel, …), with deliberate near-neighbours such as PR review vs. PR merge |
-| `cases.json` | Prompts with the skills that count as correct; `"expect": []` means the right answer is to stay silent |
+| `skills/` | 47 mocked general-purpose skills (git, CI, containers, databases, docs, office work, travel, media, messaging, …), with deliberate near-neighbours such as PR review vs. PR merge, explainer video vs. diffusion video, and one over-broad `media-toolkit` skill that tempts the model on any media prompt |
+| `cases.json` | Prompts with the skills that count as correct; `"expect": []` means the right answer is to stay silent. An optional `note` names the edge case a prompt covers (typo, non-English, negation, named entity, delivery channel, pasted context, …); the harness ignores it |
 | `cassettes/<model>.json` | For each prompt that reached the model: the shortlist it was offered, what it chose, and its probability for each option |
 | `baseline.json` | Per model: `correct` picks, `abstained` on no-skill prompts, `recalled` (right skill was in the BM25 shortlist) |
 | `eval.rs`, `harness/` | The test itself, registered in `Cargo.toml` as the `eval` test target |

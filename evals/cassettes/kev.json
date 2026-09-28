@@ -1,4 +1,46 @@
 {
+  "Dana: point 0 about the retry queue and how jobs move between workers\nBen: point 1 about the retry queue and how jobs move between workers\nOfek: point 2 about the retry queue and how jobs move between workers\nDana: point 3 about the retry queue and how jobs move between workers\nBen: point 4 about the retry queue and how jobs move between workers\nOfek: point 5 about the retry queue and how jobs move between workers\nDana: point 6 about the retry queue and how jobs move between workers\nBen: point 7\n…\npoint 19 about the retry queue and how jobs move between workers\nOfek: point 20 about the retry queue and how jobs move between workers\nDana: point 21 about the retry queue and how jobs move between workers\nBen: point 22 about the retry queue and how jobs move between workers\nOfek: point 23 about the retry queue and how jobs move between workers\nDana: point 24 about the retry queue and how jobs move between workers\nBen: point 25 about the retry queue and how jobs move between workers\nOfek: point 26 about the retry queue and how jobs move between workers\nDana: point 27 about the retry queue and how jobs move between workers\nBen: point 28 about the retry queue and how jobs move between workers\nOfek: point 29 about the retry queue and how jobs move between workers\nDana: point 30 about the retry queue and how jobs move between workers\nBen: point 31 about the retry queue and how jobs move between workers\nOfek: point 32 about the retry queue and how jobs move between workers\nDana: point 33 about the retry queue and how jobs move between workers\nBen: point 34 about the retry queue and how jobs move between workers\nOfek: point 35 about the retry queue and how jobs move between workers\nDana: point 36 about the retry queue and how jobs move between workers\nBen: point 37 about the retry queue and how jobs move between workers\nOfek: point 38 about the retry queue and how jobs move between workers\nDana: point 39 about the retry queue and how jobs move between workers\n\nthanks, good meeting": {
+    "offered": [
+      "calendar-scheduling",
+      "cron-scheduling",
+      "github-actions-ci-debugging",
+      "meeting-notes"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "calendar-scheduling": 0.0308,
+      "cron-scheduling": 0.0568,
+      "github-actions-ci-debugging": 0.1493,
+      "meeting-notes": 0.2501,
+      "none": 0.5129
+    }
+  },
+  "Dana: point 0 about the retry queue and how jobs move between workers\nBen: point 1 about the retry queue and how jobs move between workers\nOfek: point 2 about the retry queue and how jobs move between workers\nDana: point 3 about the retry queue and how jobs move between workers\nBen: point 4 about the retry queue and how jobs move between workers\nOfek: point 5 about the retry queue and how jobs move between workers\nDana: point 6 about the retry queue and how jobs move between workers\nBen: point 7\n…\nry queue and how jobs move between workers\nOfek: point 20 about the retry queue and how jobs move between workers\nDana: point 21 about the retry queue and how jobs move between workers\nBen: point 22 about the retry queue and how jobs move between workers\nOfek: point 23 about the retry queue and how jobs move between workers\nDana: point 24 about the retry queue and how jobs move between workers\nBen: point 25 about the retry queue and how jobs move between workers\nOfek: point 26 about the retry queue and how jobs move between workers\nDana: point 27 about the retry queue and how jobs move between workers\nBen: point 28 about the retry queue and how jobs move between workers\nOfek: point 29 about the retry queue and how jobs move between workers\nDana: point 30 about the retry queue and how jobs move between workers\nBen: point 31 about the retry queue and how jobs move between workers\nOfek: point 32 about the retry queue and how jobs move between workers\nDana: point 33 about the retry queue and how jobs move between workers\nBen: point 34 about the retry queue and how jobs move between workers\nOfek: point 35 about the retry queue and how jobs move between workers\nDana: point 36 about the retry queue and how jobs move between workers\nBen: point 37 about the retry queue and how jobs move between workers\nOfek: point 38 about the retry queue and how jobs move between workers\nDana: point 39 about the retry queue and how jobs move between workers\n\nturn this into an animated explainer video": {
+    "offered": [
+      "audio-transcription",
+      "cron-scheduling",
+      "explainer-video",
+      "github-actions-ci-debugging",
+      "image-generation",
+      "media-toolkit",
+      "screen-recording-walkthrough",
+      "sql-query-optimization",
+      "thumbnail-design"
+    ],
+    "choice": "explainer-video",
+    "probabilities": {
+      "audio-transcription": 0.0008,
+      "cron-scheduling": 0.0012,
+      "explainer-video": 0.8329,
+      "github-actions-ci-debugging": 0.0035,
+      "image-generation": 0.0371,
+      "media-toolkit": 0.0558,
+      "none": 0.0627,
+      "screen-recording-walkthrough": 0.0046,
+      "sql-query-optimization": 0.0004,
+      "thumbnail-design": 0.0009
+    }
+  },
   "I accidentally committed an API key, rotate it": {
     "offered": [
       "git-commit-messages",
@@ -7,10 +49,52 @@
     ],
     "choice": "secrets-rotation",
     "probabilities": {
-      "git-commit-messages": 0.0056,
-      "none": 0.0618,
-      "rest-api-design": 0.0034,
-      "secrets-rotation": 0.9291
+      "git-commit-messages": 0.0058,
+      "none": 0.062,
+      "rest-api-design": 0.0035,
+      "secrets-rotation": 0.9288
+    }
+  },
+  "I listened to the narration, sounds good": {
+    "offered": [
+      "explainer-video",
+      "screen-recording-walkthrough",
+      "text-to-speech"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "explainer-video": 0.1155,
+      "none": 0.4702,
+      "screen-recording-walkthrough": 0.1104,
+      "text-to-speech": 0.3039
+    }
+  },
+  "Traceback (most recent call last):\n  File \"app/handlers/h0.py\", line 10, in handle\n    return nxt(req)\n  File \"app/handlers/h1.py\", line 11, in handle\n    return nxt(req)\n  File \"app/handlers/h2.py\", line 12, in handle\n    return nxt(req)\n  File \"app/handlers/h3.py\", line 13, in handle\n    return nxt(req)\n  File \"app/handlers/h4.py\", line 14, in handle\n    return nxt(req)\n  File \"app/handlers/h5.py\", line 15, in handle\n    return nxt(req)\n  File \"app/handlers/h6.py\", line 16, in handle\n    retur\n…\nrn nxt(req)\n  File \"app/handlers/h9.py\", line 19, in handle\n    return nxt(req)\n  File \"app/handlers/h10.py\", line 20, in handle\n    return nxt(req)\n  File \"app/handlers/h11.py\", line 21, in handle\n    return nxt(req)\n  File \"app/handlers/h12.py\", line 22, in handle\n    return nxt(req)\n  File \"app/handlers/h13.py\", line 23, in handle\n    return nxt(req)\n  File \"app/handlers/h14.py\", line 24, in handle\n    return nxt(req)\n  File \"app/handlers/h15.py\", line 25, in handle\n    return nxt(req)\n  File \"app/handlers/h16.py\", line 26, in handle\n    return nxt(req)\n  File \"app/handlers/h17.py\", line 27, in handle\n    return nxt(req)\n  File \"app/handlers/h18.py\", line 28, in handle\n    return nxt(req)\n  File \"app/handlers/h19.py\", line 29, in handle\n    return nxt(req)\n  File \"app/handlers/h20.py\", line 30, in handle\n    return nxt(req)\n  File \"app/handlers/h21.py\", line 31, in handle\n    return nxt(req)\n  File \"app/handlers/h22.py\", line 32, in handle\n    return nxt(req)\n  File \"app/handlers/h23.py\", line 33, in handle\n    return nxt(req)\n  File \"app/handlers/h24.py\", line 34, in handle\n    return nxt(req)\n  File \"app/handlers/h25.py\", line 35, in handle\n    return nxt(req)\n  File \"app/handlers/h26.py\", line 36, in handle\n    return nxt(req)\n  File \"app/handlers/h27.py\", line 37, in handle\n    return nxt(req)\n  File \"app/handlers/h28.py\", line 38, in handle\n    return nxt(req)\n  File \"app/handlers/h29.py\", line 39, in handle\n    return nxt(req)\nKeyError: 'user_id'\n\nwhy does this fail?": {
+    "offered": [
+      "github-actions-ci-debugging",
+      "media-toolkit",
+      "python-debugging",
+      "screen-recording-walkthrough"
+    ],
+    "choice": "python-debugging",
+    "probabilities": {
+      "github-actions-ci-debugging": 0.0111,
+      "media-toolkit": 0.0196,
+      "none": 0.2441,
+      "python-debugging": 0.7138,
+      "screen-recording-walkthrough": 0.0114
+    }
+  },
+  "URGENT!!! PROD IS DOWN, CHECK THE LOGS": {
+    "offered": [
+      "github-pr-merge",
+      "log-investigation"
+    ],
+    "choice": "log-investigation",
+    "probabilities": {
+      "github-pr-merge": 0.0013,
+      "log-investigation": 0.9236,
+      "none": 0.075
     }
   },
   "```\n#0 [build 0/40] RUN npm ci --workspace packages/pkg-0\n#0 DONE 0.0s\n#1 [build 1/40] RUN npm ci --workspace packages/pkg-1\n#1 DONE 0.1s\n#2 [build 2/40] RUN npm ci --workspace packages/pkg-2\n#2 DONE 0.2s\n#3 [build 3/40] RUN npm ci --workspace packages/pkg-3\n#3 DONE 0.3s\n#4 [build 4/40] RUN npm ci --workspace packages/pkg-4\n#4 DONE 0.4s\n#5 [build 5/40] RUN npm ci --workspace packages/pkg-5\n#5 DONE 0.5s\n#6 [build 6/40] RUN npm ci --workspace packages/pkg-6\n#6 DONE 0.6s\n#7 [build 7/40] RUN npm ci \n…\nspace packages/pkg-19\n#19 DONE 1.9s\n#20 [build 20/40] RUN npm ci --workspace packages/pkg-20\n#20 DONE 2.0s\n#21 [build 21/40] RUN npm ci --workspace packages/pkg-21\n#21 DONE 2.1s\n#22 [build 22/40] RUN npm ci --workspace packages/pkg-22\n#22 DONE 2.2s\n#23 [build 23/40] RUN npm ci --workspace packages/pkg-23\n#23 DONE 2.3s\n#24 [build 24/40] RUN npm ci --workspace packages/pkg-24\n#24 DONE 2.4s\n#25 [build 25/40] RUN npm ci --workspace packages/pkg-25\n#25 DONE 2.5s\n#26 [build 26/40] RUN npm ci --workspace packages/pkg-26\n#26 DONE 2.6s\n#27 [build 27/40] RUN npm ci --workspace packages/pkg-27\n#27 DONE 2.7s\n#28 [build 28/40] RUN npm ci --workspace packages/pkg-28\n#28 DONE 2.8s\n#29 [build 29/40] RUN npm ci --workspace packages/pkg-29\n#29 DONE 2.9s\n#30 [build 30/40] RUN npm ci --workspace packages/pkg-30\n#30 DONE 3.0s\n#31 [build 31/40] RUN npm ci --workspace packages/pkg-31\n#31 DONE 3.1s\n#32 [build 32/40] RUN npm ci --workspace packages/pkg-32\n#32 DONE 3.2s\n#33 [build 33/40] RUN npm ci --workspace packages/pkg-33\n#33 DONE 3.3s\n#34 [build 34/40] RUN npm ci --workspace packages/pkg-34\n#34 DONE 3.4s\n#35 [build 35/40] RUN npm ci --workspace packages/pkg-35\n#35 DONE 3.5s\n#36 [build 36/40] RUN npm ci --workspace packages/pkg-36\n#36 DONE 3.6s\n#37 [build 37/40] RUN npm ci --workspace packages/pkg-37\n#37 DONE 3.7s\n#38 [build 38/40] RUN npm ci --workspace packages/pkg-38\n#38 DONE 3.8s\n#39 [build 39/40] RUN npm ci --workspace packages/pkg-39\n#39 DONE 3.9s\n```\nthanks, the build is green now, all good": {
@@ -25,10 +109,10 @@
     "probabilities": {
       "database-migrations": 0.0066,
       "dependency-security-audit": 0.046,
-      "docker-image-build": 0.4784,
-      "github-actions-ci-debugging": 0.0711,
-      "node-dependency-upgrade": 0.0665,
-      "none": 0.3313
+      "docker-image-build": 0.4741,
+      "github-actions-ci-debugging": 0.0722,
+      "node-dependency-upgrade": 0.067,
+      "none": 0.3342
     }
   },
   "```diff\n-        image: registry.local/api:1.0.0\n+        image: registry.local/api:1.1.0\n         replicas: 2\n-        image: registry.local/api:1.1.0\n+        image: registry.local/api:1.2.0\n         replicas: 3\n-        image: registry.local/api:1.2.0\n+        image: registry.local/api:1.3.0\n         replicas: 4\n-        image: registry.local/api:1.3.0\n+        image: registry.local/api:1.4.0\n         replicas: 5\n-        image: registry.local/api:1.4.0\n+        image: registry.local/api:1.5.\n…\nocal/api:1.16.0\n+        image: registry.local/api:1.17.0\n         replicas: 3\n-        image: registry.local/api:1.17.0\n+        image: registry.local/api:1.18.0\n         replicas: 4\n-        image: registry.local/api:1.18.0\n+        image: registry.local/api:1.19.0\n         replicas: 5\n-        image: registry.local/api:1.19.0\n+        image: registry.local/api:1.20.0\n         replicas: 6\n-        image: registry.local/api:1.20.0\n+        image: registry.local/api:1.21.0\n         replicas: 2\n-        image: registry.local/api:1.21.0\n+        image: registry.local/api:1.22.0\n         replicas: 3\n-        image: registry.local/api:1.22.0\n+        image: registry.local/api:1.23.0\n         replicas: 4\n-        image: registry.local/api:1.23.0\n+        image: registry.local/api:1.24.0\n         replicas: 5\n-        image: registry.local/api:1.24.0\n+        image: registry.local/api:1.25.0\n         replicas: 6\n-        image: registry.local/api:1.25.0\n+        image: registry.local/api:1.26.0\n         replicas: 2\n-        image: registry.local/api:1.26.0\n+        image: registry.local/api:1.27.0\n         replicas: 3\n-        image: registry.local/api:1.27.0\n+        image: registry.local/api:1.28.0\n         replicas: 4\n-        image: registry.local/api:1.28.0\n+        image: registry.local/api:1.29.0\n         replicas: 5\n-        image: registry.local/api:1.29.0\n+        image: registry.local/api:1.30.0\n         replicas: 6\n```\nwrite a good commit message for these staged changes": {
@@ -37,28 +121,50 @@
       "docker-image-build",
       "git-commit-messages",
       "github-pr-review",
+      "image-generation",
+      "media-toolkit",
       "node-dependency-upgrade",
       "readme-documentation",
       "release-notes-writing",
       "rest-api-design",
       "secrets-rotation",
+      "slack-messaging",
       "terraform-infrastructure",
-      "unit-test-writing"
+      "thumbnail-design",
+      "unit-test-writing",
+      "word-document-writing"
     ],
     "choice": "git-commit-messages",
     "probabilities": {
-      "database-migrations": 0.0069,
-      "docker-image-build": 0.0361,
-      "git-commit-messages": 0.4859,
-      "github-pr-review": 0.0956,
-      "node-dependency-upgrade": 0.0233,
-      "none": 0.1665,
-      "readme-documentation": 0.0031,
-      "release-notes-writing": 0.0961,
-      "rest-api-design": 0.0029,
-      "secrets-rotation": 0.0041,
-      "terraform-infrastructure": 0.0767,
-      "unit-test-writing": 0.0029
+      "database-migrations": 0.0064,
+      "docker-image-build": 0.0339,
+      "git-commit-messages": 0.4593,
+      "github-pr-review": 0.0898,
+      "image-generation": 0.0032,
+      "media-toolkit": 0.0341,
+      "node-dependency-upgrade": 0.0282,
+      "none": 0.1571,
+      "readme-documentation": 0.0036,
+      "release-notes-writing": 0.1049,
+      "rest-api-design": 0.0032,
+      "secrets-rotation": 0.004,
+      "slack-messaging": 0.0036,
+      "terraform-infrastructure": 0.0619,
+      "thumbnail-design": 0.0014,
+      "unit-test-writing": 0.0025,
+      "word-document-writing": 0.0029
+    }
+  },
+  "```rust\nfn main() {\n    println!(\"hi\");\n}\n```": {
+    "offered": [
+      "git-rebase-conflicts",
+      "rust-clippy-lints"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "git-rebase-conflicts": 0.0162,
+      "none": 0.8994,
+      "rust-clippy-lints": 0.0844
     }
   },
   "add a column to the users table with a migration": {
@@ -69,10 +175,24 @@
     ],
     "choice": "database-migrations",
     "probabilities": {
-      "database-migrations": 0.792,
-      "none": 0.2052,
+      "database-migrations": 0.7965,
+      "none": 0.2008,
       "react-component-testing": 0.0014,
-      "readme-documentation": 0.0014
+      "readme-documentation": 0.0013
+    }
+  },
+  "add a migration for the orders table and document it in the README": {
+    "offered": [
+      "database-migrations",
+      "readme-documentation",
+      "word-document-writing"
+    ],
+    "choice": "database-migrations",
+    "probabilities": {
+      "database-migrations": 0.7336,
+      "none": 0.1414,
+      "readme-documentation": 0.1154,
+      "word-document-writing": 0.0097
     }
   },
   "add an S3 bucket to our terraform": {
@@ -97,6 +217,22 @@
       "none": 0.0642
     }
   },
+  "ask kev whether we should merge this PR now": {
+    "offered": [
+      "git-rebase-conflicts",
+      "github-pr-merge",
+      "github-pr-review",
+      "local-decision-model"
+    ],
+    "choice": "github-pr-merge",
+    "probabilities": {
+      "git-rebase-conflicts": 0.009,
+      "github-pr-merge": 0.4839,
+      "github-pr-review": 0.0362,
+      "local-decision-model": 0.2347,
+      "none": 0.2362
+    }
+  },
   "audit the package-lock for security issues": {
     "offered": [
       "dependency-security-audit",
@@ -104,9 +240,21 @@
     ],
     "choice": "dependency-security-audit",
     "probabilities": {
-      "dependency-security-audit": 0.7069,
+      "dependency-security-audit": 0.7031,
       "frontend-accessibility-audit": 0.0038,
-      "none": 0.2893
+      "none": 0.2931
+    }
+  },
+  "book 30 minutes with the design team on thursday": {
+    "offered": [
+      "rest-api-design",
+      "thumbnail-design"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "none": 0.9363,
+      "rest-api-design": 0.0415,
+      "thumbnail-design": 0.0222
     }
   },
   "build a pivot table of sales by region in this spreadsheet": {
@@ -116,9 +264,19 @@
     ],
     "choice": "spreadsheet-analysis",
     "probabilities": {
-      "docker-image-build": 0.0023,
-      "none": 0.101,
-      "spreadsheet-analysis": 0.8967
+      "docker-image-build": 0.0022,
+      "none": 0.1014,
+      "spreadsheet-analysis": 0.8964
+    }
+  },
+  "can you make it shorter?": {
+    "offered": [
+      "rust-clippy-lints"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "none": 0.9768,
+      "rust-clippy-lints": 0.0232
     }
   },
   "cargo clippy fails with warnings, fix them": {
@@ -131,20 +289,22 @@
     "probabilities": {
       "github-actions-ci-debugging": 0.0053,
       "node-dependency-upgrade": 0.0019,
-      "none": 0.0372,
-      "rust-clippy-lints": 0.9556
+      "none": 0.0371,
+      "rust-clippy-lints": 0.9557
     }
   },
   "check the page for accessibility contrast issues": {
     "offered": [
       "frontend-accessibility-audit",
-      "github-pr-merge"
+      "github-pr-merge",
+      "web-scraping"
     ],
     "choice": "frontend-accessibility-audit",
     "probabilities": {
-      "frontend-accessibility-audit": 0.9165,
-      "github-pr-merge": 0.0013,
-      "none": 0.0822
+      "frontend-accessibility-audit": 0.9069,
+      "github-pr-merge": 0.0011,
+      "none": 0.0815,
+      "web-scraping": 0.0104
     }
   },
   "checks are green, merge the PR": {
@@ -156,19 +316,43 @@
     "choice": "github-pr-merge",
     "probabilities": {
       "git-rebase-conflicts": 0.0039,
-      "github-pr-merge": 0.9526,
-      "github-pr-review": 0.0033,
-      "none": 0.0403
+      "github-pr-merge": 0.9521,
+      "github-pr-review": 0.0034,
+      "none": 0.0406
+    }
+  },
+  "compose calm background music for my demo video": {
+    "offered": [
+      "audio-transcription",
+      "explainer-video",
+      "image-generation",
+      "media-toolkit",
+      "music-generation",
+      "screen-recording-walkthrough",
+      "thumbnail-design"
+    ],
+    "choice": "music-generation",
+    "probabilities": {
+      "audio-transcription": 0.0005,
+      "explainer-video": 0.0039,
+      "image-generation": 0.0982,
+      "media-toolkit": 0.0582,
+      "music-generation": 0.8042,
+      "none": 0.0335,
+      "screen-recording-walkthrough": 0.0009,
+      "thumbnail-design": 0.0005
     }
   },
   "containerize this app with a Dockerfile": {
     "offered": [
-      "docker-image-build"
+      "docker-image-build",
+      "screen-recording-walkthrough"
     ],
     "choice": "docker-image-build",
     "probabilities": {
-      "docker-image-build": 0.8348,
-      "none": 0.1652
+      "docker-image-build": 0.8358,
+      "none": 0.1629,
+      "screen-recording-walkthrough": 0.0013
     }
   },
   "cool, the spreadsheet numbers match now": {
@@ -181,30 +365,208 @@
       "spreadsheet-analysis": 0.3375
     }
   },
+  "create a jira ticket to upgrade react": {
+    "offered": [
+      "jira-ticket-management",
+      "node-dependency-upgrade",
+      "react-component-testing",
+      "slide-deck-creation"
+    ],
+    "choice": "jira-ticket-management",
+    "probabilities": {
+      "jira-ticket-management": 0.4595,
+      "node-dependency-upgrade": 0.1191,
+      "none": 0.4154,
+      "react-component-testing": 0.0045,
+      "slide-deck-creation": 0.0015
+    }
+  },
+  "create a video of how kev works detailed and send to ben on slack": {
+    "offered": [
+      "audio-transcription",
+      "explainer-video",
+      "git-commit-messages",
+      "image-generation",
+      "jira-ticket-management",
+      "local-decision-model",
+      "media-toolkit",
+      "screen-recording-walkthrough",
+      "slack-messaging",
+      "slide-deck-creation",
+      "thumbnail-design"
+    ],
+    "choice": "media-toolkit",
+    "probabilities": {
+      "audio-transcription": 0.0016,
+      "explainer-video": 0.2255,
+      "git-commit-messages": 0.0031,
+      "image-generation": 0.2091,
+      "jira-ticket-management": 0.0051,
+      "local-decision-model": 0.0601,
+      "media-toolkit": 0.2298,
+      "none": 0.1406,
+      "screen-recording-walkthrough": 0.0362,
+      "slack-messaging": 0.078,
+      "slide-deck-creation": 0.0067,
+      "thumbnail-design": 0.0041
+    }
+  },
+  "create a video of how our deploy pipeline works, detailed, and send it to the team on slack": {
+    "offered": [
+      "audio-transcription",
+      "explainer-video",
+      "git-commit-messages",
+      "image-generation",
+      "jira-ticket-management",
+      "kubernetes-deploy",
+      "media-toolkit",
+      "screen-recording-walkthrough",
+      "slack-messaging",
+      "slide-deck-creation",
+      "thumbnail-design"
+    ],
+    "choice": "explainer-video",
+    "probabilities": {
+      "audio-transcription": 0.0009,
+      "explainer-video": 0.6575,
+      "git-commit-messages": 0.0031,
+      "image-generation": 0.0776,
+      "jira-ticket-management": 0.0033,
+      "kubernetes-deploy": 0.0116,
+      "media-toolkit": 0.0971,
+      "none": 0.0848,
+      "screen-recording-walkthrough": 0.0382,
+      "slack-messaging": 0.0193,
+      "slide-deck-creation": 0.0046,
+      "thumbnail-design": 0.0019
+    }
+  },
+  "design a youtube thumbnail for the release video": {
+    "offered": [
+      "audio-transcription",
+      "explainer-video",
+      "image-generation",
+      "media-toolkit",
+      "release-notes-writing",
+      "rest-api-design",
+      "screen-recording-walkthrough",
+      "thumbnail-design"
+    ],
+    "choice": "thumbnail-design",
+    "probabilities": {
+      "audio-transcription": 0.0003,
+      "explainer-video": 0.0025,
+      "image-generation": 0.1821,
+      "media-toolkit": 0.0202,
+      "none": 0.0189,
+      "release-notes-writing": 0.0005,
+      "rest-api-design": 0.0002,
+      "screen-recording-walkthrough": 0.0009,
+      "thumbnail-design": 0.7745
+    }
+  },
   "design the endpoints for our orders API": {
     "offered": [
       "rest-api-design",
-      "secrets-rotation"
+      "secrets-rotation",
+      "thumbnail-design"
     ],
     "choice": "rest-api-design",
     "probabilities": {
-      "none": 0.1261,
-      "rest-api-design": 0.8731,
-      "secrets-rotation": 0.0008
+      "none": 0.1243,
+      "rest-api-design": 0.8746,
+      "secrets-rotation": 0.0007,
+      "thumbnail-design": 0.0004
+    }
+  },
+  "did https://github.com/acme/holstered worked?": {
+    "offered": [
+      "git-commit-messages"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "git-commit-messages": 0.0227,
+      "none": 0.9773
+    }
+  },
+  "don't containerize it, just give me a plain node start script": {
+    "offered": [
+      "node-dependency-upgrade",
+      "text-to-speech"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "node-dependency-upgrade": 0.0198,
+      "none": 0.9759,
+      "text-to-speech": 0.0043
+    }
+  },
+  "don't send anything on slack yet, I'll do it myself": {
+    "offered": [
+      "media-toolkit",
+      "slack-messaging"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "media-toolkit": 0.1082,
+      "none": 0.7216,
+      "slack-messaging": 0.1702
+    }
+  },
+  "draw a diagram of how the services talk to each other": {
+    "offered": [
+      "diagram-drawing",
+      "kubernetes-deploy"
+    ],
+    "choice": "diagram-drawing",
+    "probabilities": {
+      "diagram-drawing": 0.9055,
+      "kubernetes-deploy": 0.0027,
+      "none": 0.0918
+    }
+  },
+  "draw a diagram of the CI pipeline": {
+    "offered": [
+      "diagram-drawing",
+      "explainer-video",
+      "github-actions-ci-debugging"
+    ],
+    "choice": "diagram-drawing",
+    "probabilities": {
+      "diagram-drawing": 0.8734,
+      "explainer-video": 0.0166,
+      "github-actions-ci-debugging": 0.0062,
+      "none": 0.1037
     }
   },
   "explain how python generators work": {
     "offered": [
+      "explainer-video",
       "git-commit-messages",
+      "image-generation",
+      "music-generation",
       "python-debugging",
       "sql-query-optimization"
     ],
     "choice": "none",
     "probabilities": {
-      "git-commit-messages": 0.0152,
-      "none": 0.9604,
-      "python-debugging": 0.0199,
-      "sql-query-optimization": 0.0044
+      "explainer-video": 0.1675,
+      "git-commit-messages": 0.0077,
+      "image-generation": 0.0148,
+      "music-generation": 0.0039,
+      "none": 0.7812,
+      "python-debugging": 0.0198,
+      "sql-query-optimization": 0.0051
+    }
+  },
+  "fill in the tax PDF": {
+    "offered": [
+      "pdf-form-filling"
+    ],
+    "choice": "pdf-form-filling",
+    "probabilities": {
+      "none": 0.2193,
+      "pdf-form-filling": 0.7807
     }
   },
   "fill out and sign this PDF form": {
@@ -221,21 +583,26 @@
     "offered": [
       "calendar-scheduling",
       "flight-search",
+      "gif-search",
+      "local-decision-model",
       "log-investigation",
       "performance-profiling"
     ],
     "choice": "flight-search",
     "probabilities": {
-      "calendar-scheduling": 0.0014,
-      "flight-search": 0.9652,
-      "log-investigation": 0.0009,
-      "none": 0.0322,
-      "performance-profiling": 0.0003
+      "calendar-scheduling": 0.0013,
+      "flight-search": 0.9526,
+      "gif-search": 0.0003,
+      "local-decision-model": 0.0078,
+      "log-investigation": 0.0005,
+      "none": 0.0373,
+      "performance-profiling": 0.0002
     }
   },
   "find why production returned 500 errors last night in the logs": {
     "offered": [
       "calendar-scheduling",
+      "gif-search",
       "log-investigation",
       "performance-profiling",
       "rest-api-design"
@@ -243,10 +610,111 @@
     "choice": "log-investigation",
     "probabilities": {
       "calendar-scheduling": 0.0016,
-      "log-investigation": 0.9456,
-      "none": 0.0458,
-      "performance-profiling": 0.0023,
+      "gif-search": 0.0004,
+      "log-investigation": 0.946,
+      "none": 0.0442,
+      "performance-profiling": 0.0032,
       "rest-api-design": 0.0046
+    }
+  },
+  "fix the clippy warnings and write a commit message": {
+    "offered": [
+      "database-migrations",
+      "docker-image-build",
+      "git-commit-messages",
+      "node-dependency-upgrade",
+      "readme-documentation",
+      "release-notes-writing",
+      "rust-clippy-lints",
+      "slack-messaging",
+      "unit-test-writing",
+      "word-document-writing"
+    ],
+    "choice": "rust-clippy-lints",
+    "probabilities": {
+      "database-migrations": 0.0019,
+      "docker-image-build": 0.0015,
+      "git-commit-messages": 0.1479,
+      "node-dependency-upgrade": 0.0038,
+      "none": 0.0829,
+      "readme-documentation": 0.0014,
+      "release-notes-writing": 0.0091,
+      "rust-clippy-lints": 0.7448,
+      "slack-messaging": 0.0025,
+      "unit-test-writing": 0.0024,
+      "word-document-writing": 0.0017
+    }
+  },
+  "generate a 5 second AI video clip of waves crashing at sunset": {
+    "offered": [
+      "audio-transcription",
+      "explainer-video",
+      "image-generation",
+      "media-toolkit",
+      "music-generation",
+      "screen-recording-walkthrough",
+      "thumbnail-design"
+    ],
+    "choice": "image-generation",
+    "probabilities": {
+      "audio-transcription": 0.0013,
+      "explainer-video": 0.0106,
+      "image-generation": 0.6373,
+      "media-toolkit": 0.1957,
+      "music-generation": 0.0057,
+      "none": 0.1434,
+      "screen-recording-walkthrough": 0.0022,
+      "thumbnail-design": 0.0038
+    }
+  },
+  "generate a logo image for our new product": {
+    "offered": [
+      "docker-image-build",
+      "image-generation",
+      "log-investigation",
+      "media-toolkit",
+      "music-generation",
+      "release-notes-writing",
+      "thumbnail-design"
+    ],
+    "choice": "image-generation",
+    "probabilities": {
+      "docker-image-build": 0.0031,
+      "image-generation": 0.7838,
+      "log-investigation": 0.0012,
+      "media-toolkit": 0.1077,
+      "music-generation": 0.0011,
+      "none": 0.0827,
+      "release-notes-writing": 0.0013,
+      "thumbnail-design": 0.0192
+    }
+  },
+  "generate an image of a fox in a spacesuit with stable diffusion": {
+    "offered": [
+      "docker-image-build",
+      "image-generation",
+      "media-toolkit",
+      "music-generation",
+      "thumbnail-design"
+    ],
+    "choice": "image-generation",
+    "probabilities": {
+      "docker-image-build": 0.0033,
+      "image-generation": 0.8319,
+      "media-toolkit": 0.0787,
+      "music-generation": 0.001,
+      "none": 0.0761,
+      "thumbnail-design": 0.0089
+    }
+  },
+  "go ahead": {
+    "offered": [
+      "email-inbox-triage"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "email-inbox-triage": 0.0323,
+      "none": 0.9677
     }
   },
   "go through my unread emails and sort them": {
@@ -259,6 +727,66 @@
       "none": 0.2886
     }
   },
+  "haha that gif was perfect": {
+    "offered": [
+      "gif-search"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "gif-search": 0.4164,
+      "none": 0.5836
+    }
+  },
+  "haz merge del pull request": {
+    "offered": [
+      "git-rebase-conflicts",
+      "github-pr-merge",
+      "github-pr-review"
+    ],
+    "choice": "github-pr-merge",
+    "probabilities": {
+      "git-rebase-conflicts": 0.0076,
+      "github-pr-merge": 0.9368,
+      "github-pr-review": 0.0056,
+      "none": 0.05
+    }
+  },
+  "how does kubernetes scheduling work in general?": {
+    "offered": [
+      "calendar-scheduling",
+      "cron-scheduling",
+      "git-commit-messages",
+      "kubernetes-deploy"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "calendar-scheduling": 0.0409,
+      "cron-scheduling": 0.0269,
+      "git-commit-messages": 0.0067,
+      "kubernetes-deploy": 0.175,
+      "none": 0.7505
+    }
+  },
+  "is terraform better than pulumi?": {
+    "offered": [
+      "terraform-infrastructure"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "none": 0.8345,
+      "terraform-infrastructure": 0.1655
+    }
+  },
+  "kev said 0.8, nice": {
+    "offered": [
+      "local-decision-model"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "local-decision-model": 0.4534,
+      "none": 0.5466
+    }
+  },
   "lol the CI is finally green": {
     "offered": [
       "github-actions-ci-debugging"
@@ -269,6 +797,76 @@
       "none": 0.8384
     }
   },
+  "mak a slid deck about our roadmap": {
+    "offered": [
+      "slide-deck-creation"
+    ],
+    "choice": "slide-deck-creation",
+    "probabilities": {
+      "none": 0.471,
+      "slide-deck-creation": 0.529
+    }
+  },
+  "make a short explainer about how our cache invalidation works, with voiceover": {
+    "offered": [
+      "docker-image-build",
+      "explainer-video",
+      "git-commit-messages",
+      "rust-clippy-lints",
+      "sql-query-optimization"
+    ],
+    "choice": "explainer-video",
+    "probabilities": {
+      "docker-image-build": 0.0191,
+      "explainer-video": 0.6864,
+      "git-commit-messages": 0.0085,
+      "none": 0.2789,
+      "rust-clippy-lints": 0.0031,
+      "sql-query-optimization": 0.0041
+    }
+  },
+  "make a slide deck on Q4 goals and share it with the team on slack": {
+    "offered": [
+      "gif-search",
+      "rust-clippy-lints",
+      "slack-messaging",
+      "slide-deck-creation"
+    ],
+    "choice": "slide-deck-creation",
+    "probabilities": {
+      "gif-search": 0.0034,
+      "none": 0.1212,
+      "rust-clippy-lints": 0.0013,
+      "slack-messaging": 0.1396,
+      "slide-deck-creation": 0.7345
+    }
+  },
+  "make an animated video explaining how BM25 ranking works": {
+    "offered": [
+      "audio-transcription",
+      "explainer-video",
+      "git-commit-messages",
+      "image-generation",
+      "media-toolkit",
+      "rust-clippy-lints",
+      "screen-recording-walkthrough",
+      "sql-query-optimization",
+      "thumbnail-design"
+    ],
+    "choice": "explainer-video",
+    "probabilities": {
+      "audio-transcription": 0.0006,
+      "explainer-video": 0.8761,
+      "git-commit-messages": 0.001,
+      "image-generation": 0.0232,
+      "media-toolkit": 0.0401,
+      "none": 0.0543,
+      "rust-clippy-lints": 0.0004,
+      "screen-recording-walkthrough": 0.0025,
+      "sql-query-optimization": 0.0004,
+      "thumbnail-design": 0.0014
+    }
+  },
   "make me a slide deck about Q3 results": {
     "offered": [
       "python-debugging",
@@ -277,10 +875,50 @@
     ],
     "choice": "slide-deck-creation",
     "probabilities": {
-      "none": 0.2749,
-      "python-debugging": 0.003,
-      "rust-clippy-lints": 0.0033,
-      "slide-deck-creation": 0.7189
+      "none": 0.2715,
+      "python-debugging": 0.0028,
+      "rust-clippy-lints": 0.0031,
+      "slide-deck-creation": 0.7225
+    }
+  },
+  "make slides explaining our kubernetes setup": {
+    "offered": [
+      "explainer-video",
+      "kubernetes-deploy",
+      "rust-clippy-lints",
+      "slide-deck-creation",
+      "sql-query-optimization"
+    ],
+    "choice": "slide-deck-creation",
+    "probabilities": {
+      "explainer-video": 0.0492,
+      "kubernetes-deploy": 0.0368,
+      "none": 0.3701,
+      "rust-clippy-lints": 0.0017,
+      "slide-deck-creation": 0.5392,
+      "sql-query-optimization": 0.0029
+    }
+  },
+  "merge it": {
+    "offered": [
+      "git-rebase-conflicts",
+      "github-pr-merge"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "git-rebase-conflicts": 0.1048,
+      "github-pr-merge": 0.2833,
+      "none": 0.612
+    }
+  },
+  "music was a bit loud in the demo but fine": {
+    "offered": [
+      "music-generation"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "music-generation": 0.178,
+      "none": 0.822
     }
   },
   "my branch has conflicts after main moved, rebase it": {
@@ -306,17 +944,59 @@
   "my python script throws a KeyError, find out why": {
     "offered": [
       "calendar-scheduling",
+      "gif-search",
       "log-investigation",
       "performance-profiling",
-      "python-debugging"
+      "python-debugging",
+      "text-to-speech"
     ],
     "choice": "python-debugging",
     "probabilities": {
-      "calendar-scheduling": 0.0024,
-      "log-investigation": 0.0756,
-      "none": 0.1752,
-      "performance-profiling": 0.0026,
-      "python-debugging": 0.7443
+      "calendar-scheduling": 0.002,
+      "gif-search": 0.001,
+      "log-investigation": 0.0908,
+      "none": 0.1542,
+      "performance-profiling": 0.0027,
+      "python-debugging": 0.7482,
+      "text-to-speech": 0.0011
+    }
+  },
+  "narrate this script with a natural voice and give me the mp3": {
+    "offered": [
+      "explainer-video",
+      "screen-recording-walkthrough",
+      "text-to-speech"
+    ],
+    "choice": "text-to-speech",
+    "probabilities": {
+      "explainer-video": 0.006,
+      "none": 0.0625,
+      "screen-recording-walkthrough": 0.0031,
+      "text-to-speech": 0.9285
+    }
+  },
+  "no need for slides, just write me a one-paragraph summary": {
+    "offered": [
+      "database-migrations",
+      "docker-image-build",
+      "git-commit-messages",
+      "readme-documentation",
+      "release-notes-writing",
+      "slide-deck-creation",
+      "unit-test-writing",
+      "word-document-writing"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "database-migrations": 0.0062,
+      "docker-image-build": 0.0087,
+      "git-commit-messages": 0.0384,
+      "none": 0.5471,
+      "readme-documentation": 0.0972,
+      "release-notes-writing": 0.1277,
+      "slide-deck-creation": 0.0608,
+      "unit-test-writing": 0.0075,
+      "word-document-writing": 0.1063
     }
   },
   "ok the deploy is done, thanks": {
@@ -329,6 +1009,108 @@
       "none": 0.7741
     }
   },
+  "open a jira ticket for the login bug": {
+    "offered": [
+      "jira-ticket-management"
+    ],
+    "choice": "jira-ticket-management",
+    "probabilities": {
+      "jira-ticket-management": 0.85,
+      "none": 0.15
+    }
+  },
+  "post in #eng that CI is fixed": {
+    "offered": [
+      "github-actions-ci-debugging",
+      "node-dependency-upgrade",
+      "rust-clippy-lints",
+      "thumbnail-design"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "github-actions-ci-debugging": 0.1452,
+      "node-dependency-upgrade": 0.0266,
+      "none": 0.785,
+      "rust-clippy-lints": 0.0241,
+      "thumbnail-design": 0.0192
+    }
+  },
+  "profile the orders endpoint, the API is slow": {
+    "offered": [
+      "performance-profiling",
+      "rest-api-design",
+      "secrets-rotation",
+      "sql-query-optimization"
+    ],
+    "choice": "performance-profiling",
+    "probabilities": {
+      "none": 0.4157,
+      "performance-profiling": 0.4726,
+      "rest-api-design": 0.0723,
+      "secrets-rotation": 0.0028,
+      "sql-query-optimization": 0.0366
+    }
+  },
+  "rebase onto main, then merge the PR": {
+    "offered": [
+      "git-rebase-conflicts",
+      "github-pr-merge",
+      "github-pr-review"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "git-rebase-conflicts": 0.2976,
+      "github-pr-merge": 0.1346,
+      "github-pr-review": 0.0156,
+      "none": 0.5522
+    }
+  },
+  "record a walkthrough video of the signup flow on staging": {
+    "offered": [
+      "audio-transcription",
+      "diagram-drawing",
+      "explainer-video",
+      "image-generation",
+      "media-toolkit",
+      "screen-recording-walkthrough",
+      "thumbnail-design"
+    ],
+    "choice": "screen-recording-walkthrough",
+    "probabilities": {
+      "audio-transcription": 0.0026,
+      "diagram-drawing": 0.0085,
+      "explainer-video": 0.0216,
+      "image-generation": 0.0154,
+      "media-toolkit": 0.0949,
+      "none": 0.0855,
+      "screen-recording-walkthrough": 0.7687,
+      "thumbnail-design": 0.0026
+    }
+  },
+  "reply to the unread emails from yesterday": {
+    "offered": [
+      "email-inbox-triage"
+    ],
+    "choice": "email-inbox-triage",
+    "probabilities": {
+      "email-inbox-triage": 0.5901,
+      "none": 0.4099
+    }
+  },
+  "review the PR that adds the Dockerfile": {
+    "offered": [
+      "docker-image-build",
+      "github-pr-merge",
+      "github-pr-review"
+    ],
+    "choice": "github-pr-review",
+    "probabilities": {
+      "docker-image-build": 0.0502,
+      "github-pr-merge": 0.017,
+      "github-pr-review": 0.7916,
+      "none": 0.1412
+    }
+  },
   "review this pull request and leave comments": {
     "offered": [
       "github-pr-merge",
@@ -336,8 +1118,8 @@
     ],
     "choice": "github-pr-review",
     "probabilities": {
-      "github-pr-merge": 0.0076,
-      "github-pr-review": 0.9374,
+      "github-pr-merge": 0.0077,
+      "github-pr-review": 0.9373,
       "none": 0.055
     }
   },
@@ -349,10 +1131,10 @@
     ],
     "choice": "readme-documentation",
     "probabilities": {
-      "none": 0.0923,
+      "none": 0.0949,
       "react-component-testing": 0.0016,
-      "readme-documentation": 0.9,
-      "release-notes-writing": 0.0061
+      "readme-documentation": 0.8971,
+      "release-notes-writing": 0.0063
     }
   },
   "roll back the last deployment on the cluster": {
@@ -365,14 +1147,164 @@
       "none": 0.1198
     }
   },
+  "run the cleanup script every night at 2am": {
+    "offered": [
+      "database-migrations",
+      "text-to-speech"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "database-migrations": 0.0202,
+      "none": 0.9728,
+      "text-to-speech": 0.007
+    }
+  },
+  "saw your slack message, will check later": {
+    "offered": [
+      "git-commit-messages",
+      "github-pr-merge",
+      "slack-messaging"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "git-commit-messages": 0.0128,
+      "github-pr-merge": 0.0073,
+      "none": 0.5549,
+      "slack-messaging": 0.4249
+    }
+  },
   "schedule a meeting with the team next week": {
     "offered": [
-      "calendar-scheduling"
+      "calendar-scheduling",
+      "cron-scheduling",
+      "local-decision-model",
+      "meeting-notes"
     ],
     "choice": "calendar-scheduling",
     "probabilities": {
-      "calendar-scheduling": 0.9092,
-      "none": 0.0908
+      "calendar-scheduling": 0.8881,
+      "cron-scheduling": 0.005,
+      "local-decision-model": 0.016,
+      "meeting-notes": 0.0024,
+      "none": 0.0884
+    }
+  },
+  "scrape the pricing table from the competitor's site": {
+    "offered": [
+      "flight-search",
+      "web-scraping"
+    ],
+    "choice": "web-scraping",
+    "probabilities": {
+      "flight-search": 0.0086,
+      "none": 0.1616,
+      "web-scraping": 0.8297
+    }
+  },
+  "send a funny gif to celebrate the launch": {
+    "offered": [
+      "gif-search",
+      "slack-messaging"
+    ],
+    "choice": "gif-search",
+    "probabilities": {
+      "gif-search": 0.7573,
+      "none": 0.1549,
+      "slack-messaging": 0.0878
+    }
+  },
+  "send ben a slack message that the deploy is done": {
+    "offered": [
+      "git-commit-messages",
+      "kubernetes-deploy",
+      "slack-messaging"
+    ],
+    "choice": "slack-messaging",
+    "probabilities": {
+      "git-commit-messages": 0.0052,
+      "kubernetes-deploy": 0.015,
+      "none": 0.122,
+      "slack-messaging": 0.8578
+    }
+  },
+  "set up a launchd job that syncs the repo hourly": {
+    "offered": [
+      "cron-scheduling",
+      "github-actions-ci-debugging"
+    ],
+    "choice": "cron-scheduling",
+    "probabilities": {
+      "cron-scheduling": 0.9338,
+      "github-actions-ci-debugging": 0.0033,
+      "none": 0.063
+    }
+  },
+  "stop": {
+    "offered": [
+      "flight-search"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "flight-search": 0.0176,
+      "none": 0.9824
+    }
+  },
+  "stop caveman": {
+    "offered": [
+      "flight-search"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "flight-search": 0.0151,
+      "none": 0.9849
+    }
+  },
+  "summarize the meeting and list action items": {
+    "offered": [
+      "calendar-scheduling",
+      "github-actions-ci-debugging",
+      "github-pr-review",
+      "meeting-notes"
+    ],
+    "choice": "meeting-notes",
+    "probabilities": {
+      "calendar-scheduling": 0.0022,
+      "github-actions-ci-debugging": 0.0009,
+      "github-pr-review": 0.0045,
+      "meeting-notes": 0.9566,
+      "none": 0.0358
+    }
+  },
+  "summarize this spreadsheet and email the numbers to finance": {
+    "offered": [
+      "email-inbox-triage",
+      "meeting-notes",
+      "spreadsheet-analysis"
+    ],
+    "choice": "spreadsheet-analysis",
+    "probabilities": {
+      "email-inbox-triage": 0.0281,
+      "meeting-notes": 0.0155,
+      "none": 0.2437,
+      "spreadsheet-analysis": 0.7128
+    }
+  },
+  "summarize yesterday's standup transcript and open jira tickets for the action items": {
+    "offered": [
+      "audio-transcription",
+      "github-actions-ci-debugging",
+      "github-pr-review",
+      "jira-ticket-management",
+      "meeting-notes"
+    ],
+    "choice": "meeting-notes",
+    "probabilities": {
+      "audio-transcription": 0.0071,
+      "github-actions-ci-debugging": 0.0024,
+      "github-pr-review": 0.0088,
+      "jira-ticket-management": 0.3449,
+      "meeting-notes": 0.5265,
+      "none": 0.1102
     }
   },
   "test the login form component with user interactions": {
@@ -384,11 +1316,11 @@
     ],
     "choice": "react-component-testing",
     "probabilities": {
-      "none": 0.1496,
+      "none": 0.1483,
       "pdf-form-filling": 0.0066,
-      "react-component-testing": 0.7749,
+      "react-component-testing": 0.7776,
       "readme-documentation": 0.0019,
-      "unit-test-writing": 0.0671
+      "unit-test-writing": 0.0655
     }
   },
   "thanks, that works": {
@@ -408,12 +1340,30 @@
     ],
     "choice": "github-pr-merge",
     "probabilities": {
-      "git-rebase-conflicts": 0.03,
-      "github-pr-merge": 0.5309,
-      "none": 0.4391
+      "git-rebase-conflicts": 0.0306,
+      "github-pr-merge": 0.5216,
+      "none": 0.4478
     }
   },
   "the CI workflow keeps failing on the test job": {
+    "offered": [
+      "cron-scheduling",
+      "github-actions-ci-debugging",
+      "image-generation",
+      "react-component-testing",
+      "unit-test-writing"
+    ],
+    "choice": "github-actions-ci-debugging",
+    "probabilities": {
+      "cron-scheduling": 0.0027,
+      "github-actions-ci-debugging": 0.9188,
+      "image-generation": 0.0008,
+      "none": 0.0691,
+      "react-component-testing": 0.0047,
+      "unit-test-writing": 0.004
+    }
+  },
+  "the ci pipline keeps faling on tests": {
     "offered": [
       "github-actions-ci-debugging",
       "react-component-testing",
@@ -421,10 +1371,20 @@
     ],
     "choice": "github-actions-ci-debugging",
     "probabilities": {
-      "github-actions-ci-debugging": 0.8673,
-      "none": 0.1209,
-      "react-component-testing": 0.0052,
-      "unit-test-writing": 0.0065
+      "github-actions-ci-debugging": 0.6719,
+      "none": 0.2839,
+      "react-component-testing": 0.0184,
+      "unit-test-writing": 0.0257
+    }
+  },
+  "the jira board is a mess lol": {
+    "offered": [
+      "jira-ticket-management"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "jira-ticket-management": 0.1891,
+      "none": 0.8109
     }
   },
   "the pull request has merge conflicts with main": {
@@ -435,10 +1395,10 @@
     ],
     "choice": "git-rebase-conflicts",
     "probabilities": {
-      "git-rebase-conflicts": 0.5825,
-      "github-pr-merge": 0.0313,
-      "github-pr-review": 0.0606,
-      "none": 0.3255
+      "git-rebase-conflicts": 0.5861,
+      "github-pr-merge": 0.0308,
+      "github-pr-review": 0.0608,
+      "none": 0.3222
     }
   },
   "the service is slow, profile it": {
@@ -449,24 +1409,56 @@
     ],
     "choice": "performance-profiling",
     "probabilities": {
-      "kubernetes-deploy": 0.0078,
-      "none": 0.2126,
-      "performance-profiling": 0.7601,
-      "sql-query-optimization": 0.0196
+      "kubernetes-deploy": 0.0079,
+      "none": 0.2159,
+      "performance-profiling": 0.7557,
+      "sql-query-optimization": 0.0205
     }
   },
   "the slides looked great in the meeting, nice work": {
     "offered": [
       "calendar-scheduling",
       "git-commit-messages",
+      "meeting-notes",
       "slide-deck-creation"
     ],
     "choice": "none",
     "probabilities": {
-      "calendar-scheduling": 0.0334,
-      "git-commit-messages": 0.1351,
-      "none": 0.6929,
-      "slide-deck-creation": 0.1386
+      "calendar-scheduling": 0.0325,
+      "git-commit-messages": 0.1201,
+      "meeting-notes": 0.1912,
+      "none": 0.5372,
+      "slide-deck-creation": 0.119
+    }
+  },
+  "the thumbnail looks nice": {
+    "offered": [
+      "thumbnail-design"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "none": 0.6623,
+      "thumbnail-design": 0.3377
+    }
+  },
+  "the video came out great, thanks": {
+    "offered": [
+      "audio-transcription",
+      "explainer-video",
+      "image-generation",
+      "media-toolkit",
+      "screen-recording-walkthrough",
+      "thumbnail-design"
+    ],
+    "choice": "media-toolkit",
+    "probabilities": {
+      "audio-transcription": 0.0241,
+      "explainer-video": 0.0505,
+      "image-generation": 0.1739,
+      "media-toolkit": 0.3561,
+      "none": 0.3339,
+      "screen-recording-walkthrough": 0.0407,
+      "thumbnail-design": 0.0209
     }
   },
   "this query takes 30 seconds, make it faster": {
@@ -476,9 +1468,65 @@
     ],
     "choice": "none",
     "probabilities": {
-      "none": 0.6798,
-      "rust-clippy-lints": 0.0253,
-      "sql-query-optimization": 0.2949
+      "none": 0.6767,
+      "rust-clippy-lints": 0.0256,
+      "sql-query-optimization": 0.2977
+    }
+  },
+  "transcribe this meeting recording into text": {
+    "offered": [
+      "audio-transcription",
+      "calendar-scheduling",
+      "meeting-notes",
+      "music-generation",
+      "screen-recording-walkthrough",
+      "text-to-speech"
+    ],
+    "choice": "audio-transcription",
+    "probabilities": {
+      "audio-transcription": 0.7701,
+      "calendar-scheduling": 0.0032,
+      "meeting-notes": 0.0274,
+      "music-generation": 0.0007,
+      "none": 0.1937,
+      "screen-recording-walkthrough": 0.0035,
+      "text-to-speech": 0.0015
+    }
+  },
+  "turn this outline into a presentation": {
+    "offered": [
+      "slide-deck-creation",
+      "text-to-speech"
+    ],
+    "choice": "slide-deck-creation",
+    "probabilities": {
+      "none": 0.0612,
+      "slide-deck-creation": 0.9372,
+      "text-to-speech": 0.0016
+    }
+  },
+  "turn this video into a transcript with timestamps": {
+    "offered": [
+      "audio-transcription",
+      "explainer-video",
+      "image-generation",
+      "media-toolkit",
+      "meeting-notes",
+      "screen-recording-walkthrough",
+      "text-to-speech",
+      "thumbnail-design"
+    ],
+    "choice": "audio-transcription",
+    "probabilities": {
+      "audio-transcription": 0.8573,
+      "explainer-video": 0.0021,
+      "image-generation": 0.0012,
+      "media-toolkit": 0.0639,
+      "meeting-notes": 0.0023,
+      "none": 0.0693,
+      "screen-recording-walkthrough": 0.0028,
+      "text-to-speech": 0.0006,
+      "thumbnail-design": 0.0004
     }
   },
   "upgrade react and the other npm packages to latest": {
@@ -489,10 +1537,82 @@
     ],
     "choice": "node-dependency-upgrade",
     "probabilities": {
-      "dependency-security-audit": 0.0086,
-      "node-dependency-upgrade": 0.8979,
-      "none": 0.0921,
+      "dependency-security-audit": 0.0089,
+      "node-dependency-upgrade": 0.8962,
+      "none": 0.0935,
       "react-component-testing": 0.0014
+    }
+  },
+  "what is stable diffusion?": {
+    "offered": [
+      "image-generation"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "image-generation": 0.1375,
+      "none": 0.8625
+    }
+  },
+  "what's the difference between rebase and merge?": {
+    "offered": [
+      "git-rebase-conflicts",
+      "github-pr-merge"
+    ],
+    "choice": "none",
+    "probabilities": {
+      "git-rebase-conflicts": 0.0887,
+      "github-pr-merge": 0.0417,
+      "none": 0.8696
+    }
+  },
+  "write a README section on how to run the migrations": {
+    "offered": [
+      "database-migrations",
+      "docker-image-build",
+      "git-commit-messages",
+      "readme-documentation",
+      "release-notes-writing",
+      "unit-test-writing",
+      "word-document-writing"
+    ],
+    "choice": "database-migrations",
+    "probabilities": {
+      "database-migrations": 0.5536,
+      "docker-image-build": 0.0053,
+      "git-commit-messages": 0.0089,
+      "none": 0.1588,
+      "readme-documentation": 0.255,
+      "release-notes-writing": 0.0096,
+      "unit-test-writing": 0.0018,
+      "word-document-writing": 0.0069
+    }
+  },
+  "write a commit message for the terraform change": {
+    "offered": [
+      "database-migrations",
+      "docker-image-build",
+      "git-commit-messages",
+      "node-dependency-upgrade",
+      "readme-documentation",
+      "release-notes-writing",
+      "slack-messaging",
+      "terraform-infrastructure",
+      "unit-test-writing",
+      "word-document-writing"
+    ],
+    "choice": "git-commit-messages",
+    "probabilities": {
+      "database-migrations": 0.0036,
+      "docker-image-build": 0.0017,
+      "git-commit-messages": 0.781,
+      "node-dependency-upgrade": 0.0026,
+      "none": 0.0815,
+      "readme-documentation": 0.0029,
+      "release-notes-writing": 0.0182,
+      "slack-messaging": 0.0025,
+      "terraform-infrastructure": 0.101,
+      "unit-test-writing": 0.0019,
+      "word-document-writing": 0.0032
     }
   },
   "write a good commit message for these staged changes": {
@@ -503,20 +1623,24 @@
       "node-dependency-upgrade",
       "readme-documentation",
       "release-notes-writing",
+      "slack-messaging",
       "terraform-infrastructure",
-      "unit-test-writing"
+      "unit-test-writing",
+      "word-document-writing"
     ],
     "choice": "git-commit-messages",
     "probabilities": {
-      "database-migrations": 0.0024,
-      "docker-image-build": 0.0012,
-      "git-commit-messages": 0.9467,
-      "node-dependency-upgrade": 0.0016,
-      "none": 0.0364,
-      "readme-documentation": 0.0012,
-      "release-notes-writing": 0.0078,
-      "terraform-infrastructure": 0.0016,
-      "unit-test-writing": 0.0011
+      "database-migrations": 0.0027,
+      "docker-image-build": 0.0014,
+      "git-commit-messages": 0.9418,
+      "node-dependency-upgrade": 0.0017,
+      "none": 0.0373,
+      "readme-documentation": 0.0013,
+      "release-notes-writing": 0.0082,
+      "slack-messaging": 0.0012,
+      "terraform-infrastructure": 0.0015,
+      "unit-test-writing": 0.0013,
+      "word-document-writing": 0.0017
     }
   },
   "write a haiku about autumn leaves": {
@@ -527,18 +1651,104 @@
       "github-pr-review",
       "readme-documentation",
       "release-notes-writing",
-      "unit-test-writing"
+      "unit-test-writing",
+      "word-document-writing"
     ],
     "choice": "none",
     "probabilities": {
-      "database-migrations": 0.0085,
-      "docker-image-build": 0.0113,
-      "git-commit-messages": 0.0314,
-      "github-pr-review": 0.021,
-      "none": 0.8696,
-      "readme-documentation": 0.0214,
-      "release-notes-writing": 0.0269,
-      "unit-test-writing": 0.0099
+      "database-migrations": 0.0078,
+      "docker-image-build": 0.0105,
+      "git-commit-messages": 0.0286,
+      "github-pr-review": 0.0192,
+      "none": 0.768,
+      "readme-documentation": 0.0196,
+      "release-notes-writing": 0.0245,
+      "unit-test-writing": 0.0092,
+      "word-document-writing": 0.1126
+    }
+  },
+  "write a word document with the onboarding checklist": {
+    "offered": [
+      "database-migrations",
+      "docker-image-build",
+      "git-commit-messages",
+      "readme-documentation",
+      "release-notes-writing",
+      "unit-test-writing",
+      "word-document-writing"
+    ],
+    "choice": "word-document-writing",
+    "probabilities": {
+      "database-migrations": 0.0024,
+      "docker-image-build": 0.0028,
+      "git-commit-messages": 0.0041,
+      "none": 0.1434,
+      "readme-documentation": 0.0183,
+      "release-notes-writing": 0.0072,
+      "unit-test-writing": 0.0031,
+      "word-document-writing": 0.8187
+    }
+  },
+  "write release notes about the docker image fix": {
+    "offered": [
+      "database-migrations",
+      "docker-image-build",
+      "git-commit-messages",
+      "image-generation",
+      "media-toolkit",
+      "meeting-notes",
+      "node-dependency-upgrade",
+      "readme-documentation",
+      "release-notes-writing",
+      "rust-clippy-lints",
+      "thumbnail-design",
+      "unit-test-writing",
+      "word-document-writing"
+    ],
+    "choice": "release-notes-writing",
+    "probabilities": {
+      "database-migrations": 0.0011,
+      "docker-image-build": 0.0136,
+      "git-commit-messages": 0.0289,
+      "image-generation": 0.0008,
+      "media-toolkit": 0.0228,
+      "meeting-notes": 0.0015,
+      "node-dependency-upgrade": 0.0022,
+      "none": 0.051,
+      "readme-documentation": 0.0266,
+      "release-notes-writing": 0.8412,
+      "rust-clippy-lints": 0.0013,
+      "thumbnail-design": 0.0006,
+      "unit-test-writing": 0.0007,
+      "word-document-writing": 0.0075
+    }
+  },
+  "write release notes for 2.1 and post them in #releases on slack": {
+    "offered": [
+      "database-migrations",
+      "docker-image-build",
+      "git-commit-messages",
+      "meeting-notes",
+      "readme-documentation",
+      "release-notes-writing",
+      "slack-messaging",
+      "thumbnail-design",
+      "unit-test-writing",
+      "word-document-writing"
+    ],
+    "choice": "release-notes-writing",
+    "probabilities": {
+      "database-migrations": 0.001,
+      "docker-image-build": 0.0009,
+      "git-commit-messages": 0.007,
+      "meeting-notes": 0.0011,
+      "none": 0.0256,
+      "readme-documentation": 0.0075,
+      "release-notes-writing": 0.9312,
+      "slack-messaging": 0.0215,
+      "thumbnail-design": 0.0003,
+      "unit-test-writing": 0.0003,
+      "word-document-writing": 0.0036
     }
   },
   "write release notes for version 2.0": {
@@ -546,19 +1756,23 @@
       "database-migrations",
       "docker-image-build",
       "git-commit-messages",
+      "meeting-notes",
       "readme-documentation",
       "release-notes-writing",
-      "unit-test-writing"
+      "unit-test-writing",
+      "word-document-writing"
     ],
     "choice": "release-notes-writing",
     "probabilities": {
-      "database-migrations": 0.0009,
+      "database-migrations": 0.0008,
       "docker-image-build": 0.0006,
-      "git-commit-messages": 0.0057,
-      "none": 0.0243,
-      "readme-documentation": 0.0087,
-      "release-notes-writing": 0.9594,
-      "unit-test-writing": 0.0004
+      "git-commit-messages": 0.0054,
+      "meeting-notes": 0.0008,
+      "none": 0.022,
+      "readme-documentation": 0.008,
+      "release-notes-writing": 0.959,
+      "unit-test-writing": 0.0004,
+      "word-document-writing": 0.0031
     }
   },
   "write the tests first then implement the parser": {
@@ -569,18 +1783,20 @@
       "react-component-testing",
       "readme-documentation",
       "release-notes-writing",
-      "unit-test-writing"
+      "unit-test-writing",
+      "word-document-writing"
     ],
     "choice": "unit-test-writing",
     "probabilities": {
-      "database-migrations": 0.0019,
-      "docker-image-build": 0.002,
-      "git-commit-messages": 0.0044,
-      "none": 0.1045,
-      "react-component-testing": 0.0147,
-      "readme-documentation": 0.0019,
-      "release-notes-writing": 0.0018,
-      "unit-test-writing": 0.8689
+      "database-migrations": 0.0018,
+      "docker-image-build": 0.0018,
+      "git-commit-messages": 0.0041,
+      "none": 0.104,
+      "react-component-testing": 0.0143,
+      "readme-documentation": 0.0017,
+      "release-notes-writing": 0.0017,
+      "unit-test-writing": 0.8671,
+      "word-document-writing": 0.0034
     }
   }
 }
