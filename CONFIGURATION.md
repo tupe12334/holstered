@@ -13,8 +13,8 @@ your agent starts from.
 | `HOLSTERED_PICK_THRESHOLD` | — | The probability the decision model's pick needs to be injected. Under it, nothing is injected and the prompt goes through untouched, as if the model had answered `none`. Unset, any pick is injected. No default: on the [eval](evals/README.md#confidence-report) no threshold up to 0.7 changes Jev's picks, and from 0.5 up Kev loses at least one correct pick for every abstention it gains. |
 | `HOLSTERED_RUNNER_UP_THRESHOLD` | `0.2` on Jev, `0.15` on Kev | The decision model's pick (its highest-scored option, `none` included) is always injected, followed by up to 2 runner-up skills whose probability reaches this, best first. Kev spreads its scores flatter than Jev: on a two-task prompt Jev scored 0.35 / 0.25 / 0.17 and Kev 0.21 / 0.16 / 0.16, hence the lower Kev default. Set it above `1` to inject the pick only. |
 
-The model is `~typesafe/jev-latest` on Jev and `kev-latest` on Kev. When the key is set, the prompt (first
-2,000 characters) and the shortlisted skill descriptions are sent to
+The model is `~typesafe/jev-latest` on Jev and `kev-latest` on Kev. When the key is set, the prompt (its first
+500 and last 1,500 characters, or all of it when shorter) and the shortlisted skill descriptions are sent to
 OpenRouter. Each prompt with a shortlist takes about 0.7–1s longer.
 
 ## Local model: Kev
