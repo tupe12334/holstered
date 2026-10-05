@@ -153,6 +153,10 @@ with a local Kev model: see [CONFIGURATION.md](CONFIGURATION.md).
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## Related projects
+
+- [moadim](https://moadim.io/) — loop engineering: build, schedule & run agent loops.
+
 ## License
 
 [MIT](LICENSE)
